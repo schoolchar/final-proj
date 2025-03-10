@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
 
     //how high jump
     public float playerJumpForce;
+    public bool highJump = false;
 
     //how long after jump till can jump again
     public float jumpCooldown;
@@ -53,6 +54,9 @@ public class PlayerMovement : MonoBehaviour
         readyToJump = true;
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
+
+        //Test, remove/comment out when not testing double jump
+        //ChangeHighJump();
     }
 
     //goes every update
@@ -130,6 +134,33 @@ public class PlayerMovement : MonoBehaviour
         rb.AddForce(transform.up * playerJumpForce, ForceMode.Impulse);
         //Debug.Log("Jump Force: " + playerJumpForce + ", jump");
     }
+
+    /// <summary>
+    /// Changes to high jump, doubles jump force
+    /// </summary>
+    private void ChangeHighJump()
+    {
+        if(!highJump)
+        {
+
+            highJump = true;
+            playerJumpForce *= 2;
+        }
+    } //END ChangeHighJump()
+
+
+    /// <summary>
+    /// Reverts to normal jump
+    /// </summary>
+    private void ChangeNormalJump()
+    {
+        if(highJump)
+        {
+
+            highJump = false;
+            playerJumpForce /= 2;
+        }
+    }// END ChangeNormalJump()
 
     //sets readyToJump to true so player can jump again
     private void jumpReset()

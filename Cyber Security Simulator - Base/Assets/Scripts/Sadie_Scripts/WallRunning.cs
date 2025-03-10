@@ -13,6 +13,7 @@ public class WallRunning : MonoBehaviour
 
 
     public float wallCheckDistance;
+    public float wallCheckDistanceEnd;
     public float minJumpHeight;
     private RaycastHit leftWallHit;
     private RaycastHit rightWallHit;
@@ -28,6 +29,8 @@ public class WallRunning : MonoBehaviour
     public bool isWallrunning;
     public float wallRunSpeed;
 
+    private bool coolDownEnabled; //Test for ending wall run, when enabled cannot exit wall run state
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -38,6 +41,13 @@ public class WallRunning : MonoBehaviour
     {
         CheckForWall();
         StateMachine();
+
+        //Test for input on ending wall run
+        if(Input.GetKeyDown(KeyCode.Space) && !coolDownEnabled)
+        {
+            //isWallrunning = false;
+            EndWallRunMovement();
+        }
     }
 
     private void FixedUpdate()
@@ -46,43 +56,62 @@ public class WallRunning : MonoBehaviour
         {
             WallRunMovement();
         }
+        
     }
 
+    /// <summary>
+    /// Check sides of player for wall to run on
+    /// </summary>
     private void CheckForWall()
     {
+        //Use raycasts at player's right and left
         wallRight = Physics.Raycast(transform.position, orientation.right, out rightWallHit, wallCheckDistance, wall);
         wallLeft = Physics.Raycast(transform.position, -orientation.right, out leftWallHit, wallCheckDistance, wall);
-    }
 
+        //Show raycasts
+        Debug.DrawRay(transform.position, orientation.right, Color.blue ,wallCheckDistance);
+        Debug.DrawRay(transform.position, -orientation.right, Color.blue, wallCheckDistance);
+    } //END CheckForWall()
 
+    /// <summary>
+    /// Check if player is grounded or not
+    /// </summary>
     private bool AboveGround()
     {
         return !Physics.Raycast(transform.position, Vector3.down, minJumpHeight, ground);
-    }
+    } //END AboveGround()
 
+
+    /// <summary>
+    /// Switches player between wall running and not wallrunning states
+    /// </summary>
     private void StateMachine()
     {
         //Get player input
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
 
-        //State 1 - Wallrun
+        //State 1 - Wallrun, check for wall on side and if player is jumping
         if ((wallLeft || wallRight) && vertical > 0 && AboveGround())
         {
             if(!isWallrunning)
             {
+                Debug.Log("Wallrunning");
                 StartWallRunning();
+                StartCoroutine(CoolDownWallRunTransition());
             }
         }
-        //State 3 - None
+        //State 3 - None, when player is not on wall
         else
         {
             if(isWallrunning)
             {
+                Debug.Log("Away from wall, no wallrun");
                 StopWallRun();
+                EndWallRunMovement();
             }
         }
-    }
+    } //END StateMachine()
 
 
     private void StartWallRunning()
@@ -92,18 +121,39 @@ public class WallRunning : MonoBehaviour
 
     private void StopWallRun()
     {
+       // Debug.Log("End wallrunning");
         isWallrunning = false;
     }
 
+    /// <summary>
+    /// COntrol movement while wall running
+    /// </summary>
     private void WallRunMovement()
     {
+        //Disable gravity, set new velocity to prevent moving downwards
         rb.useGravity = false;
         rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
 
+        //Get cross product of wall and upwards direction for where player will hover
         Vector3 _wallNormal = wallRight ? rightWallHit.normal : leftWallHit.normal;
         Vector3 _wallForward = Vector3.Cross(_wallNormal, transform.up);
 
+        //Moves player along wall
         rb.AddForce(_wallForward * wallRunForce, ForceMode.Force);
+    } //END WallRunMovement()
+
+    
+    private void EndWallRunMovement()
+    {
+        Debug.Log("Enable gravity");
+        rb.useGravity = true;
+    }
+
+    private IEnumerator CoolDownWallRunTransition()
+    {
+        coolDownEnabled = true;
+        yield return new WaitForSeconds(2);
+        coolDownEnabled = false;
     }
 
 }
