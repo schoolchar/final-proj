@@ -48,6 +48,14 @@ public class PlayerMovement : MonoBehaviour
     //ref for rigidbody
     Rigidbody rb;
 
+    //Sliding variables
+    private bool canSlide;
+    private bool currentlySliding;
+    [SerializeField] private float slideForce;
+    private float timeSlide = 2f;
+
+
+
     // on start up, i may be over-commenting
     private void Start()
     {
@@ -55,8 +63,9 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
 
-        //Test, remove/comment out when not testing double jump
+        //Test, remove/comment out when not testing double jump amd slide
         //ChangeHighJump();
+        AllowSliding();
     }
 
     //goes every update
@@ -74,6 +83,9 @@ public class PlayerMovement : MonoBehaviour
             rb.drag = groundDrag;
         else
             rb.drag = 0;
+
+        //Check for slide input
+        Slide();
     }
 
     //also every update but different
@@ -138,7 +150,7 @@ public class PlayerMovement : MonoBehaviour
     /// <summary>
     /// Changes to high jump, doubles jump force
     /// </summary>
-    private void ChangeHighJump()
+    public void ChangeHighJump()
     {
         if(!highJump)
         {
@@ -152,7 +164,7 @@ public class PlayerMovement : MonoBehaviour
     /// <summary>
     /// Reverts to normal jump
     /// </summary>
-    private void ChangeNormalJump()
+    public void ChangeNormalJump()
     {
         if(highJump)
         {
@@ -166,5 +178,39 @@ public class PlayerMovement : MonoBehaviour
     private void jumpReset()
     {
         readyToJump = true;
+    }
+
+    /// <summary>
+    /// Access canSlide variable to change to true
+    /// </summary>
+    public void AllowSliding()
+    {
+        canSlide = true;
+    }//End AllowSliding()
+
+    /// <summary>
+    /// Get input for slide
+    /// </summary>
+    private void Slide()
+    {
+        //TEMP input, up to change, this is for testing
+        if(Input.GetKeyDown(KeyCode.Q))
+        {
+            currentlySliding = true;
+            StartCoroutine(EndSlide());
+            
+        }
+
+        if(currentlySliding)
+        {
+            //Add forward force to slide
+            rb.AddForce(new Vector3(0, 0, slideForce), ForceMode.Impulse);
+        }
+    } //END Slide()
+
+    private IEnumerator EndSlide()
+    {
+        yield return new WaitForSeconds(timeSlide);
+        currentlySliding = false;
     }
 }
