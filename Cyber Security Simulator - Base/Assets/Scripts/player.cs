@@ -5,6 +5,13 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     //variables
+    //freezes player for grappling
+    public bool freeze;
+
+    //stops playing moving while grappling
+    public bool activeGrapple;
+
+    private bool enableMovementOnNextTouch;
     //sets moveSpeed
     public float moveSpeed;
 
@@ -84,13 +91,28 @@ public class PlayerMovement : MonoBehaviour
         //Debug.Log("Grounded: " + grounded);
 
         //makes drag only if touching ground, not in air
-        if (grounded)
+        if (grounded && !activeGrapple)
             rb.drag = groundDrag;
         else
             rb.drag = 0;
 
         //Check for slide input
         Slide();
+
+        //if freeze is true, freezes player
+        if (freeze)
+        {
+            moveSpeed = 0;
+            rb.velocity = Vector3.zero;
+        }
+        else if (activeGrapple)
+        {
+            moveSpeed = 7;
+        }
+        else
+        {
+            moveSpeed = 7;
+        }
     }
 
     //also every update but different
@@ -120,6 +142,9 @@ public class PlayerMovement : MonoBehaviour
     //moves the player by adding force and using the orientation input for direction where to go
     private void moving()
     {
+        //if grappling cant move
+        if (activeGrapple) return;
+
         moveDirection = orientation.forward * vInput + orientation.right * hInput;
 
         //changes amount of force if on air or on ground
@@ -132,6 +157,9 @@ public class PlayerMovement : MonoBehaviour
     //limits players speed
     private void speedLimit()
     {
+        //if grappling cant move
+        if (activeGrapple) return;
+
         Vector3 flatVel = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
 
         if (flatVel.magnitude > moveSpeed)
@@ -217,5 +245,52 @@ public class PlayerMovement : MonoBehaviour
     {
         yield return new WaitForSeconds(timeSlide);
         currentlySliding = false;
+    }
+
+    //calculates force for moving playing to grappling point in grappling gun 
+    public Vector3 CalculateJumpVelocity(Vector3 startPoint, Vector3 endPoint, float trajectoryHeight)
+    {
+        float gravity = Physics.gravity.y;
+        float displacementY = endPoint.y - startPoint.y;
+        Vector3 displacementXZ = new Vector3(endPoint.x - startPoint.x, 0f, endPoint.z - startPoint.z);
+
+        Vector3 velocityY = Vector3.up * Mathf.Sqrt(-2 * gravity * trajectoryHeight);
+        Vector3 velocityXZ = displacementXZ / (Mathf.Sqrt(-2 * trajectoryHeight / gravity)
+            + Mathf.Sqrt(2 * (displacementY - trajectoryHeight) / gravity));
+
+        return velocityXZ + velocityY;
+    }
+
+    public void JumpToPosition(Vector3 targetPosition, float trajectoryHeight)
+    {
+        activeGrapple = true;
+        velocityToSet = CalculateJumpVelocity(transform.position, targetPosition, trajectoryHeight);
+        Invoke(nameof(SetVelocity), 0.1f);
+    }
+
+    //velocity for grappling
+    private Vector3 velocityToSet;
+
+    private void SetVelocity()
+    {
+        enableMovementOnNextTouch = true;
+        rb.velocity = velocityToSet;
+    }
+
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (enableMovementOnNextTouch)
+        {
+            enableMovementOnNextTouch = false;
+            resetGrappling();
+
+            GetComponent<grapple>().StopGrapple();
+        }
+    }
+
+    public void resetGrappling()
+    {
+        activeGrapple = false;
     }
 }
