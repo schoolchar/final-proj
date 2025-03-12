@@ -748,6 +748,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7137999424860587529, guid: 1e1c6d055e07d3444b5aa0c1286bc9ef,
         type: 3}
+      propertyPath: debugMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7137999424860587529, guid: 1e1c6d055e07d3444b5aa0c1286bc9ef,
+        type: 3}
       propertyPath: slideForce
       value: 20
       objectReference: {fileID: 0}

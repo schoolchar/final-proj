@@ -54,7 +54,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float slideForce;
     private float timeSlide = 2f;
 
-
+    [Header("Debugging")]
+    [SerializeField] private bool debugMode;
 
     // on start up, i may be over-commenting
     private void Start()
@@ -64,8 +65,12 @@ public class PlayerMovement : MonoBehaviour
         rb.freezeRotation = true;
 
         //Test, remove/comment out when not testing double jump amd slide
-        //ChangeHighJump();
-        AllowSliding();
+        if(debugMode)
+        {
+            ChangeHighJump();
+            AllowSliding();
+        }
+
     }
 
     //goes every update
@@ -194,7 +199,7 @@ public class PlayerMovement : MonoBehaviour
     private void Slide()
     {
         //TEMP input, up to change, this is for testing
-        if(Input.GetKeyDown(KeyCode.Q))
+        if(Input.GetKeyDown(KeyCode.LeftShift) && canSlide)
         {
             currentlySliding = true;
             StartCoroutine(EndSlide());
