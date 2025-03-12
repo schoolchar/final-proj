@@ -323,9 +323,12 @@ MonoBehaviour:
   orientation: {fileID: 7834533502025886566}
   playerHeight: 1.75
   playerJumpForce: 10
+  highJump: 0
   jumpCooldown: 0.25
   airMultiplier: 0.4
   jumpButton: 32
   isGround:
     serializedVersion: 2
     m_Bits: 128
+  slideForce: 0
+  debugMode: 0

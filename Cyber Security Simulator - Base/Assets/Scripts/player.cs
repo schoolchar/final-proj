@@ -55,7 +55,7 @@ public class PlayerMovement : MonoBehaviour
     private float timeSlide = 2f;
 
     [Header("Debugging")]
-    [SerializeField] private bool debugMode;
+    public bool debugMode;
 
     // on start up, i may be over-commenting
     private void Start()

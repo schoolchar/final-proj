@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Burst.CompilerServices;
 using UnityEngine;
 
 public class WallRunning : MonoBehaviour
 {
+    private bool canWallRun;
+
     public LayerMask wall;
     public LayerMask ground;
     public float wallRunForce;
@@ -35,6 +38,11 @@ public class WallRunning : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         player = GetComponent<PlayerMovement>();
+
+        if(player.debugMode)
+        {
+            canWallRun = true;
+        }
     }
 
     private void Update()
@@ -68,9 +76,12 @@ public class WallRunning : MonoBehaviour
         wallRight = Physics.Raycast(transform.position, orientation.right, out rightWallHit, wallCheckDistance, wall);
         wallLeft = Physics.Raycast(transform.position, -orientation.right, out leftWallHit, wallCheckDistance, wall);
 
+        Debug.DrawRay(transform.position, orientation.right * wallCheckDistance, Color.yellow);
+        Debug.DrawRay(transform.position, -orientation.right * wallCheckDistance, Color.yellow);
+
         //Show raycasts
-        Debug.DrawRay(transform.position, orientation.right, Color.blue ,wallCheckDistance);
-        Debug.DrawRay(transform.position, -orientation.right, Color.blue, wallCheckDistance);
+        //Debug.DrawRay(transform.position, orientation.right, Color.blue ,wallCheckDistance);
+        //Debug.DrawRay(transform.position, -orientation.right, Color.blue, wallCheckDistance);
     } //END CheckForWall()
 
     /// <summary>
@@ -92,7 +103,7 @@ public class WallRunning : MonoBehaviour
         vertical = Input.GetAxisRaw("Vertical");
 
         //State 1 - Wallrun, check for wall on side and if player is jumping
-        if ((wallLeft || wallRight) && vertical > 0 && AboveGround())
+        if ((wallLeft || wallRight) && vertical > 0 && AboveGround() && canWallRun)
         {
             if(!isWallrunning)
             {
@@ -108,7 +119,7 @@ public class WallRunning : MonoBehaviour
             {
                 Debug.Log("Away from wall, no wallrun");
                 StopWallRun();
-                EndWallRunMovement();
+                //EndWallRunMovement();
             }
         }
     } //END StateMachine()
