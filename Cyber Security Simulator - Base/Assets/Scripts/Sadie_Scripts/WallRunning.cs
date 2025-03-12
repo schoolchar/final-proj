@@ -41,6 +41,7 @@ public class WallRunning : MonoBehaviour
 
         if(player.debugMode)
         {
+            Debug.Log("Debug mode");
             canWallRun = true;
         }
     }
@@ -51,7 +52,7 @@ public class WallRunning : MonoBehaviour
         StateMachine();
 
         //Test for input on ending wall run
-        if(Input.GetKeyDown(KeyCode.Space) && !coolDownEnabled)
+        if(Input.GetKeyDown(KeyCode.Space) && !coolDownEnabled && isWallrunning)
         {
             //isWallrunning = false;
             EndWallRunMovement();
@@ -76,12 +77,15 @@ public class WallRunning : MonoBehaviour
         wallRight = Physics.Raycast(transform.position, orientation.right, out rightWallHit, wallCheckDistance, wall);
         wallLeft = Physics.Raycast(transform.position, -orientation.right, out leftWallHit, wallCheckDistance, wall);
 
+        if(wallRight || wallLeft)
+        {
+            Debug.Log("Wall in range");
+        }
+            //Debug Rays
         Debug.DrawRay(transform.position, orientation.right * wallCheckDistance, Color.yellow);
         Debug.DrawRay(transform.position, -orientation.right * wallCheckDistance, Color.yellow);
 
-        //Show raycasts
-        //Debug.DrawRay(transform.position, orientation.right, Color.blue ,wallCheckDistance);
-        //Debug.DrawRay(transform.position, -orientation.right, Color.blue, wallCheckDistance);
+        
     } //END CheckForWall()
 
     /// <summary>
@@ -89,7 +93,8 @@ public class WallRunning : MonoBehaviour
     /// </summary>
     private bool AboveGround()
     {
-        return !Physics.Raycast(transform.position, Vector3.down, minJumpHeight, ground);
+        Debug.Log("Above ground = " + Physics.Raycast(transform.position, Vector3.down, minJumpHeight, ground));
+        return Physics.Raycast(transform.position, Vector3.down, minJumpHeight, ground);
     } //END AboveGround()
 
 
@@ -101,9 +106,9 @@ public class WallRunning : MonoBehaviour
         //Get player input
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
-
+        //Debug.Log("Vertical = " + vertical);
         //State 1 - Wallrun, check for wall on side and if player is jumping
-        if ((wallLeft || wallRight) && vertical > 0 && AboveGround() && canWallRun)
+        if ((wallLeft || wallRight) && AboveGround() && canWallRun)
         {
             if(!isWallrunning)
             {
@@ -142,6 +147,7 @@ public class WallRunning : MonoBehaviour
     private void WallRunMovement()
     {
         //Disable gravity, set new velocity to prevent moving downwards
+        Debug.Log("Wall run movement");
         rb.useGravity = false;
         rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
 
@@ -156,7 +162,7 @@ public class WallRunning : MonoBehaviour
     
     private void EndWallRunMovement()
     {
-        Debug.Log("Enable gravity");
+       // Debug.Log("Enable gravity");
         rb.useGravity = true;
     }
 
