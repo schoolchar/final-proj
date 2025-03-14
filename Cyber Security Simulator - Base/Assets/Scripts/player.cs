@@ -130,12 +130,7 @@ public class PlayerMovement : MonoBehaviour
         hInput = Input.GetAxisRaw("Horizontal");
         vInput = Input.GetAxisRaw("Vertical");
 
-        /*if (!wallRunning.isWallrunning)
-        {
-            hInput = Input.GetAxisRaw("Horizontal");
-            //vInput = Input.GetAxisRaw("Vertical");
-        }*/
-       
+ 
 
         //if jump button pressed and on ground
         if (Input.GetKey(jumpButton) && grounded && readyToJump)

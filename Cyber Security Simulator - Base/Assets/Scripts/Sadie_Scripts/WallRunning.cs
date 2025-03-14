@@ -51,29 +51,11 @@ public class WallRunning : MonoBehaviour
         Debug.Log(isWallrunning);
         CheckForWall();
         StateMachine();
-        PreventMovementWhileWallRun();
-        //Test for input on ending wall run
-        if(Input.GetKeyDown(KeyCode.Space) && !coolDownEnabled && isWallrunning)
-        {
-            //isWallrunning = false;
-            EndWallRunMovement();
-        }
-
-        if(isWallrunning && (!wallRight && !wallLeft)) {
-            rb.useGravity = true;
-            isWallrunning = false;
-            StartCoroutine(CoolDownWallRunTransition());
-        }
+      
 
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Debug.Log("Press space");
-            rb.useGravity = true;
-            isWallrunning = false;
-            StartCoroutine(CoolDownWallRunTransition());
-            Debug.Log("Can wall run = " + canWallRun);
-        }
+        DropFromWall();
+       
     }
 
     private void FixedUpdate()
@@ -182,28 +164,41 @@ public class WallRunning : MonoBehaviour
         rb.AddForce(_wallForward * wallRunForce, ForceMode.Force);
     } //END WallRunMovement()
 
-    
-    void PreventMovementWhileWallRun()
+    /// <summary>
+    /// Takes input to drop from wall while wallrunning
+    /// </summary>
+    void DropFromWall()
     {
-        if(isWallrunning)
+        //Check for spacbar
+        if (isWallrunning && (!wallRight && !wallLeft))
         {
-            Debug.Log("Wall running true");
-            player.vInput = 0;
+            rb.useGravity = true;
+            isWallrunning = false;
+            StartCoroutine(CoolDownWallRunTransition());
         }
-    }
 
-    private void EndWallRunMovement()
-    {
-       // Debug.Log("Enable gravity");
-        rb.useGravity = true;
-    }
+        //Check for distance from wall
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Debug.Log("Press space");
+            rb.useGravity = true;
+            isWallrunning = false;
+            StartCoroutine(CoolDownWallRunTransition());
+            Debug.Log("Can wall run = " + canWallRun);
+        }
+    } //END DropFromWall
 
+   
+
+    /// <summary>
+    /// Cooldown to prevent wall running enabling while dropping from wall
+    /// </summary>
     private IEnumerator CoolDownWallRunTransition()
     {
         coolDownEnabled = true;
         yield return new WaitForSeconds(2);
         coolDownEnabled = false;
-    }
+    } //END CoolDownWallRunTransition()
 
     
 
