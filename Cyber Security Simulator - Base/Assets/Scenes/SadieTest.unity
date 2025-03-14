@@ -364,13 +364,13 @@ MonoBehaviour:
   ground:
     serializedVersion: 2
     m_Bits: 128
-  wallRunForce: 1
-  wallCheckDistance: 1
+  wallRunForce: 0
+  wallCheckDistance: 5
   wallCheckDistanceEnd: 20
   minJumpHeight: 10
   orientation: {fileID: 1289756269}
   isWallrunning: 0
-  wallRunSpeed: 3
+  wallRunSpeed: 0
 --- !u!1 &380169875
 GameObject:
   m_ObjectHideFlags: 3
@@ -756,6 +756,11 @@ PrefabInstance:
       propertyPath: slideForce
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 7137999424860587529, guid: 1e1c6d055e07d3444b5aa0c1286bc9ef,
+        type: 3}
+      propertyPath: wallRunning
+      value: 
+      objectReference: {fileID: 286879032}
     - target: {fileID: 8484976985358192150, guid: 1e1c6d055e07d3444b5aa0c1286bc9ef,
         type: 3}
       propertyPath: m_Name
@@ -1360,6 +1365,7 @@ MonoBehaviour:
   player: {fileID: 286879030}
   playerPhy: {fileID: 710558410}
   rb: {fileID: 286879029}
+  lookAT: {fileID: 0}
   rotationSpeed: 5
 --- !u!114 &1691827225
 MonoBehaviour:

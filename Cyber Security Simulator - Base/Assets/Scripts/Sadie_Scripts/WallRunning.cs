@@ -41,7 +41,7 @@ public class WallRunning : MonoBehaviour
 
         if(player.debugMode)
         {
-            Debug.Log("Debug mode");
+            Debug.Log("Debug mode on");
             canWallRun = true;
         }
     }
@@ -51,12 +51,28 @@ public class WallRunning : MonoBehaviour
         Debug.Log(isWallrunning);
         CheckForWall();
         StateMachine();
-
+        PreventMovementWhileWallRun();
         //Test for input on ending wall run
         if(Input.GetKeyDown(KeyCode.Space) && !coolDownEnabled && isWallrunning)
         {
             //isWallrunning = false;
             EndWallRunMovement();
+        }
+
+        if(isWallrunning && (!wallRight && !wallLeft)) {
+            rb.useGravity = true;
+            isWallrunning = false;
+            StartCoroutine(CoolDownWallRunTransition());
+        }
+
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Debug.Log("Press space");
+            rb.useGravity = true;
+            isWallrunning = false;
+            StartCoroutine(CoolDownWallRunTransition());
+            Debug.Log("Can wall run = " + canWallRun);
         }
     }
 
@@ -66,7 +82,9 @@ public class WallRunning : MonoBehaviour
         {
             WallRunMovement();
         }
-        
+
+       
+
     }
 
     /// <summary>
@@ -80,7 +98,11 @@ public class WallRunning : MonoBehaviour
 
         if(wallRight || wallLeft)
         {
-            Debug.Log("Wall in range");
+            //Debug.Log("Wall in range");
+        }
+        else
+        {
+            
         }
             //Debug Rays
         Debug.DrawRay(transform.position, orientation.right * wallCheckDistance, Color.yellow);
@@ -94,7 +116,7 @@ public class WallRunning : MonoBehaviour
     /// </summary>
     private bool AboveGround()
     {
-        Debug.Log("Above ground = " + Physics.Raycast(transform.position, Vector3.down, minJumpHeight, ground));
+        //Debug.Log("Above ground = " + Physics.Raycast(transform.position, Vector3.down, minJumpHeight, ground));
         return Physics.Raycast(transform.position, Vector3.down, minJumpHeight, ground);
     } //END AboveGround()
 
@@ -109,30 +131,26 @@ public class WallRunning : MonoBehaviour
         vertical = Input.GetAxisRaw("Vertical");
         //Debug.Log("Vertical = " + vertical);
         //State 1 - Wallrun, check for wall on side and if player is jumping
-        if ((wallLeft || wallRight) && AboveGround() && canWallRun)
+        if ((wallLeft || wallRight) && AboveGround() && canWallRun && !coolDownEnabled)
         {
             if(!isWallrunning)
             {
-                Debug.Log("Wallrunning");
                 StartWallRunning();
                 StartCoroutine(CoolDownWallRunTransition());
             }
         }
         //State 3 - None, when player is not on wall
-        else
+        /*else
         {
             if(isWallrunning)
             {
-                Debug.Log("Away from wall, no wallrun");
                 StopWallRun();
 
-                /*if(Input.GetKeyDown(KeyCode.LeftShift))
-                {
-                    rb.useGravity = true;
-                }*/
+               
                 //EndWallRunMovement();
             }
-        }
+            
+        }*/
     } //END StateMachine()
 
 
@@ -153,7 +171,6 @@ public class WallRunning : MonoBehaviour
     private void WallRunMovement()
     {
         //Disable gravity, set new velocity to prevent moving downwards
-        Debug.Log("Wall run movement");
         rb.useGravity = false;
         rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
 
@@ -166,6 +183,15 @@ public class WallRunning : MonoBehaviour
     } //END WallRunMovement()
 
     
+    void PreventMovementWhileWallRun()
+    {
+        if(isWallrunning)
+        {
+            Debug.Log("Wall running true");
+            player.vInput = 0;
+        }
+    }
+
     private void EndWallRunMovement()
     {
        // Debug.Log("Enable gravity");
@@ -178,5 +204,7 @@ public class WallRunning : MonoBehaviour
         yield return new WaitForSeconds(2);
         coolDownEnabled = false;
     }
+
+    
 
 }

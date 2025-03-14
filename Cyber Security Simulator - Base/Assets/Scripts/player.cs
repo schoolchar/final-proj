@@ -46,8 +46,8 @@ public class PlayerMovement : MonoBehaviour
     bool grounded;
 
     //up/down left/right inputs
-    float hInput;
-    float vInput;
+    public float hInput;
+    public float vInput;
 
     //variable for direction
     Vector3 moveDirection;
@@ -60,6 +60,9 @@ public class PlayerMovement : MonoBehaviour
     private bool currentlySliding;
     [SerializeField] private float slideForce;
     private float timeSlide = 2f;
+
+    //Connect to wallrunning
+    [SerializeField] private WallRunning wallRunning;
 
     [Header("Debugging")]
     public bool debugMode;
@@ -126,6 +129,13 @@ public class PlayerMovement : MonoBehaviour
     {
         hInput = Input.GetAxisRaw("Horizontal");
         vInput = Input.GetAxisRaw("Vertical");
+
+        /*if (!wallRunning.isWallrunning)
+        {
+            hInput = Input.GetAxisRaw("Horizontal");
+            //vInput = Input.GetAxisRaw("Vertical");
+        }*/
+       
 
         //if jump button pressed and on ground
         if (Input.GetKey(jumpButton) && grounded && readyToJump)
