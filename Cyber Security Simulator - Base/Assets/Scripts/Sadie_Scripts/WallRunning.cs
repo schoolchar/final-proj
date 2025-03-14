@@ -48,6 +48,7 @@ public class WallRunning : MonoBehaviour
 
     private void Update()
     {
+        Debug.Log(isWallrunning);
         CheckForWall();
         StateMachine();
 
@@ -124,6 +125,11 @@ public class WallRunning : MonoBehaviour
             {
                 Debug.Log("Away from wall, no wallrun");
                 StopWallRun();
+
+                /*if(Input.GetKeyDown(KeyCode.LeftShift))
+                {
+                    rb.useGravity = true;
+                }*/
                 //EndWallRunMovement();
             }
         }
