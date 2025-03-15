@@ -1038,7 +1038,7 @@ GameObject:
   - component: {fileID: 833607893}
   m_Layer: 0
   m_Name: gun
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1937,7 +1937,11 @@ MonoBehaviour:
   player: {fileID: 2022216310}
   playerPhy: {fileID: 376628952}
   rb: {fileID: 2022216309}
-  lookAT: {fileID: 0}
+  normalFOV: 60
+  aimFOV: 40
+  zoomSpeed: 10
+  freeLookCamera: {fileID: 2068168307}
+  lookAT: {fileID: 2022216310}
   rotationSpeed: 10
 --- !u!1 &2088225624
 GameObject:
@@ -2062,10 +2066,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3833328685118636814, guid: 1e1c6d055e07d3444b5aa0c1286bc9ef,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7137999424860587529, guid: 1e1c6d055e07d3444b5aa0c1286bc9ef,
+        type: 3}
+      propertyPath: cameraTransform
+      value: 
+      objectReference: {fileID: 2068168306}
+    - target: {fileID: 7603478460412569762, guid: 1e1c6d055e07d3444b5aa0c1286bc9ef,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 8484976985358192150, guid: 1e1c6d055e07d3444b5aa0c1286bc9ef,
         type: 3}
       propertyPath: m_Name
       value: player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8484976985358192150, guid: 1e1c6d055e07d3444b5aa0c1286bc9ef,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2078,6 +2102,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8484976985358192150, guid: 1e1c6d055e07d3444b5aa0c1286bc9ef,
         type: 3}
       insertIndex: -1
+      addedObject: {fileID: 7922055324151471384}
+    - targetCorrespondingSourceObject: {fileID: 8484976985358192150, guid: 1e1c6d055e07d3444b5aa0c1286bc9ef,
+        type: 3}
+      insertIndex: -1
       addedObject: {fileID: 7922055324151471385}
   m_SourcePrefab: {fileID: 100100000, guid: 1e1c6d055e07d3444b5aa0c1286bc9ef, type: 3}
 --- !u!1 &7922055324151471382 stripped
@@ -2086,7 +2114,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 7922055324151471381}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7922055324151471385
+--- !u!114 &7922055324151471384
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2095,7 +2123,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7922055324151471382}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 501ae0af4ab0ca747bfc6f7fc9bd5afb, type: 3}
+  m_Script: {fileID: 11500000, guid: 73cd64eabce19f74788c4dc379963ea3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 330585545}
@@ -2109,6 +2137,27 @@ MonoBehaviour:
   projectileSpeed: 50
   shootSound: {fileID: 0}
   projectileLifetime: 5
+--- !u!65 &7922055324151471385
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7922055324151471382}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

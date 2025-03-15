@@ -1264,7 +1264,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.9357071, y: -1.4589148, z: 0.67}
-  m_LocalScale: {x: 2, y: 1, z: 2}
+  m_LocalScale: {x: 6.5678, y: 1, z: 10.0226}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1554,6 +1554,7 @@ MonoBehaviour:
   player: {fileID: 2022216310}
   playerPhy: {fileID: 376628952}
   rb: {fileID: 2022216309}
+  lookAT: {fileID: 0}
   rotationSpeed: 10
 --- !u!1 &2088225624
 GameObject:
@@ -1678,6 +1679,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7137999424860587529, guid: 1e1c6d055e07d3444b5aa0c1286bc9ef,
+        type: 3}
+      propertyPath: cameraTransform
+      value: 
+      objectReference: {fileID: 2068168306}
     - target: {fileID: 8484976985358192150, guid: 1e1c6d055e07d3444b5aa0c1286bc9ef,
         type: 3}
       propertyPath: m_Name
