@@ -34,6 +34,10 @@ public class WallRunning : MonoBehaviour
 
     private bool coolDownEnabled; //Test for ending wall run, when enabled cannot exit wall run state
 
+
+
+
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -41,22 +45,21 @@ public class WallRunning : MonoBehaviour
 
         if(player.debugMode)
         {
-            Debug.Log("Debug mode");
+            Debug.Log("Debug mode on");
             canWallRun = true;
         }
     }
 
     private void Update()
     {
+        Debug.Log(isWallrunning);
         CheckForWall();
         StateMachine();
+      
 
-        //Test for input on ending wall run
-        if(Input.GetKeyDown(KeyCode.Space) && !coolDownEnabled && isWallrunning)
-        {
-            //isWallrunning = false;
-            EndWallRunMovement();
-        }
+
+        DropFromWall();
+       
     }
 
     private void FixedUpdate()
@@ -65,7 +68,9 @@ public class WallRunning : MonoBehaviour
         {
             WallRunMovement();
         }
-        
+
+       
+
     }
 
     /// <summary>
@@ -77,10 +82,7 @@ public class WallRunning : MonoBehaviour
         wallRight = Physics.Raycast(transform.position, orientation.right, out rightWallHit, wallCheckDistance, wall);
         wallLeft = Physics.Raycast(transform.position, -orientation.right, out leftWallHit, wallCheckDistance, wall);
 
-        if(wallRight || wallLeft)
-        {
-            Debug.Log("Wall in range");
-        }
+       
             //Debug Rays
         Debug.DrawRay(transform.position, orientation.right * wallCheckDistance, Color.yellow);
         Debug.DrawRay(transform.position, -orientation.right * wallCheckDistance, Color.yellow);
@@ -93,7 +95,7 @@ public class WallRunning : MonoBehaviour
     /// </summary>
     private bool AboveGround()
     {
-        Debug.Log("Above ground = " + Physics.Raycast(transform.position, Vector3.down, minJumpHeight, ground));
+        //Debug.Log("Above ground = " + Physics.Raycast(transform.position, Vector3.down, minJumpHeight, ground));
         return Physics.Raycast(transform.position, Vector3.down, minJumpHeight, ground);
     } //END AboveGround()
 
@@ -108,25 +110,15 @@ public class WallRunning : MonoBehaviour
         vertical = Input.GetAxisRaw("Vertical");
         //Debug.Log("Vertical = " + vertical);
         //State 1 - Wallrun, check for wall on side and if player is jumping
-        if ((wallLeft || wallRight) && AboveGround() && canWallRun)
+        if ((wallLeft || wallRight) && AboveGround() && canWallRun && !coolDownEnabled)
         {
             if(!isWallrunning)
             {
-                Debug.Log("Wallrunning");
                 StartWallRunning();
                 StartCoroutine(CoolDownWallRunTransition());
             }
         }
-        //State 3 - None, when player is not on wall
-        else
-        {
-            if(isWallrunning)
-            {
-                Debug.Log("Away from wall, no wallrun");
-                StopWallRun();
-                //EndWallRunMovement();
-            }
-        }
+        
     } //END StateMachine()
 
 
@@ -147,7 +139,6 @@ public class WallRunning : MonoBehaviour
     private void WallRunMovement()
     {
         //Disable gravity, set new velocity to prevent moving downwards
-        Debug.Log("Wall run movement");
         rb.useGravity = false;
         rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
 
@@ -155,22 +146,50 @@ public class WallRunning : MonoBehaviour
         Vector3 _wallNormal = wallRight ? rightWallHit.normal : leftWallHit.normal;
         Vector3 _wallForward = Vector3.Cross(_wallNormal, transform.up);
 
-        //Moves player along wall
+        //Moves player along wall, keep to wall
         rb.AddForce(_wallForward * wallRunForce, ForceMode.Force);
+        rb.AddForce((_wallNormal - transform.position) * wallRunForce, ForceMode.Force); 
+        
     } //END WallRunMovement()
 
-    
-    private void EndWallRunMovement()
+    /// <summary>
+    /// Takes input to drop from wall while wallrunning
+    /// </summary>
+    void DropFromWall()
     {
-       // Debug.Log("Enable gravity");
-        rb.useGravity = true;
-    }
 
+        //Check for spacbar
+        if (isWallrunning && (!wallRight && !wallLeft))
+        {
+            rb.useGravity = true;
+            isWallrunning = false;
+            StartCoroutine(CoolDownWallRunTransition());
+        }
+        
+
+        //Check for distance from wall
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Debug.Log("Press space");
+            rb.useGravity = true;
+            isWallrunning = false;
+            StartCoroutine(CoolDownWallRunTransition());
+            Debug.Log("Can wall run = " + canWallRun);
+        }
+    } //END DropFromWall
+
+   
+
+    /// <summary>
+    /// Cooldown to prevent wall running enabling while dropping from wall
+    /// </summary>
     private IEnumerator CoolDownWallRunTransition()
     {
         coolDownEnabled = true;
         yield return new WaitForSeconds(2);
         coolDownEnabled = false;
-    }
+    } //END CoolDownWallRunTransition()
+
+    
 
 }

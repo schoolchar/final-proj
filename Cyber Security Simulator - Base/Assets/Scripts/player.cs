@@ -46,8 +46,8 @@ public class PlayerMovement : MonoBehaviour
     bool grounded;
 
     //up/down left/right inputs
-    float hInput;
-    float vInput;
+    public float hInput;
+    public float vInput;
 
     //variable for direction
     Vector3 moveDirection;
@@ -60,6 +60,15 @@ public class PlayerMovement : MonoBehaviour
     private bool currentlySliding;
     [SerializeField] private float slideForce;
     private float timeSlide = 2f;
+
+    //vars from ashe - shooting 
+    private bool isAiming = false; // Is the player aiming or not
+    private float originalMoveSpeed; // Store movement speed
+    public float aimSpeedMultiplier = 0.5f; // Slows movement while aiming
+    public Transform cameraTransform; //cameras transform
+
+    //Connect to wallrunning
+    [SerializeField] private WallRunning wallRunning;
 
     [Header("Debugging")]
     public bool debugMode;
@@ -85,6 +94,7 @@ public class PlayerMovement : MonoBehaviour
     {
         inputs();
         speedLimit();
+        HandleAiming();
 
         //makes a raycast to see if touching ground
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.3f, isGround);
@@ -126,6 +136,8 @@ public class PlayerMovement : MonoBehaviour
     {
         hInput = Input.GetAxisRaw("Horizontal");
         vInput = Input.GetAxisRaw("Vertical");
+
+ 
 
         //if jump button pressed and on ground
         if (Input.GetKey(jumpButton) && grounded && readyToJump)
@@ -292,5 +304,31 @@ public class PlayerMovement : MonoBehaviour
     public void resetGrappling()
     {
         activeGrapple = false;
+    }
+
+    // for above code its for grapple will fix later
+
+    //handle aiming for shooting script from ashe player controller
+    void HandleAiming()
+    {
+        if (Input.GetButton("Fire2")) // Right Mouse Button
+        {
+            if (!isAiming)
+            {
+                isAiming = true;
+                moveSpeed = originalMoveSpeed * aimSpeedMultiplier; // Slow movement
+            }
+            Vector3 cameraRight = cameraTransform.right;
+            cameraRight.y = 0;
+            transform.forward = cameraRight;
+        }
+        else
+        {
+            if (isAiming) // Reset when stopping aim
+            {
+                isAiming = false;
+                moveSpeed = originalMoveSpeed; // Restore movement speed
+            }
+        }
     }
 }
