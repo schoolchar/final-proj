@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class WallRunning : MonoBehaviour
 {
-    private bool canWallRun;
+    public bool canWallRun;
 
     public LayerMask wall;
     public LayerMask ground;
@@ -34,7 +34,7 @@ public class WallRunning : MonoBehaviour
 
     private bool coolDownEnabled; //Test for ending wall run, when enabled cannot exit wall run state
 
-
+ 
 
 
 
@@ -46,7 +46,7 @@ public class WallRunning : MonoBehaviour
         if(player.debugMode)
         {
             Debug.Log("Debug mode on");
-            canWallRun = true;
+            //canWallRun = true;
         }
     }
 
@@ -148,7 +148,10 @@ public class WallRunning : MonoBehaviour
 
         //Moves player along wall, keep to wall
         rb.AddForce(_wallForward * wallRunForce, ForceMode.Force);
-        rb.AddForce((_wallNormal - transform.position) * wallRunForce, ForceMode.Force); 
+        if (!player.grounded)
+        {
+            rb.AddForce((_wallNormal - transform.position) * wallRunForce, ForceMode.Force);
+        }
         
     } //END WallRunMovement()
 
