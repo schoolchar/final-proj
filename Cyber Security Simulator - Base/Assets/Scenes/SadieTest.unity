@@ -364,7 +364,7 @@ MonoBehaviour:
   ground:
     serializedVersion: 2
     m_Bits: 128
-  wallRunForce: -2
+  wallRunForce: -1
   wallCheckDistance: 5
   wallCheckDistanceEnd: 0
   minJumpHeight: 10
