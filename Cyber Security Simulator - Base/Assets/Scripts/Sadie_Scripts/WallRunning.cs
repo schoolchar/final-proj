@@ -34,6 +34,10 @@ public class WallRunning : MonoBehaviour
 
     private bool coolDownEnabled; //Test for ending wall run, when enabled cannot exit wall run state
 
+
+
+
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -78,14 +82,7 @@ public class WallRunning : MonoBehaviour
         wallRight = Physics.Raycast(transform.position, orientation.right, out rightWallHit, wallCheckDistance, wall);
         wallLeft = Physics.Raycast(transform.position, -orientation.right, out leftWallHit, wallCheckDistance, wall);
 
-        if(wallRight || wallLeft)
-        {
-            //Debug.Log("Wall in range");
-        }
-        else
-        {
-            
-        }
+       
             //Debug Rays
         Debug.DrawRay(transform.position, orientation.right * wallCheckDistance, Color.yellow);
         Debug.DrawRay(transform.position, -orientation.right * wallCheckDistance, Color.yellow);
@@ -162,6 +159,9 @@ public class WallRunning : MonoBehaviour
 
         //Moves player along wall
         rb.AddForce(_wallForward * wallRunForce, ForceMode.Force);
+
+        rb.AddForce((_wallNormal - transform.position) * wallRunForce, ForceMode.Force); 
+        
     } //END WallRunMovement()
 
     /// <summary>
@@ -169,6 +169,7 @@ public class WallRunning : MonoBehaviour
     /// </summary>
     void DropFromWall()
     {
+
         //Check for spacbar
         if (isWallrunning && (!wallRight && !wallLeft))
         {
@@ -176,6 +177,7 @@ public class WallRunning : MonoBehaviour
             isWallrunning = false;
             StartCoroutine(CoolDownWallRunTransition());
         }
+        
 
         //Check for distance from wall
         if (Input.GetKeyDown(KeyCode.Space))

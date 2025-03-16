@@ -364,9 +364,9 @@ MonoBehaviour:
   ground:
     serializedVersion: 2
     m_Bits: 128
-  wallRunForce: 0
+  wallRunForce: -2
   wallCheckDistance: 5
-  wallCheckDistanceEnd: 20
+  wallCheckDistanceEnd: 0
   minJumpHeight: 10
   orientation: {fileID: 1289756269}
   isWallrunning: 0
@@ -1365,7 +1365,11 @@ MonoBehaviour:
   player: {fileID: 286879030}
   playerPhy: {fileID: 710558410}
   rb: {fileID: 286879029}
-  lookAT: {fileID: 0}
+  normalFOV: 60
+  aimFOV: 40
+  zoomSpeed: 10
+  freeLookCamera: {fileID: 0}
+  lookAT: {fileID: 286879030}
   rotationSpeed: 5
 --- !u!114 &1691827225
 MonoBehaviour:
