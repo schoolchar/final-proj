@@ -118,18 +118,7 @@ public class WallRunning : MonoBehaviour
                 StartCoroutine(CoolDownWallRunTransition());
             }
         }
-        //State 3 - None, when player is not on wall
-        /*else
-        {
-            if(isWallrunning)
-            {
-                StopWallRun();
-
-               
-                //EndWallRunMovement();
-            }
-            
-        }*/
+        
     } //END StateMachine()
 
 
@@ -157,9 +146,8 @@ public class WallRunning : MonoBehaviour
         Vector3 _wallNormal = wallRight ? rightWallHit.normal : leftWallHit.normal;
         Vector3 _wallForward = Vector3.Cross(_wallNormal, transform.up);
 
-        //Moves player along wall
+        //Moves player along wall, keep to wall
         rb.AddForce(_wallForward * wallRunForce, ForceMode.Force);
-
         rb.AddForce((_wallNormal - transform.position) * wallRunForce, ForceMode.Force); 
         
     } //END WallRunMovement()
