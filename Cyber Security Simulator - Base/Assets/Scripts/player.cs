@@ -5,6 +5,10 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     //variables
+
+    //added for death manager
+    public DisplayDeaths displayDeaths; 
+
     //freezes player for grappling
     public bool freeze;
 
@@ -43,11 +47,11 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask isGround;
 
     //if player is touching ground
-    bool grounded;
+    public bool grounded;
 
     //up/down left/right inputs
-    float hInput;
-    float vInput;
+    public float hInput;
+    public float vInput;
 
     //variable for direction
     Vector3 moveDirection;
@@ -55,11 +59,14 @@ public class PlayerMovement : MonoBehaviour
     //ref for rigidbody
     Rigidbody rb;
 
-    //Sliding variables
-    private bool canSlide;
-    private bool currentlySliding;
-    [SerializeField] private float slideForce;
-    private float timeSlide = 2f;
+    //vars from ashe - shooting 
+    private bool isAiming = false; // Is the player aiming or not
+    private float originalMoveSpeed; // Store movement speed
+    public float aimSpeedMultiplier = 0.5f; // Slows movement while aiming
+    public Transform cameraTransform; //cameras transform
+
+    //Connect to wallrunning
+    [SerializeField] private WallRunning wallRunning;
 
     [Header("Debugging")]
     public bool debugMode;
@@ -71,12 +78,9 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
 
+        wallRunning.canWallRun = false;
+
         //Test, remove/comment out when not testing double jump amd slide
-        if(debugMode)
-        {
-            ChangeHighJump();
-            AllowSliding();
-        }
 
     }
 
@@ -85,6 +89,7 @@ public class PlayerMovement : MonoBehaviour
     {
         inputs();
         speedLimit();
+        HandleAiming();
 
         //makes a raycast to see if touching ground
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.3f, isGround);
@@ -96,8 +101,6 @@ public class PlayerMovement : MonoBehaviour
         else
             rb.drag = 0;
 
-        //Check for slide input
-        Slide();
 
         //if freeze is true, freezes player
         if (freeze)
@@ -113,6 +116,11 @@ public class PlayerMovement : MonoBehaviour
         {
             moveSpeed = 7;
         }
+        // changes highjump, slide, and wallrun to active when at 3 deaths
+        if (debugMode && displayDeaths.GetDeathCount() >= 3)
+        {
+            ChangeHighJump();
+        }
     }
 
     //also every update but different
@@ -126,6 +134,8 @@ public class PlayerMovement : MonoBehaviour
     {
         hInput = Input.GetAxisRaw("Horizontal");
         vInput = Input.GetAxisRaw("Vertical");
+
+ 
 
         //if jump button pressed and on ground
         if (Input.GetKey(jumpButton) && grounded && readyToJump)
@@ -190,6 +200,7 @@ public class PlayerMovement : MonoBehaviour
 
             highJump = true;
             playerJumpForce *= 2;
+            wallRunning.canWallRun = true;
         }
     } //END ChangeHighJump()
 
@@ -216,36 +227,12 @@ public class PlayerMovement : MonoBehaviour
     /// <summary>
     /// Access canSlide variable to change to true
     /// </summary>
-    public void AllowSliding()
-    {
-        canSlide = true;
-    }//End AllowSliding()
+
 
     /// <summary>
     /// Get input for slide
     /// </summary>
-    private void Slide()
-    {
-        //TEMP input, up to change, this is for testing
-        if(Input.GetKeyDown(KeyCode.LeftShift) && canSlide)
-        {
-            currentlySliding = true;
-            StartCoroutine(EndSlide());
-            
-        }
 
-        if(currentlySliding)
-        {
-            //Add forward force to slide
-            rb.AddForce(new Vector3(0, 0, slideForce), ForceMode.Impulse);
-        }
-    } //END Slide()
-
-    private IEnumerator EndSlide()
-    {
-        yield return new WaitForSeconds(timeSlide);
-        currentlySliding = false;
-    }
 
     //calculates force for moving playing to grappling point in grappling gun 
     public Vector3 CalculateJumpVelocity(Vector3 startPoint, Vector3 endPoint, float trajectoryHeight)
@@ -292,5 +279,31 @@ public class PlayerMovement : MonoBehaviour
     public void resetGrappling()
     {
         activeGrapple = false;
+    }
+
+    // for above code its for grapple will fix later
+
+    //handle aiming for shooting script from ashe player controller
+    void HandleAiming()
+    {
+        if (Input.GetButton("Fire2") && displayDeaths.GetDeathCount() >= 1) // Right Mouse Button
+        {
+            if (!isAiming)
+            {
+                isAiming = true;
+                moveSpeed = originalMoveSpeed * aimSpeedMultiplier; // Slow movement
+            }
+            Vector3 cameraRight = cameraTransform.right;
+            cameraRight.y = 0;
+            transform.forward = cameraRight;
+        }
+        else
+        {
+            if (isAiming) // Reset when stopping aim
+            {
+                isAiming = false;
+                moveSpeed = originalMoveSpeed; // Restore movement speed
+            }
+        }
     }
 }

@@ -381,9 +381,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ae000b867ecaee4e91b1f191e4849d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canWallRun: 0
   wall:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 0
   ground:
     serializedVersion: 2
     m_Bits: 128
@@ -410,7 +411,7 @@ MonoBehaviour:
   grapplingTip: {fileID: 7253387273153014826}
   Grappleable:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 0
   maxGrappleDistance: 100
   grappleDelayer: 0.25
   lineRenderer: {fileID: 5124495195341366681}
@@ -418,6 +419,7 @@ MonoBehaviour:
   overshootXAxis: 2
   grapplingCooldown: 1
   grappleKey: 324
+  displayDeaths: {fileID: 0}
 --- !u!4 &6163638851539175529 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3819552948754511798, guid: 1e1c6d055e07d3444b5aa0c1286bc9ef,

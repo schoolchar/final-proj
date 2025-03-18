@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 273721209580921009}
   - component: {fileID: 2701695728720621920}
-  - component: {fileID: 1812406605622888329}
-  - component: {fileID: 6584023150853427734}
+  - component: {fileID: 5129086179147191361}
+  - component: {fileID: -4024936068864209681}
   m_Layer: 0
   m_Name: cm
   m_TagString: Untagged
@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1812406605622888329
+--- !u!114 &5129086179147191361
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -58,8 +58,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9384ab8608cdc3d479fe89cd51eed48f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: 0, z: -6}
+  m_BindingMode: 1
+  m_FollowOffset: {x: 0, y: 0, z: -10}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -100,7 +100,7 @@ MonoBehaviour:
   m_LegacyHeightOffset: 3.4028235e+38
   m_LegacyHeadingBias: 3.4028235e+38
   m_HeadingIsSlave: 1
---- !u!114 &6584023150853427734
+--- !u!114 &-4024936068864209681
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -129,14 +129,14 @@ MonoBehaviour:
   m_CenterOnActivate: 1
 --- !u!1 &1553927102694816998
 GameObject:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3934039511551612955}
-  - component: {fileID: 3612255445843090270}
+  - component: {fileID: 8208135125901546831}
   m_Layer: 0
   m_Name: BottomRig
   m_TagString: Untagged
@@ -146,7 +146,7 @@ GameObject:
   m_IsActive: 1
 --- !u!4 &3934039511551612955
 Transform:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -160,9 +160,9 @@ Transform:
   - {fileID: 273721209580921009}
   m_Father: {fileID: 448965866619347877}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3612255445843090270
+--- !u!114 &8208135125901546831
 MonoBehaviour:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -208,14 +208,14 @@ MonoBehaviour:
   m_ComponentOwner: {fileID: 273721209580921009}
 --- !u!1 &4140647937281180330
 GameObject:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1723257859765118395}
-  - component: {fileID: 2774892436468920208}
+  - component: {fileID: -4716906961820734639}
   m_Layer: 0
   m_Name: MiddleRig
   m_TagString: Untagged
@@ -225,7 +225,7 @@ GameObject:
   m_IsActive: 1
 --- !u!4 &1723257859765118395
 Transform:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -239,9 +239,9 @@ Transform:
   - {fileID: 5499629154639361254}
   m_Father: {fileID: 448965866619347877}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2774892436468920208
+--- !u!114 &-4716906961820734639
 MonoBehaviour:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -295,8 +295,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5499629154639361254}
   - component: {fileID: 1334587148279839971}
-  - component: {fileID: 7481576926108905611}
-  - component: {fileID: 8753209403379760187}
+  - component: {fileID: -3416632563928864244}
+  - component: {fileID: -2400771430418236301}
   m_Layer: 0
   m_Name: cm
   m_TagString: Untagged
@@ -331,7 +331,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7481576926108905611
+--- !u!114 &-3416632563928864244
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -343,11 +343,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9384ab8608cdc3d479fe89cd51eed48f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: 0, z: -6}
-  m_XDamping: 0
-  m_YDamping: 0
-  m_ZDamping: 0
+  m_BindingMode: 1
+  m_FollowOffset: {x: 0, y: 0, z: -10}
+  m_XDamping: 1
+  m_YDamping: 1
+  m_ZDamping: 1
   m_AngularDampingMode: 0
   m_PitchDamping: 0
   m_YawDamping: 0
@@ -385,7 +385,7 @@ MonoBehaviour:
   m_LegacyHeightOffset: 3.4028235e+38
   m_LegacyHeadingBias: 3.4028235e+38
   m_HeadingIsSlave: 1
---- !u!114 &8753209403379760187
+--- !u!114 &-2400771430418236301
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -414,14 +414,14 @@ MonoBehaviour:
   m_CenterOnActivate: 1
 --- !u!1 &7709312364644842143
 GameObject:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1898004158085463776}
-  - component: {fileID: 4990494445090864180}
+  - component: {fileID: 1015942224025089069}
   m_Layer: 0
   m_Name: TopRig
   m_TagString: Untagged
@@ -431,7 +431,7 @@ GameObject:
   m_IsActive: 1
 --- !u!4 &1898004158085463776
 Transform:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -445,9 +445,9 @@ Transform:
   - {fileID: 4890478833517096453}
   m_Father: {fileID: 448965866619347877}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4990494445090864180
+--- !u!114 &1015942224025089069
 MonoBehaviour:
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -501,8 +501,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4890478833517096453}
   - component: {fileID: 6994855115755146027}
-  - component: {fileID: 7908886956513063731}
-  - component: {fileID: 6878454631804901213}
+  - component: {fileID: 8606142469550204622}
+  - component: {fileID: 5788437305826179607}
   m_Layer: 0
   m_Name: cm
   m_TagString: Untagged
@@ -537,7 +537,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7908886956513063731
+--- !u!114 &8606142469550204622
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -549,8 +549,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9384ab8608cdc3d479fe89cd51eed48f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: 0, z: -6}
+  m_BindingMode: 1
+  m_FollowOffset: {x: 0, y: 0, z: -10}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -591,7 +591,7 @@ MonoBehaviour:
   m_LegacyHeightOffset: 3.4028235e+38
   m_LegacyHeadingBias: 3.4028235e+38
   m_HeadingIsSlave: 1
---- !u!114 &6878454631804901213
+--- !u!114 &5788437305826179607
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -627,7 +627,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 448965866619347877}
-  - component: {fileID: 646946227833188471}
   - component: {fileID: 8990147653439094174}
   m_Layer: 0
   m_Name: FreeLook Camera
@@ -654,111 +653,6 @@ Transform:
   - {fileID: 3934039511551612955}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &646946227833188471
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8568474368529544463}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 319d2fe34a804e245819465c9505ea59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ExcludedPropertiesInInspector:
-  - m_Script
-  m_LockStageInInspector: 
-  m_StreamingVersion: 20170927
-  m_Priority: 10
-  m_StandbyUpdate: 2
-  m_LookAt: {fileID: 0}
-  m_Follow: {fileID: 0}
-  m_CommonLens: 1
-  m_Lens:
-    FieldOfView: 40
-    OrthographicSize: 10
-    NearClipPlane: 0.1
-    FarClipPlane: 5000
-    Dutch: 0
-    ModeOverride: 0
-    LensShift: {x: 0, y: 0}
-    GateFit: 2
-    FocusDistance: 10
-    m_SensorSize: {x: 1, y: 1}
-  m_Transitions:
-    m_BlendHint: 0
-    m_InheritPosition: 0
-    m_OnCameraLive:
-      m_PersistentCalls:
-        m_Calls: []
-  m_LegacyBlendHint: 0
-  m_YAxis:
-    Value: 0.5
-    m_SpeedMode: 0
-    m_MaxSpeed: 2
-    m_AccelTime: 0.2
-    m_DecelTime: 0.1
-    m_InputAxisName: Mouse Y
-    m_InputAxisValue: 0
-    m_InvertInput: 1
-    m_MinValue: 0
-    m_MaxValue: 1
-    m_Wrap: 0
-    m_Recentering:
-      m_enabled: 0
-      m_WaitTime: 1
-      m_RecenteringTime: 2
-      m_LegacyHeadingDefinition: -1
-      m_LegacyVelocityFilterStrength: -1
-  m_YAxisRecentering:
-    m_enabled: 0
-    m_WaitTime: 1
-    m_RecenteringTime: 2
-    m_LegacyHeadingDefinition: -1
-    m_LegacyVelocityFilterStrength: -1
-  m_XAxis:
-    Value: 0
-    m_SpeedMode: 0
-    m_MaxSpeed: 300
-    m_AccelTime: 0.1
-    m_DecelTime: 0.1
-    m_InputAxisName: Mouse X
-    m_InputAxisValue: 0
-    m_InvertInput: 0
-    m_MinValue: -180
-    m_MaxValue: 180
-    m_Wrap: 1
-    m_Recentering:
-      m_enabled: 0
-      m_WaitTime: 1
-      m_RecenteringTime: 2
-      m_LegacyHeadingDefinition: -1
-      m_LegacyVelocityFilterStrength: -1
-  m_Heading:
-    m_Definition: 2
-    m_VelocityFilterStrength: 4
-    m_Bias: 0
-  m_RecenterToTargetHeading:
-    m_enabled: 0
-    m_WaitTime: 1
-    m_RecenteringTime: 2
-    m_LegacyHeadingDefinition: -1
-    m_LegacyVelocityFilterStrength: -1
-  m_BindingMode: 4
-  m_SplineCurvature: 0.3
-  m_Orbits:
-  - m_Height: 3
-    m_Radius: 3
-  - m_Height: 0
-    m_Radius: 6
-  - m_Height: -2
-    m_Radius: 3
-  m_LegacyHeadingBias: 3.4028235e+38
-  m_Rigs:
-  - {fileID: 4990494445090864180}
-  - {fileID: 2774892436468920208}
-  - {fileID: 3612255445843090270}
 --- !u!114 &8990147653439094174
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -775,5 +669,9 @@ MonoBehaviour:
   player: {fileID: 0}
   playerPhy: {fileID: 0}
   rb: {fileID: 0}
+  normalFOV: 60
+  aimFOV: 40
+  zoomSpeed: 10
+  freeLookCamera: {fileID: 0}
   lookAT: {fileID: 0}
   rotationSpeed: 10

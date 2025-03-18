@@ -34,6 +34,9 @@ public class grapple : MonoBehaviour
     // If currently grappling or not
     private bool grappling;
 
+    //gets death counter
+    public DisplayDeaths displayDeaths;
+
     private void Start()
     {
         // Gets variables from player movement script
@@ -43,7 +46,7 @@ public class grapple : MonoBehaviour
     private void Update()
     {
         // Checks if key is pressed 
-        if (Input.GetKeyDown(grappleKey)) StartGrapple();
+        if (Input.GetKeyDown(grappleKey) && displayDeaths.GetDeathCount() >= 2) StartGrapple();
 
         // Makes it so grappling cooldown is counting down
         if (grapplingCooldownTime > 0)
