@@ -2861,10 +2861,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 2068168306}
+  playerCamera: {fileID: 330585545}
   grapplingTip: {fileID: 1131854216}
   Grappleable:
     serializedVersion: 2
-    m_Bits: 768
+    m_Bits: 256
   maxGrappleDistance: 100
   grappleDelayer: 0.25
   lineRenderer: {fileID: 1131854214}
