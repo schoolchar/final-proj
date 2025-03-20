@@ -5,6 +5,10 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     //variables
+
+    //added for death manager
+    public DisplayDeaths displayDeaths; 
+
     //freezes player for grappling
     public bool freeze;
 
@@ -43,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask isGround;
 
     //if player is touching ground
-    bool grounded;
+    public bool grounded;
 
     //up/down left/right inputs
     public float hInput;
@@ -54,12 +58,6 @@ public class PlayerMovement : MonoBehaviour
 
     //ref for rigidbody
     Rigidbody rb;
-
-    //Sliding variables
-    private bool canSlide;
-    private bool currentlySliding;
-    [SerializeField] private float slideForce;
-    private float timeSlide = 2f;
 
     //vars from ashe - shooting 
     private bool isAiming = false; // Is the player aiming or not
@@ -80,12 +78,9 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
 
+        wallRunning.canWallRun = false;
+
         //Test, remove/comment out when not testing double jump amd slide
-        if(debugMode)
-        {
-            ChangeHighJump();
-            AllowSliding();
-        }
 
     }
 
@@ -106,8 +101,6 @@ public class PlayerMovement : MonoBehaviour
         else
             rb.drag = 0;
 
-        //Check for slide input
-        Slide();
 
         //if freeze is true, freezes player
         if (freeze)
@@ -122,6 +115,11 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             moveSpeed = 7;
+        }
+        // changes highjump, slide, and wallrun to active when at 3 deaths
+        if (debugMode && displayDeaths.GetDeathCount() >= 3)
+        {
+            ChangeHighJump();
         }
     }
 
@@ -202,6 +200,7 @@ public class PlayerMovement : MonoBehaviour
 
             highJump = true;
             playerJumpForce *= 2;
+            wallRunning.canWallRun = true;
         }
     } //END ChangeHighJump()
 
@@ -228,36 +227,12 @@ public class PlayerMovement : MonoBehaviour
     /// <summary>
     /// Access canSlide variable to change to true
     /// </summary>
-    public void AllowSliding()
-    {
-        canSlide = true;
-    }//End AllowSliding()
+
 
     /// <summary>
     /// Get input for slide
     /// </summary>
-    private void Slide()
-    {
-        //TEMP input, up to change, this is for testing
-        if(Input.GetKeyDown(KeyCode.LeftShift) && canSlide)
-        {
-            currentlySliding = true;
-            StartCoroutine(EndSlide());
-            
-        }
 
-        if(currentlySliding)
-        {
-            //Add forward force to slide
-            rb.AddForce(new Vector3(0, 0, slideForce), ForceMode.Impulse);
-        }
-    } //END Slide()
-
-    private IEnumerator EndSlide()
-    {
-        yield return new WaitForSeconds(timeSlide);
-        currentlySliding = false;
-    }
 
     //calculates force for moving playing to grappling point in grappling gun 
     public Vector3 CalculateJumpVelocity(Vector3 startPoint, Vector3 endPoint, float trajectoryHeight)
@@ -311,7 +286,7 @@ public class PlayerMovement : MonoBehaviour
     //handle aiming for shooting script from ashe player controller
     void HandleAiming()
     {
-        if (Input.GetButton("Fire2")) // Right Mouse Button
+        if (Input.GetButton("Fire2") && displayDeaths.GetDeathCount() >= 1) // Right Mouse Button
         {
             if (!isAiming)
             {

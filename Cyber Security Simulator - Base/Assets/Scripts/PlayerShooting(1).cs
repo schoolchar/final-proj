@@ -11,16 +11,17 @@ public class PlayerShooting : MonoBehaviour
     public AudioSource shootSound; // Shooting sound effect
     public float projectileLifetime = 5f; // Time before the projectile gets destroyed
 
+    public DisplayDeaths displayDeaths; //added for death manager
     void Update()
     {
-        if (Input.GetButton("Fire2")) // Right mouse is held
+        if (Input.GetButton("Fire2") && displayDeaths.GetDeathCount() >= 1) // Right mouse is held
         {
-            if (Input.GetButtonDown("Fire1")) // Left mouse pressed
+            if (Input.GetButtonDown("Fire1") && displayDeaths.GetDeathCount() >= 1) // Left mouse pressed
             {
                 ShootVerDos();
             }
         }
-        else if (Input.GetButtonDown("Fire1")) // Left mouse pressed (No right mouse)
+        else if (Input.GetButtonDown("Fire1") && displayDeaths.GetDeathCount() >= 1) // Left mouse pressed (No right mouse)
         {
             Shoot();
         }
