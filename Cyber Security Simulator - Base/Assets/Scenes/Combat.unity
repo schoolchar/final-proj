@@ -2798,7 +2798,7 @@ MonoBehaviour:
   canWallRun: 0
   wall:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 320
   ground:
     serializedVersion: 2
     m_Bits: 128
