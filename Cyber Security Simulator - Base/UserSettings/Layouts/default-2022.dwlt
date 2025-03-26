@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1706.6667
     height: 976
   m_ShowMode: 4
-  m_Title: Game
+  m_Title: Project
   m_RootView: {fileID: 6}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -557,7 +557,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts
+    - Assets/Prefab
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -565,7 +565,7 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts
+  - Assets/Prefab
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\shawn\OneDrive\Documents\GitHub\final-proj\Cyber Security
     Simulator - Base
@@ -573,9 +573,9 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 224.16656}
-    m_SelectedIDs: 5e7a0000
-    m_LastClickedID: 31326
-    m_ExpandedIDs: 000000000c7a00000e7a000000ca9a3b
+    m_SelectedIDs: a0790000
+    m_LastClickedID: 31136
+    m_ExpandedIDs: 00000000547900005679000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -603,7 +603,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000000c7a00000e7a0000
+    m_ExpandedIDs: 000000005479000056790000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -630,7 +630,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 1
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c6230000c46c0000427f000046850000ea970000729f0000b0940000d877000022710000ac7700000c7100005a780000fadf0100f270000000000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -697,23 +697,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: bc970100
+      m_SelectedIDs: 54870000
       m_LastClickedID: 0
-      m_ExpandedIDs: 2eeffeffdeeffeffa8f2feff48f5feff5af5feff0cfdfeff16fefefff66affff546fffff9695ffff8ef3ffff98f3ffffa2f3ffff18f5ffff38f5ffff48f5ffffc8f5ffff04720000267200008c720000a2720000b67200000a73000092730000a6740000c6740000
+      m_ExpandedIDs: 1ef9ffff28f9ffff2ef9ffff16faffff20faffff2afaffff30faffff50faffffccfaffff0efbffff28720000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: crosshair
-        m_OriginalName: crosshair
+        m_Name: 
+        m_OriginalName: 
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 29386
+        m_UserData: 0
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 0
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 4}
       m_SearchString: 
@@ -1132,9 +1132,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 176.8827, y: 167.75037, z: 111.47597}
+    m_Target: {x: -1.0877703, y: 3.7384834, z: 1.2115424}
     speed: 2
-    m_Value: {x: 176.8827, y: 167.75037, z: 111.47597}
+    m_Value: {x: -1.0877703, y: 3.7384834, z: 1.2115424}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1180,13 +1180,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.08874717, y: 0.018270409, z: -0.0011171328, w: 0.99653625}
+    m_Target: {x: 0.19434541, y: -0.05552577, z: 0.01159213, w: 0.97995746}
     speed: 2
-    m_Value: {x: 0.088689744, y: 0.018258585, z: -0.0011164099, w: 0.9958914}
+    m_Value: {x: 0.1942188, y: -0.055489592, z: 0.011584577, w: 0.979319}
   m_Size:
-    m_Target: 221.85616
+    m_Target: 0.14319427
     speed: 2
-    m_Value: 221.85616
+    m_Value: 0.14319427
   m_Ortho:
     m_Target: 0
     speed: 2
