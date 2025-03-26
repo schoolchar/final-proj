@@ -255,6 +255,7 @@ GameObject:
   - component: {fileID: 640200753301775821}
   - component: {fileID: 378714341835266927}
   - component: {fileID: 7137999424860587529}
+  - component: {fileID: 9047598284399953652}
   m_Layer: 0
   m_Name: player
   m_TagString: Untagged
@@ -318,6 +319,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b09362d003b84b45b4ef15fa95ec28d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  displayDeaths: {fileID: 0}
+  freeze: 0
+  activeGrapple: 0
   moveSpeed: 7
   groundDrag: 5
   orientation: {fileID: 7834533502025886566}
@@ -330,5 +334,36 @@ MonoBehaviour:
   isGround:
     serializedVersion: 2
     m_Bits: 128
-  slideForce: 0
+  grounded: 0
+  hInput: 0
+  vInput: 0
+  aimSpeedMultiplier: 0.5
+  cameraTransform: {fileID: 0}
+  wallRunning: {fileID: 0}
   debugMode: 0
+--- !u!114 &9047598284399953652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8484976985358192150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ae000b867ecaee4e91b1f191e4849d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canWallRun: 0
+  wall:
+    serializedVersion: 2
+    m_Bits: 256
+  ground:
+    serializedVersion: 2
+    m_Bits: 128
+  wallRunForce: -1
+  wallCheckDistance: 5
+  wallCheckDistanceEnd: 0
+  minJumpHeight: 10
+  orientation: {fileID: 7834533502025886566}
+  isWallrunning: 0
+  wallRunSpeed: 0
