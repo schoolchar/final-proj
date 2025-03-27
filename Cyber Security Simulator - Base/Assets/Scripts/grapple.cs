@@ -28,8 +28,6 @@ public class grapple : MonoBehaviour
     public float grapplingCooldown;
     private float grapplingCooldownTime;
 
-    // Key for grappling gun
-    public KeyCode grappleKey = KeyCode.Mouse1;
 
     // If currently grappling or not
     private bool grappling;
@@ -46,7 +44,7 @@ public class grapple : MonoBehaviour
     private void Update()
     {
         // Checks if key is pressed 
-        if (Input.GetKeyDown(grappleKey) && displayDeaths.GetDeathCount() >= 2) StartGrapple();
+        if (Input.GetKeyDown(KeyCode.F) && displayDeaths.GetDeathCount() >= 2) StartGrapple();
 
         // Makes it so grappling cooldown is counting down
         if (grapplingCooldownTime > 0)
