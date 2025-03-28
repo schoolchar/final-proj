@@ -53,7 +53,7 @@ public class WallRunning : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(isWallrunning);
+        //Debug.Log(isWallrunning);
         CheckForWall();
         StateMachine();
       

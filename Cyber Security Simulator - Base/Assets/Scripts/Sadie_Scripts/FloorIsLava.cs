@@ -8,7 +8,7 @@ public class FloorIsLava : MonoBehaviour
     //[SerializeField] private DisplayDeaths displayDeaths;
     [SerializeField] private GameObject player;
 
-    private void OnCollisionStay(Collision collision) //Change to enter later, stay rn to debug
+    private void OnCollisionEnter(Collision collision) //Change to enter later, stay rn to debug
     {
         KillPlayer(collision);
     }
@@ -19,12 +19,12 @@ public class FloorIsLava : MonoBehaviour
         {
             // Increment the deaths count
             //displayDeaths.IncrementDeaths();
-            Debug.Log("Player died of lava");
             // Teleport the player to the coordinates (0, 0, 0) on death by lava, these coordinates can be changed later
-            player.transform.position = new Vector3(0, 5, 0);
+            player.transform.position = new Vector3(0, 5, 0); //Temp, probably will spawn back in the hub
         }
     }
 
+    //Called  on computer ui button that turns off security
     public void TurnOnLava()
     {
         Debug.Log("Lava on");

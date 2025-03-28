@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1806275342157323955
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8508667370655522887}
+  m_Layer: 0
+  m_Name: WallRunRay8
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8508667370655522887
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1806275342157323955}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.8308737, z: -0, w: 0.55646116}
+  m_LocalPosition: {x: -0.46, y: 0, z: -0.27}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 640200753301775821}
+  m_LocalEulerAnglesHint: {x: 0, y: -112.377, z: 0}
 --- !u!1 &3460184880813938302
 GameObject:
   m_ObjectHideFlags: 0
@@ -31,6 +62,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 640200753301775821}
   m_LocalEulerAnglesHint: {x: 0, y: 43.194, z: 0}
+--- !u!1 &3728678205452244637
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3011667899228698192}
+  m_Layer: 0
+  m_Name: WallRunRay5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3011667899228698192
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3728678205452244637}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 0.49521303, z: -0, w: 0.8687717}
+  m_LocalPosition: {x: 0.52, y: 0, z: 0.37}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 640200753301775821}
+  m_LocalEulerAnglesHint: {x: 0, y: 59.368, z: 0}
 --- !u!1 &3811116801753684493
 GameObject:
   m_ObjectHideFlags: 0
@@ -170,6 +232,68 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &3957418742357210910
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 625352990120566728}
+  m_Layer: 0
+  m_Name: WallRunRay6
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &625352990120566728
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3957418742357210910}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.40116802, z: -0, w: 0.91600454}
+  m_LocalPosition: {x: -0.6, y: 0, z: 0.37}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 640200753301775821}
+  m_LocalEulerAnglesHint: {x: 0, y: -47.302, z: 0}
+--- !u!1 &6469344243596653105
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2637602262546910476}
+  m_Layer: 0
+  m_Name: WallRunRay7
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2637602262546910476
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6469344243596653105}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 0.8521283, z: -0, w: 0.52333295}
+  m_LocalPosition: {x: 0.48, y: 0, z: -0.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 640200753301775821}
+  m_LocalEulerAnglesHint: {x: 0, y: 116.888, z: 0}
 --- !u!1 &6579076936617047947
 GameObject:
   m_ObjectHideFlags: 0
@@ -406,6 +530,10 @@ Transform:
   - {fileID: 6748317443467287740}
   - {fileID: 2809192424417307839}
   - {fileID: 6667991255580299469}
+  - {fileID: 3011667899228698192}
+  - {fileID: 625352990120566728}
+  - {fileID: 2637602262546910476}
+  - {fileID: 8508667370655522887}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &378714341835266927
@@ -492,9 +620,13 @@ MonoBehaviour:
   peripheralsLeft:
   - {fileID: 3811116801753684493}
   - {fileID: 6579076936617047947}
+  - {fileID: 3957418742357210910}
+  - {fileID: 1806275342157323955}
   peripheralsRight:
   - {fileID: 3460184880813938302}
   - {fileID: 7276141593780606273}
+  - {fileID: 3728678205452244637}
+  - {fileID: 6469344243596653105}
   wallCheckDistance: 5
   wallCheckDistanceEnd: 0
   minJumpHeight: 10
