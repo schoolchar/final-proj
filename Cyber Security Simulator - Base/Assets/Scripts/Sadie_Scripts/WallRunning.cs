@@ -13,6 +13,8 @@ public class WallRunning : MonoBehaviour
     private float horizontal;
     private float vertical;
 
+    [SerializeField] private GameObject[] peripheralsLeft;
+    [SerializeField] private GameObject[] peripheralsRight;
 
     public float wallCheckDistance;
     public float wallCheckDistanceEnd;
@@ -45,7 +47,7 @@ public class WallRunning : MonoBehaviour
         if(player.debugMode)
         {
             Debug.Log("Debug mode on");
-            //canWallRun = true;
+            canWallRun = true;
         }
     }
 
@@ -80,7 +82,24 @@ public class WallRunning : MonoBehaviour
         //Use raycasts at player's right and left
         wallRight = Physics.Raycast(transform.position, orientation.right, out rightWallHit, wallCheckDistance, wall);
         wallLeft = Physics.Raycast(transform.position, -orientation.right, out leftWallHit, wallCheckDistance, wall);
-
+        
+        for(int i = 0; i < peripheralsLeft.Length; i++)
+        {
+            if(!wallLeft)
+            {
+                Debug.DrawRay(transform.position, peripheralsLeft[i].transform.forward * wallCheckDistance, Color.yellow);
+                wallLeft = Physics.Raycast(transform.position, peripheralsLeft[i].transform.forward, out leftWallHit, wallCheckDistance, wall);
+            }
+            
+        }
+        for(int i = 0; i < peripheralsRight.Length; i++)
+        {
+            if (!wallRight)
+            {
+                wallRight = Physics.Raycast(transform.position, peripheralsRight[i].transform.forward, out rightWallHit, wallCheckDistance, wall);
+                Debug.DrawRay(transform.position, peripheralsRight[i].transform.forward * wallCheckDistance, Color.yellow);
+            }
+        }
        
             //Debug Rays
         Debug.DrawRay(transform.position, orientation.right * wallCheckDistance, Color.yellow);

@@ -752,6 +752,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7137999424860587529, guid: 1e1c6d055e07d3444b5aa0c1286bc9ef,
         type: 3}
+      propertyPath: highJump
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7137999424860587529, guid: 1e1c6d055e07d3444b5aa0c1286bc9ef,
+        type: 3}
       propertyPath: debugMode
       value: 1
       objectReference: {fileID: 0}
@@ -779,6 +784,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 9047598284399953652, guid: 1e1c6d055e07d3444b5aa0c1286bc9ef,
+        type: 3}
+      propertyPath: wallCheckDistance
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9047598284399953652, guid: 1e1c6d055e07d3444b5aa0c1286bc9ef,
+        type: 3}
+      propertyPath: wallCheckDistanceEnd
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
