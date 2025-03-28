@@ -8,13 +8,13 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Floor
   - Water
   - UI
-  - 
-  - Floor
   - Wall
+  - Player
   - grapple
+  - 
   - 
   - 
   - 
