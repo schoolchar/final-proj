@@ -83,6 +83,7 @@ public class WallRunning : MonoBehaviour
         wallRight = Physics.Raycast(transform.position, orientation.right, out rightWallHit, wallCheckDistance, wall);
         wallLeft = Physics.Raycast(transform.position, -orientation.right, out leftWallHit, wallCheckDistance, wall);
         
+        //Check the left peripherals to expand range
         for(int i = 0; i < peripheralsLeft.Length; i++)
         {
             if(!wallLeft)
@@ -92,7 +93,9 @@ public class WallRunning : MonoBehaviour
             }
             
         }
-        for(int i = 0; i < peripheralsRight.Length; i++)
+
+        //Check the right peripherals to expand range
+        for (int i = 0; i < peripheralsRight.Length; i++)
         {
             if (!wallRight)
             {
