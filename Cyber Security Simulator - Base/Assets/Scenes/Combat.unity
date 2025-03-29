@@ -2373,6 +2373,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 6755799800523857715, guid: dc8a6a19cee4bb3468b08fe11978875e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7325715295667464254, guid: dc8a6a19cee4bb3468b08fe11978875e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5030,7 +5035,6 @@ Transform:
   - {fileID: 1787179989}
   - {fileID: 1072116315}
   - {fileID: 1996188546}
-  - {fileID: 1895156020}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &664606300 stripped
@@ -6881,6 +6885,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 6755799800523857715, guid: dc8a6a19cee4bb3468b08fe11978875e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7325715295667464254, guid: dc8a6a19cee4bb3468b08fe11978875e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7345,6 +7354,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6755799800523857715, guid: dc8a6a19cee4bb3468b08fe11978875e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7325715295667464254, guid: dc8a6a19cee4bb3468b08fe11978875e,
         type: 3}
@@ -8182,6 +8196,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   patrolRoute: {fileID: 1657537803}
   player: {fileID: 456572469}
+  bulletPrefab: {fileID: 0}
+  bulletSpawnPoint: {fileID: 0}
+  shootingRange: 10
+  maintainDistance: 5
+  fireRate: 1
 --- !u!4 &1072116315 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7325715295667464254, guid: dc8a6a19cee4bb3468b08fe11978875e,
@@ -8839,6 +8858,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6755799800523857715, guid: dc8a6a19cee4bb3468b08fe11978875e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7325715295667464254, guid: dc8a6a19cee4bb3468b08fe11978875e,
         type: 3}
@@ -13131,6 +13155,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 6755799800523857715, guid: dc8a6a19cee4bb3468b08fe11978875e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7325715295667464254, guid: dc8a6a19cee4bb3468b08fe11978875e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13512,6 +13541,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   patrolRoute: {fileID: 1268675797}
   player: {fileID: 456572469}
+  bulletPrefab: {fileID: 0}
+  bulletSpawnPoint: {fileID: 0}
+  shootingRange: 10
+  maintainDistance: 5
+  fireRate: 1
 --- !u!4 &1734881659 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7325715295667464254, guid: dc8a6a19cee4bb3468b08fe11978875e,
@@ -13993,6 +14027,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   patrolRoute: {fileID: 2033943807}
   player: {fileID: 456572469}
+  bulletPrefab: {fileID: 0}
+  bulletSpawnPoint: {fileID: 0}
+  shootingRange: 10
+  maintainDistance: 5
+  fireRate: 1
 --- !u!4 &1787179989 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7325715295667464254, guid: dc8a6a19cee4bb3468b08fe11978875e,
@@ -14345,6 +14384,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1852273246}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1862070694 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6677523201669683877, guid: d2bb3e85687624f4493d21a1b54ef8c0,
+    type: 3}
+  m_PrefabInstance: {fileID: 8937232736255709328}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1865190800
 GameObject:
   m_ObjectHideFlags: 0
@@ -14831,8 +14876,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 8.792597, y: 8.334838, z: 7.859268}
-  m_Center: {x: -0.44951534, y: -3.667419, z: -3.429634}
+  m_Size: {x: 3.0514758, y: 4.9843845, z: 2.7275636}
+  m_Center: {x: -0.4495151, y: -2.621532, z: -0.8637818}
 --- !u!1 &1922065789 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 833cd9a012c601148a35d8bc3ad9b975,
@@ -15210,12 +15255,93 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   patrolRoute: {fileID: 1783616607}
   player: {fileID: 456572469}
+  bulletPrefab: {fileID: 0}
+  bulletSpawnPoint: {fileID: 0}
+  shootingRange: 10
+  maintainDistance: 5
+  fireRate: 1
 --- !u!4 &1996188546 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7325715295667464254, guid: dc8a6a19cee4bb3468b08fe11978875e,
     type: 3}
   m_PrefabInstance: {fileID: 1220763249}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1999318693
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1999318695}
+  - component: {fileID: 1999318694}
+  - component: {fileID: 1999318696}
+  m_Layer: 0
+  m_Name: flyHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1999318694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1999318693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b946e75935b0504f87a22a45a748c1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  patrolRoute: {fileID: 193925612}
+  player: {fileID: 456572469}
+  bulletPrefab: {fileID: 714384469034359758, guid: 0a9a51773c447af4c833eaf9520acd50,
+    type: 3}
+  bulletSpawnPoint: {fileID: 1862070694}
+  shootingRange: 10
+  maintainDistance: 5
+  fireRate: 1
+--- !u!4 &1999318695
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1999318693}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -21.07, y: 0, z: 4.89}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1895156020}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!195 &1999318696
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1999318693}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &2003452570
 GameObject:
   m_ObjectHideFlags: 0
@@ -16372,6 +16498,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   patrolRoute: {fileID: 193925612}
   player: {fileID: 456572469}
+  bulletPrefab: {fileID: 0}
+  bulletSpawnPoint: {fileID: 0}
+  shootingRange: 10
+  maintainDistance: 5
+  fireRate: 1
 --- !u!4 &2130755590 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7325715295667464254, guid: dc8a6a19cee4bb3468b08fe11978875e,
@@ -16873,8 +17004,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 9.457703, y: 1.6273385, z: 20.302486}
-  m_Center: {x: -0.9304478, y: 0.3136695, z: 6.197984}
+  m_Size: {x: 5.961749, y: 1.6273385, z: 8.929091}
+  m_Center: {x: -0.2475307, y: 0.3136695, z: 0.5112734}
 --- !u!114 &1774927909498102931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16889,6 +17020,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   patrolRoute: {fileID: 554616043}
   player: {fileID: 456572469}
+  bulletPrefab: {fileID: 714384469034359758, guid: 0a9a51773c447af4c833eaf9520acd50,
+    type: 3}
+  bulletSpawnPoint: {fileID: 1774927909498102932}
+  shootingRange: 10
+  maintainDistance: 5
+  fireRate: 1
+--- !u!4 &1774927909498102932 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8448995105486863558, guid: dc8a6a19cee4bb3468b08fe11978875e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1774927909498102928}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1774927909498102937 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7325715295667464254, guid: dc8a6a19cee4bb3468b08fe11978875e,
@@ -16923,7 +17066,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 660232527}
+    m_TransformParent: {fileID: 1999318695}
     m_Modifications:
     - target: {fileID: 1015371636173224963, guid: d2bb3e85687624f4493d21a1b54ef8c0,
         type: 3}
@@ -16953,32 +17096,32 @@ PrefabInstance:
     - target: {fileID: 4028096259767840072, guid: d2bb3e85687624f4493d21a1b54ef8c0,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 4.083
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4028096259767840072, guid: d2bb3e85687624f4493d21a1b54ef8c0,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 4.083
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4028096259767840072, guid: d2bb3e85687624f4493d21a1b54ef8c0,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 4.083
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4028096259767840072, guid: d2bb3e85687624f4493d21a1b54ef8c0,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4028096259767840072, guid: d2bb3e85687624f4493d21a1b54ef8c0,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4028096259767840072, guid: d2bb3e85687624f4493d21a1b54ef8c0,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4028096259767840072, guid: d2bb3e85687624f4493d21a1b54ef8c0,
         type: 3}
@@ -17110,3 +17253,4 @@ SceneRoots:
   - {fileID: 1657537803}
   - {fileID: 1783616607}
   - {fileID: 1648435346}
+  - {fileID: 1999318695}

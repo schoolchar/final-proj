@@ -1,32 +1,55 @@
 using UnityEngine;
 using UnityEngine.AI;
+
 public class enemyMovement : MonoBehaviour
 {
     public Transform patrolRoute; // Parent containing waypoints
     public Transform player; // Player reference
+    public GameObject bulletPrefab; // Bullet prefab
+    public Transform bulletSpawnPoint; // Where the bullet spawns
+    public float shootingRange = 10f; // The range within which the enemy can shoot
+    public float maintainDistance = 5f; // The distance the enemy tries to maintain from the player
+    public float fireRate = 1f; // Time between shots
+    private float nextFireTime = 0f;
     private NavMeshAgent agent;
     private Transform[] locations;
     private int currentLocation = 0;
-    private bool chasingPlayer = false;
+    private bool playerInRange = false;
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         InitializePatrolRoute();
         MoveToNextPatrolLocation();
     }
+
     void Update()
     {
-        if (!chasingPlayer && !agent.pathPending && agent.remainingDistance < 0.2f)
+        float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+
+        if (distanceToPlayer <= shootingRange)
         {
-            MoveToNextPatrolLocation();
+            playerInRange = true;
+            MaintainDistanceFromPlayer();
+            ShootPlayer();
+        }
+        else
+        {
+            playerInRange = false;
+            if (!agent.pathPending && agent.remainingDistance < 0.2f)
+            {
+                MoveToNextPatrolLocation();
+            }
         }
     }
+
     void MoveToNextPatrolLocation()
     {
         if (locations.Length == 0) return;
         agent.SetDestination(locations[currentLocation].position);
         currentLocation = (currentLocation + 1) % locations.Length;
     }
+
     void InitializePatrolRoute()
     {
         locations = new Transform[patrolRoute.childCount];
@@ -35,24 +58,42 @@ public class enemyMovement : MonoBehaviour
             locations[i] = patrolRoute.GetChild(i);
         }
     }
-    // Detect when player enters enemy's range
+
     void OnTriggerEnter(Collider other)
     {
         if (other.name == "player")
         {
-            Debug.Log("Player detected - start chasing!");
-            chasingPlayer = true;
-            agent.SetDestination(player.position);
+            Debug.Log("Player detected");
+            playerInRange = true;
         }
     }
-    // Detect when player leaves enemy's range
+
     void OnTriggerExit(Collider other)
     {
         if (other.name == "player")
         {
-            Debug.Log("Player out of range - resume patrol.");
-            chasingPlayer = false;
+            Debug.Log("Player out of range");
+            playerInRange = false;
             MoveToNextPatrolLocation();
+        }
+    }
+
+    void MaintainDistanceFromPlayer()
+    {
+        Vector3 directionToPlayer = (transform.position - player.position).normalized;
+        Vector3 targetPosition = player.position + directionToPlayer * maintainDistance;
+        agent.SetDestination(targetPosition);
+    }
+
+    void ShootPlayer()
+    {
+        if (Time.time > nextFireTime)
+        {
+            nextFireTime = Time.time + fireRate;
+            GameObject bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+            Rigidbody rb = bullet.GetComponent<Rigidbody>();
+            rb.velocity = (player.position - bulletSpawnPoint.position).normalized * 20f; // Adjust bullet speed as necessary
+            Destroy(bullet, 2f); // Destroy bullet after 2 seconds to avoid clutter
         }
     }
 }
