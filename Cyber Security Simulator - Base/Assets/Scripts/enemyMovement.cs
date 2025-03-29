@@ -15,12 +15,14 @@ public class enemyMovement : MonoBehaviour
     private Transform[] locations;
     private int currentLocation = 0;
     private bool playerInRange = false;
+    public Animator animator;
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         InitializePatrolRoute();
         MoveToNextPatrolLocation();
+        animator.SetBool("Movement", true);
     }
 
     void Update()
