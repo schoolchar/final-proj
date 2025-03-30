@@ -3393,7 +3393,7 @@ Transform:
   - {fileID: 659931994}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1097254377270564067
+--- !u!1001 &2045379670050400046
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -3401,71 +3401,71 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3091957078088485639, guid: 7bf2a074595714b49ab8eb1d2972f635,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 2022216310}
-    - target: {fileID: 3091957078088485639, guid: 7bf2a074595714b49ab8eb1d2972f635,
-        type: 3}
-      propertyPath: patrolRoute
-      value: 
-      objectReference: {fileID: 1369861479}
-    - target: {fileID: 3420087385825611034, guid: 7bf2a074595714b49ab8eb1d2972f635,
+    - target: {fileID: 3864002110283657592, guid: 7bf2a074595714b49ab8eb1d2972f635,
         type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.936296
       objectReference: {fileID: 0}
-    - target: {fileID: 3420087385825611034, guid: 7bf2a074595714b49ab8eb1d2972f635,
+    - target: {fileID: 3864002110283657592, guid: 7bf2a074595714b49ab8eb1d2972f635,
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 1.29
       objectReference: {fileID: 0}
-    - target: {fileID: 3420087385825611034, guid: 7bf2a074595714b49ab8eb1d2972f635,
+    - target: {fileID: 3864002110283657592, guid: 7bf2a074595714b49ab8eb1d2972f635,
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 6.48
       objectReference: {fileID: 0}
-    - target: {fileID: 3420087385825611034, guid: 7bf2a074595714b49ab8eb1d2972f635,
+    - target: {fileID: 3864002110283657592, guid: 7bf2a074595714b49ab8eb1d2972f635,
         type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.7071068
       objectReference: {fileID: 0}
-    - target: {fileID: 3420087385825611034, guid: 7bf2a074595714b49ab8eb1d2972f635,
+    - target: {fileID: 3864002110283657592, guid: 7bf2a074595714b49ab8eb1d2972f635,
         type: 3}
       propertyPath: m_LocalRotation.x
       value: -2.1648903e-17
       objectReference: {fileID: 0}
-    - target: {fileID: 3420087385825611034, guid: 7bf2a074595714b49ab8eb1d2972f635,
+    - target: {fileID: 3864002110283657592, guid: 7bf2a074595714b49ab8eb1d2972f635,
         type: 3}
       propertyPath: m_LocalRotation.y
       value: 0.7071068
       objectReference: {fileID: 0}
-    - target: {fileID: 3420087385825611034, guid: 7bf2a074595714b49ab8eb1d2972f635,
+    - target: {fileID: 3864002110283657592, guid: 7bf2a074595714b49ab8eb1d2972f635,
         type: 3}
       propertyPath: m_LocalRotation.z
       value: 2.1648903e-17
       objectReference: {fileID: 0}
-    - target: {fileID: 3420087385825611034, guid: 7bf2a074595714b49ab8eb1d2972f635,
+    - target: {fileID: 3864002110283657592, guid: 7bf2a074595714b49ab8eb1d2972f635,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3420087385825611034, guid: 7bf2a074595714b49ab8eb1d2972f635,
+    - target: {fileID: 3864002110283657592, guid: 7bf2a074595714b49ab8eb1d2972f635,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3420087385825611034, guid: 7bf2a074595714b49ab8eb1d2972f635,
+    - target: {fileID: 3864002110283657592, guid: 7bf2a074595714b49ab8eb1d2972f635,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3441984059168391187, guid: 7bf2a074595714b49ab8eb1d2972f635,
+    - target: {fileID: 6466207381936899693, guid: 7bf2a074595714b49ab8eb1d2972f635,
         type: 3}
       propertyPath: m_Name
       value: Crawly_Enemy(code)
       objectReference: {fileID: 0}
+    - target: {fileID: 6494667161240430572, guid: 7bf2a074595714b49ab8eb1d2972f635,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 2022216310}
+    - target: {fileID: 6494667161240430572, guid: 7bf2a074595714b49ab8eb1d2972f635,
+        type: 3}
+      propertyPath: patrolRoute
+      value: 
+      objectReference: {fileID: 1369861479}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3776,5 +3776,5 @@ SceneRoots:
   - {fileID: 1783736499}
   - {fileID: 1369861479}
   - {fileID: 253482913}
-  - {fileID: 1097254377270564067}
+  - {fileID: 2045379670050400046}
   - {fileID: 731418814}

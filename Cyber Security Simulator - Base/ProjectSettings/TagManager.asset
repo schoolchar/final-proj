@@ -16,8 +16,8 @@ TagManager:
   - grapple
   - Enemy
   - skyfloor
-  - 
-  - 
+  - PlayerBullet
+  - EnemyBullet
   - 
   - 
   - 
