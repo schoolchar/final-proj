@@ -18,7 +18,7 @@ public class PlayerShooting : MonoBehaviour
     {
         if (Input.GetButton("Fire2") && displayDeaths.GetDeathCount() >= 0) // Right mouse is held
         {
-            if (Input.GetButtonDown("Fire1") && displayDeaths.GetDeathCount() >= 1) // Left mouse pressed
+            if (Input.GetButtonDown("Fire1") && displayDeaths.GetDeathCount() >= 0) // Left mouse pressed
             {
                 ShootVerDos();
             }
@@ -69,6 +69,9 @@ void ShootVerDos()
         {
             shootSound.Play();
         }
+
+        //plays animation
+        animator.SetTrigger("Shoot");
 
         GameObject projectile = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
         Rigidbody rb = projectile.GetComponent<Rigidbody>();
