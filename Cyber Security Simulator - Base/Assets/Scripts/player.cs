@@ -68,12 +68,17 @@ public class PlayerMovement : MonoBehaviour
     //Connect to wallrunning
     [SerializeField] private WallRunning wallRunning;
 
+    //connects animator
+    public Animator animator;
+
+
     [Header("Debugging")]
     public bool debugMode;
 
     // on start up, i may be over-commenting
     private void Start()
     {
+        animator.SetBool("Movement", false);
         readyToJump = true;
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
@@ -90,6 +95,16 @@ public class PlayerMovement : MonoBehaviour
         inputs();
         speedLimit();
         HandleAiming();
+
+        //sets animation
+        if (rb.velocity.magnitude > 0)
+        {
+            animator.SetBool("Movement", true);
+        }
+        else if (rb.velocity.magnitude <= 0)
+        {
+            animator.SetBool("Movement", false);
+        }
 
         //makes a raycast to see if touching ground
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.3f, isGround);
@@ -134,8 +149,6 @@ public class PlayerMovement : MonoBehaviour
     {
         hInput = Input.GetAxisRaw("Horizontal");
         vInput = Input.GetAxisRaw("Vertical");
-
- 
 
         //if jump button pressed and on ground
         if (Input.GetKey(jumpButton) && grounded && readyToJump)
