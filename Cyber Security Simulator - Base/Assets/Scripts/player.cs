@@ -83,7 +83,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
 
-        wallRunning.canWallRun = false;
+        //wallRunning.canWallRun = false;
 
         //Test, remove/comment out when not testing double jump amd slide
 
