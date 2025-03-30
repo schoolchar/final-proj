@@ -16,6 +16,8 @@ public class enemyMovement : MonoBehaviour
     private int currentLocation = 0;
     private bool playerInRange = false;
     public Animator animator;
+    public int PlayerBullet;
+    public GameObject playerBullet;
 
     void Start()
     {
@@ -67,6 +69,11 @@ public class enemyMovement : MonoBehaviour
         {
             Debug.Log("Player detected");
             playerInRange = true;
+        }
+        else if (other.gameObject.name == playerBullet.name + "(Clone)")
+        {
+            gameManager.instance.EnemyKilled(); //increase variable to win game
+            Destroy(gameObject); 
         }
     }
 
