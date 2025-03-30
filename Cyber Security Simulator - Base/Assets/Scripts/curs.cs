@@ -16,10 +16,10 @@ public class CursorController : MonoBehaviour
     void Update()
     {
         // Hide/Show mouse cursor
-        if (Input.GetKeyDown(KeyCode.P))
+        /*if (Input.GetKeyDown(KeyCode.P))
         {
             Hide_ShowMouseCursor();
-        }
+        }*/
     }
 
     // Toggle mouse cursor lock mode

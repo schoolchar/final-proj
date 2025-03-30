@@ -3788,6 +3788,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 63153767}
   pauseMusic: {fileID: 0}
+  isPaused: 0
 --- !u!4 &540032697
 Transform:
   m_ObjectHideFlags: 0
@@ -7800,6 +7801,11 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 1083366682}
+    - target: {fileID: 1311254333952780766, guid: 52b4367032c3e4b4b8e202b4b90eeae4,
+        type: 3}
+      propertyPath: pauseMenu
+      value: 
+      objectReference: {fileID: 540032696}
     - target: {fileID: 1311254333952780766, guid: 52b4367032c3e4b4b8e202b4b90eeae4,
         type: 3}
       propertyPath: playerCamera

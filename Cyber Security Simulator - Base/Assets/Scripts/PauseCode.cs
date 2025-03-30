@@ -5,7 +5,7 @@ public class PauseMenu : MonoBehaviour
     public GameObject pauseMenuUI; // Reference to the pause menu UI panel
     public AudioSource pauseMusic; // Background music, just make it the cave sounds
 
-    private bool isPaused = false;
+    public bool isPaused = false;
     private AudioSource[] allAudioSources; // Stores all game audio sources
 
     void Start()
@@ -16,7 +16,7 @@ public class PauseMenu : MonoBehaviour
     void Update()
     {
         // Toggle pause when pressing escape
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.JoystickButton7))
         {
             if (isPaused)
             {
@@ -27,11 +27,30 @@ public class PauseMenu : MonoBehaviour
                 PauseGame();
             }
         }
+
+        if(isPaused)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+
+        
     }
 
     // Resumes the game
     public void ResumeGame()
     {
+        isPaused = false;
+
+        //Lock cursor
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
         pauseMenuUI.SetActive(false); // Hide pause menu
         Time.timeScale = 1f; // Resume game time
 
@@ -45,12 +64,18 @@ public class PauseMenu : MonoBehaviour
         }
 
         pauseMusic.Stop(); // Stop pause music
-        isPaused = false;
+        
     }
 
     // Pauses the game
     public void PauseGame()
     {
+        isPaused = true;
+
+        //Unlock cursor
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
         pauseMenuUI.SetActive(true); // Show pause menu
         Time.timeScale = 0f; // Freeze game time
 
@@ -63,7 +88,9 @@ public class PauseMenu : MonoBehaviour
         }
 
         pauseMusic.Play(); // Start playing pause menu music
-        isPaused = true;
+        
+
+       
     }
 
     // For quitting the game

@@ -14,17 +14,21 @@ public class PlayerShooting : MonoBehaviour
     public DisplayDeaths displayDeaths; //added for death manager
 
     public Animator animator;//added for animator
+
+    public PauseMenu pauseMenu;
     void Update()
     {
-        if (Input.GetButton("Fire2") && displayDeaths.GetDeathCount() >= 0) // Right mouse is held
+        if (Input.GetButton("Fire2") && displayDeaths.GetDeathCount() >= 0 && !pauseMenu.isPaused) // Right mouse is held
         {
+            Debug.Log("Shoot" + pauseMenu.isPaused);
             if (Input.GetButtonDown("Fire1") && displayDeaths.GetDeathCount() >= 0) // Left mouse pressed
             {
                 ShootVerDos();
             }
         }
-        else if (Input.GetButtonDown("Fire1") && displayDeaths.GetDeathCount() >= 0) // Left mouse pressed (No right mouse)
+        else if (Input.GetButtonDown("Fire1") && displayDeaths.GetDeathCount() >= 0 && !pauseMenu.isPaused) // Left mouse pressed (No right mouse)
         {
+            Debug.Log("Shoot" + pauseMenu.isPaused);
             Shoot();
         }
     }
