@@ -35,7 +35,7 @@ public class WallRunning : MonoBehaviour
 
     private bool coolDownEnabled; //Test for ending wall run, when enabled cannot exit wall run state
 
- 
+    [SerializeField] private Animator animator;
 
 
 
@@ -146,6 +146,7 @@ public class WallRunning : MonoBehaviour
     private void StartWallRunning()
     {
         isWallrunning = true;
+        animator.SetTrigger("WallR");
     }
 
     private void StopWallRun()
@@ -166,6 +167,8 @@ public class WallRunning : MonoBehaviour
         //Get cross product of wall and upwards direction for where player will hover
         Vector3 _wallNormal = wallRight ? rightWallHit.normal : leftWallHit.normal;
         Vector3 _wallForward = Vector3.Cross(_wallNormal, transform.up);
+
+        
 
         //Moves player along wall, keep to wall
         rb.AddForce(_wallForward * wallRunForce, ForceMode.Force);

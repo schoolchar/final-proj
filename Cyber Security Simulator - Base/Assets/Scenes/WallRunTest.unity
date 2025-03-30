@@ -1316,6 +1316,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1442489136378963965, guid: 52b4367032c3e4b4b8e202b4b90eeae4,
         type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1553233602}
+    - target: {fileID: 1442489136378963965, guid: 52b4367032c3e4b4b8e202b4b90eeae4,
+        type: 3}
       propertyPath: canWallRun
       value: 1
       objectReference: {fileID: 0}
@@ -1923,6 +1928,12 @@ Transform:
 --- !u!1 &1553233598 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3604829549710237251, guid: 52b4367032c3e4b4b8e202b4b90eeae4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1283534213}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1553233602 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2384925892533702998, guid: 52b4367032c3e4b4b8e202b4b90eeae4,
     type: 3}
   m_PrefabInstance: {fileID: 1283534213}
   m_PrefabAsset: {fileID: 0}
