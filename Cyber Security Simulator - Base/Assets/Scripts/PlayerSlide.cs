@@ -9,6 +9,7 @@ public class PlayerSlide : MonoBehaviour
     [SerializeField] private float slideForce;
     private float timeSlide = 2f;
     public GameObject slideDirection;
+    public GameObject playerPhys;
     public bool debugMode;
     public Rigidbody rb;
 
@@ -36,7 +37,7 @@ public class PlayerSlide : MonoBehaviour
     private void Slide()
     {
         //TEMP input, up to change, this is for testing
-        if ((Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.JoystickButton5)) && canSlide && displayDeaths.GetDeathCount() >= 3)
+        if ((Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.JoystickButton5)) && canSlide) //&& displayDeaths.GetDeathCount() >= 3
         {
             currentlySliding = true;
             StartCoroutine(EndSlide());
@@ -46,8 +47,8 @@ public class PlayerSlide : MonoBehaviour
         if (currentlySliding)
         {
             //Add forward force to slide
-            Vector3 direction = (slideDirection.transform.position - transform.position).normalized;
-            rb.AddForce(direction * slideForce, ForceMode.Impulse);
+            //Vector3 direction = (slideDirection.transform.position - transform.position).normalized;
+            rb.AddForce(playerPhys.transform.forward * slideForce, ForceMode.Impulse);
         }
     } //END Slide()
 
