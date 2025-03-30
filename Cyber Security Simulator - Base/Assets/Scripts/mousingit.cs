@@ -14,7 +14,7 @@ public class mousingingit : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.LeftCommand))
+        if (Input.GetKeyDown(KeyCode.P))
         {
             Cursor.lockState = lockCursor ? CursorLockMode.Locked : CursorLockMode.None;
             Cursor.visible = !lockCursor;
