@@ -268,7 +268,7 @@ MonoBehaviour:
   - {fileID: 1174346665638182090}
   wallCheckDistance: 2
   wallCheckDistanceEnd: 0
-  minJumpHeight: 30
+  minJumpHeight: 5
   orientation: {fileID: 6187019816490555164}
   isWallrunning: 0
   wallRunSpeed: 0
