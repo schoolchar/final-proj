@@ -192,7 +192,7 @@ public class WallRunning : MonoBehaviour
         
 
         //Check for distance from wall
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.JoystickButton3))
         {
             Debug.Log("Press space");
             rb.useGravity = true;

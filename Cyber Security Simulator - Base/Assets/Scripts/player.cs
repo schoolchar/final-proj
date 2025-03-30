@@ -42,6 +42,7 @@ public class PlayerMovement : MonoBehaviour
     bool readyToJump;
 
     public KeyCode jumpButton = KeyCode.Space;
+    public KeyCode jumpButtonController = KeyCode.JoystickButton3;
 
     //decides if on ground for jumping on layers
     public LayerMask isGround;
@@ -151,7 +152,7 @@ public class PlayerMovement : MonoBehaviour
         vInput = Input.GetAxisRaw("Vertical");
 
         //if jump button pressed and on ground
-        if (Input.GetKey(jumpButton) && grounded && readyToJump)
+        if ((Input.GetKey(jumpButton) || Input.GetKey(jumpButtonController)) && grounded && readyToJump)
         {
             readyToJump = false;
 

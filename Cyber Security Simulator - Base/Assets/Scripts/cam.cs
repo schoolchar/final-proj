@@ -38,8 +38,8 @@ public class cam : MonoBehaviour
         //rotates player
         // commented out to test grapple
 
-        float hInput = Input.GetAxis("Horizontal");
-        float vInput = Input.GetAxis("Vertical");
+        float hInput = Input.GetAxisRaw("Horizontal");
+        float vInput = Input.GetAxisRaw("Vertical");
         Vector3 inputDir = orientation.forward * vInput + orientation.right * hInput;
 
         if (inputDir != Vector3.zero)

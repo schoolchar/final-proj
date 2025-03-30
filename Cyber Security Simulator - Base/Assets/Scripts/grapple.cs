@@ -44,7 +44,7 @@ public class grapple : MonoBehaviour
     private void Update()
     {
         // Checks if key is pressed 
-        if (Input.GetKeyDown(KeyCode.F) && displayDeaths.GetDeathCount() >= 2) StartGrapple();
+        if ((Input.GetKeyDown(KeyCode.F) || Input.GetKeyDown(KeyCode.JoystickButton4)) && displayDeaths.GetDeathCount() >= 2) StartGrapple();
 
         // Makes it so grappling cooldown is counting down
         if (grapplingCooldownTime > 0)
