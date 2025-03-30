@@ -4566,7 +4566,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aefc78818ec9ab469ac50655cbf7b84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemiesKilled: 0
+  enemiesKilled: 1
   totalHealth: 3
   enemiesKilledText: {fileID: 1926715485}
   healthText: {fileID: 1862988102}
@@ -7478,6 +7478,11 @@ PrefabInstance:
       objectReference: {fileID: 1440297442}
     - target: {fileID: 1311254333952780766, guid: 52b4367032c3e4b4b8e202b4b90eeae4,
         type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1083366682}
+    - target: {fileID: 1311254333952780766, guid: 52b4367032c3e4b4b8e202b4b90eeae4,
+        type: 3}
       propertyPath: displayDeaths
       value: 
       objectReference: {fileID: 1223221628}
@@ -7585,6 +7590,12 @@ Transform:
 --- !u!4 &1083366681 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3172859385723213747, guid: 52b4367032c3e4b4b8e202b4b90eeae4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1083366679}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1083366682 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2384925892533702998, guid: 52b4367032c3e4b4b8e202b4b90eeae4,
     type: 3}
   m_PrefabInstance: {fileID: 1083366679}
   m_PrefabAsset: {fileID: 0}

@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1706.6667
     height: 976
   m_ShowMode: 4
-  m_Title: Console
+  m_Title: Game
   m_RootView: {fileID: 6}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -48,7 +48,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 100
+  controlID: 142
   draggingID: 0
 --- !u!114 &3
 MonoBehaviour:
@@ -224,7 +224,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 41
+  controlID: 52
   draggingID: 0
 --- !u!114 &10
 MonoBehaviour:
@@ -250,7 +250,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 42
+  controlID: 53
   draggingID: 0
 --- !u!114 &11
 MonoBehaviour:
@@ -433,7 +433,7 @@ MonoBehaviour:
     m_SkipHidden: 1
     m_SearchArea: 1
     m_Folders:
-    - Assets/props/water bottle
+    - Assets/Animation/Player
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -441,17 +441,17 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/props/water bottle
+  - Assets/Animation/Player
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\shawn\OneDrive\Documents\GitHub\final-proj\Cyber Security
     Simulator - Base
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 341}
-    m_SelectedIDs: c0300100
-    m_LastClickedID: 78016
-    m_ExpandedIDs: 00000000d6710000d87100005a7300006073000072730000b4300100b8300100bc300100c030010000ca9a3b
+    scrollPos: {x: 0, y: 69.5}
+    m_SelectedIDs: 12960000
+    m_LastClickedID: 38418
+    m_ExpandedIDs: 0000000086800000888000003a8f0000588f000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -479,7 +479,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000d6710000d8710000
+    m_ExpandedIDs: 000000008680000088800000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -504,8 +504,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: b2fcfeffecfafefff4f5feff3cf5feffa6f3feff4ef2feff
-    m_LastClickedInstanceID: -66382
+    m_SelectedInstanceIDs: 6a920000
+    m_LastClickedInstanceID: 37482
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c62300007488000052310100
     m_RenameOverlay:
@@ -577,7 +577,7 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 267.85007
+  m_LastVerticalScrollValue: 0
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:
@@ -621,9 +621,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: b2fcfeffecfafefff4f5feff3cf5feffa6f3feff4ef2feff
-      m_LastClickedID: -69042
-      m_ExpandedIDs: 8edbffff2eddffff6addffff80ddffff44e3ffff2ce8fffffee8ffff9aecffff84f2ffff0efbffff547100004a8b0000d88b0000388e0000468f0000ea9300006c940000f8940000ae950000e2950000569600005c96000072960000d8960000e8960000d6970000c4980000
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: 3cebffff7af3ffff0efbffff109000009c90000084920000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1093,11 +1093,11 @@ MonoBehaviour:
   m_Rotation:
     m_Target: {x: 0.2333798, y: -0.16280004, z: 0.040428985, w: 0.959163}
     speed: 2
-    m_Value: {x: 0.232996, y: -0.16450454, z: 0.040842656, w: 0.95759237}
+    m_Value: {x: 0.23307721, y: -0.16258897, z: 0.04037657, w: 0.9579195}
   m_Size:
     m_Target: 0.20766239
     speed: 2
-    m_Value: 0.2076624
+    m_Value: 0.20766239
   m_Ortho:
     m_Target: 0
     speed: 2
