@@ -12,6 +12,8 @@ public class PlayerShooting : MonoBehaviour
     public float projectileLifetime = 5f; // Time before the projectile gets destroyed
 
     public DisplayDeaths displayDeaths; //added for death manager
+
+    public Animator animator;//added for animator
     void Update()
     {
         if (Input.GetButton("Fire2") && displayDeaths.GetDeathCount() >= 1) // Right mouse is held
@@ -36,6 +38,9 @@ public class PlayerShooting : MonoBehaviour
         {
             shootSound.Play();
         }
+
+        //animation
+        animator.SetTrigger("Shoot");
 
         GameObject projectile = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
         Rigidbody rb = projectile.GetComponent<Rigidbody>();

@@ -2455,6 +2455,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2502927693837946465}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1605639721 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2384925892533702998, guid: 52b4367032c3e4b4b8e202b4b90eeae4,
+    type: 3}
+  m_PrefabInstance: {fileID: 2502927693837946465}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1629349285
 GameObject:
   m_ObjectHideFlags: 0
@@ -3195,6 +3201,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crawly_Enemy(code)
       objectReference: {fileID: 0}
+    - target: {fileID: 6466207381936899693, guid: 7bf2a074595714b49ab8eb1d2972f635,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6494667161240430572, guid: 7bf2a074595714b49ab8eb1d2972f635,
         type: 3}
       propertyPath: player
@@ -3228,6 +3239,11 @@ PrefabInstance:
       propertyPath: cameraTransform
       value: 
       objectReference: {fileID: 2068168306}
+    - target: {fileID: 1311254333952780766, guid: 52b4367032c3e4b4b8e202b4b90eeae4,
+        type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1605639721}
     - target: {fileID: 1311254333952780766, guid: 52b4367032c3e4b4b8e202b4b90eeae4,
         type: 3}
       propertyPath: playerCamera
