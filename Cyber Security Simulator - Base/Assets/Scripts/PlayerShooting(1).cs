@@ -16,14 +16,14 @@ public class PlayerShooting : MonoBehaviour
     public Animator animator;//added for animator
     void Update()
     {
-        if (Input.GetButton("Fire2") && displayDeaths.GetDeathCount() >= 1) // Right mouse is held
+        if (Input.GetButton("Fire2") && displayDeaths.GetDeathCount() >= 0) // Right mouse is held
         {
             if (Input.GetButtonDown("Fire1") && displayDeaths.GetDeathCount() >= 1) // Left mouse pressed
             {
                 ShootVerDos();
             }
         }
-        else if (Input.GetButtonDown("Fire1") && displayDeaths.GetDeathCount() >= 1) // Left mouse pressed (No right mouse)
+        else if (Input.GetButtonDown("Fire1") && displayDeaths.GetDeathCount() >= 0) // Left mouse pressed (No right mouse)
         {
             Shoot();
         }

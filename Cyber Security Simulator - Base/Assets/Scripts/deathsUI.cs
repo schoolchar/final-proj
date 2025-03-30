@@ -23,15 +23,15 @@ public class DisplayDeaths : MonoBehaviour
 
     private void Update()
     {
-        if (deaths == 1)
+        if (deaths == 0)
         {
             Shoot.text = "Gun online";
         }
-        if (deaths == 2)
+        if (deaths == 0)
         {
             Grapple.text = "Grapple online";
         }
-        if (deaths == 3)
+        if (deaths == 0)
         {
             Wallrun.text = "Wallrun online";
         }
