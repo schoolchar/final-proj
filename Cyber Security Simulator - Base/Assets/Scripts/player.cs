@@ -72,6 +72,9 @@ public class PlayerMovement : MonoBehaviour
     //connects animator
     public Animator animator;
 
+    //sounds
+    public AudioSource walkingAudioSource;
+    public AudioClip walkingClip;
 
     [Header("Debugging")]
     public bool debugMode;
@@ -97,14 +100,18 @@ public class PlayerMovement : MonoBehaviour
         speedLimit();
         HandleAiming();
 
-        //sets animation
         if (rb.velocity.magnitude > 0)
         {
             animator.SetBool("Movement", true);
+            if (!walkingAudioSource.isPlaying)
+            {
+                walkingAudioSource.PlayOneShot(walkingClip);
+            }
         }
         else if (rb.velocity.magnitude <= 0)
         {
             animator.SetBool("Movement", false);
+            walkingAudioSource.Stop();
         }
 
         //makes a raycast to see if touching ground

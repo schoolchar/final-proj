@@ -7,9 +7,22 @@ public class PauseMenu : MonoBehaviour
 
     public bool isPaused = false;
     private AudioSource[] allAudioSources; // Stores all game audio sources
+    
+    //uis
+    public GameObject howplay;
+    public GameObject cheat;
 
     void Start()
     {
+        isPaused = false;
+
+        //Lock cursor
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
+        pauseMenuUI.SetActive(false); // Hide pause menu
+        Time.timeScale = 1f; // Resume game time
+
         allAudioSources = FindObjectsOfType<AudioSource>(); // Get all audio sources
     }
 
@@ -37,6 +50,8 @@ public class PauseMenu : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
+            howplay.SetActive(false);
+            cheat.SetActive(false);
         }
 
         
