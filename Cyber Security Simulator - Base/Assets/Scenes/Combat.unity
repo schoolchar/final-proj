@@ -12856,6 +12856,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1699266603}
   - component: {fileID: 1699266604}
+  - component: {fileID: 1699266605}
   m_Layer: 0
   m_Name: music
   m_TagString: Untagged
@@ -12892,7 +12893,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.782
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -12974,6 +12975,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1699266605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1699266602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e2cfa8275f8a8a40be9e3739ab78c13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backroundSource: {fileID: 1699266604}
+  backroundClip: {fileID: 8300000, guid: f7f92a82778b1d447b344f13f8a92ab4, type: 3}
 --- !u!1 &1704892072
 GameObject:
   m_ObjectHideFlags: 0
