@@ -24,6 +24,7 @@ public class Password : MonoBehaviour
             Debug.Log("Password correct");
             deactivateSecurity.enabled = true;
             passwordInput.enabled = false;
+            passwordInputObj.SetActive(false);
         }
         else
         {
