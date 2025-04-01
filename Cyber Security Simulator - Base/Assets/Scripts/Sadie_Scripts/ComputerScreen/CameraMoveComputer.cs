@@ -50,7 +50,7 @@ public class CameraMoveComputer : MonoBehaviour
 
     private void DisablePlayerMovement(Collider _other)
     {
-        if(_other.gameObject.layer == 10)
+        if(_other.gameObject.layer == 7)
         {
             Debug.Log("Trigger");
             playerMovement.enabled = false;

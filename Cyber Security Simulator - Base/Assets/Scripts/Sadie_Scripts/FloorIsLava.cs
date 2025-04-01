@@ -15,7 +15,7 @@ public class FloorIsLava : MonoBehaviour
 
     void KillPlayer(Collision _collision)
     {
-        if (lava && _collision.gameObject.layer == 10)
+        if (lava && _collision.gameObject.layer == 7)
         {
             // Increment the deaths count
             //displayDeaths.IncrementDeaths();

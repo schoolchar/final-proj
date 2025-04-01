@@ -78,7 +78,7 @@ GameObject:
   - component: {fileID: 6279528938408936642}
   - component: {fileID: 1442489136378963965}
   - component: {fileID: 7714820403846612348}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: player 1
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -153,6 +153,7 @@ MonoBehaviour:
   jumpCooldown: 0.25
   airMultiplier: 0.4
   jumpButton: 32
+  jumpButtonController: 333
   isGround:
     serializedVersion: 2
     m_Bits: 8
@@ -163,6 +164,8 @@ MonoBehaviour:
   cameraTransform: {fileID: 0}
   wallRunning: {fileID: 1442489136378963965}
   animator: {fileID: 2384925892533702998}
+  walkingAudioSource: {fileID: 0}
+  walkingClip: {fileID: 0}
   debugMode: 1
 --- !u!136 &7905352852392207980
 CapsuleCollider:
@@ -211,7 +214,8 @@ MonoBehaviour:
   shootSound: {fileID: 0}
   projectileLifetime: 5
   displayDeaths: {fileID: 0}
-  animator: {fileID: 0}
+  animator: {fileID: 2384925892533702998}
+  pauseMenu: {fileID: 0}
 --- !u!114 &6279528938408936642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -272,6 +276,7 @@ MonoBehaviour:
   orientation: {fileID: 6187019816490555164}
   isWallrunning: 0
   wallRunSpeed: 0
+  animator: {fileID: 2384925892533702998}
 --- !u!114 &7714820403846612348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -702,6 +707,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slideForce: 3
   slideDirection: {fileID: 6779734596134055781}
+  playerPhys: {fileID: 0}
   debugMode: 1
   rb: {fileID: 7723953878653451294}
   displayDeaths: {fileID: 0}
