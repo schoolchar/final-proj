@@ -13,6 +13,7 @@ public class BreakerPanel : MonoBehaviour
     [SerializeField] private Sprite onSprite;
     [SerializeField] private Sprite offSprite;
 
+    [SerializeField] private TriggerBreakerPanel trigger;
     /// <summary>
     /// Each switch has an assigned index corresponding to the array, attach this function to buttons on switchs, assign parameters
     /// </summary>
@@ -39,6 +40,7 @@ public class BreakerPanel : MonoBehaviour
 
         //If they are the same, solve puzzle
         Debug.Log("Solved puzzle");
+        trigger.ExitCutsceneB();
     }
 
     ///<summary>

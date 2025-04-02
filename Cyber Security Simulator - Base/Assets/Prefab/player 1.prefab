@@ -707,7 +707,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slideForce: 3
   slideDirection: {fileID: 6779734596134055781}
-  playerPhys: {fileID: 0}
+  playerPhys: {fileID: 3604829549710237251}
   debugMode: 1
   rb: {fileID: 7723953878653451294}
   displayDeaths: {fileID: 0}
