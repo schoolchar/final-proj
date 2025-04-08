@@ -6,6 +6,6 @@ public class mainMenu : MonoBehaviour
 {
     public void PlayGame()
     {
-        SceneManager.LoadSceneAsync("Combat");
+        SceneManager.LoadSceneAsync("Start");
     }
 }
