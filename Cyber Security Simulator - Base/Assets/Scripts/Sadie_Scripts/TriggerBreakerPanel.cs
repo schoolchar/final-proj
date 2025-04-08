@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Camera movement for breaker panel, similar to computer screen
+/// </summary>
 public class TriggerBreakerPanel : CameraMoveComputer
 {
     [SerializeField] private Canvas breakerPanelCanvas;
@@ -23,6 +26,7 @@ public class TriggerBreakerPanel : CameraMoveComputer
 
     private void Update()
     {
+        //Check if player has triggered whatever to open the breaker panel, or close breaker panel
         if(enterCutsceneB)
         {
             MoveCameraToComputer(moveToPt, breakerPanelCanvas);
@@ -38,6 +42,7 @@ public class TriggerBreakerPanel : CameraMoveComputer
 
     private void OnTriggerEnter(Collider other)
     {
+        //If the player has already done the computer password, then allow them to open breaker panle
         if(floorIsLava.lava)
         {
             DisablePlayerMovement(other);
@@ -49,18 +54,18 @@ public class TriggerBreakerPanel : CameraMoveComputer
        
     }
 
-    void OpenBreakerPanel()
-    {
-       
-    }
-
+    /// <summary>
+    /// Manage player/camera movement in and out of the breaker panel
+    /// </summary>
     public override void CheckCutscene(Vector3 _roundedEnter, Vector3 _roundedExit, Transform _lookAtEnter, Transform _lookAtExit)
     {
+        //If entering the breaker panel movement
         if (enterCutsceneB)
         {
-
+            //Round current cam position down
             Vector3 _roundedCamPos = new Vector3(Mathf.Floor(cam.transform.position.x), Mathf.Floor(cam.transform.position.y), Mathf.Floor(cam.transform.position.z));
 
+            //Check if the camera is in position
             if (_roundedCamPos == _roundedEnter)
             {
                 Debug.Log("Cam assigned look at breaker");
@@ -72,10 +77,13 @@ public class TriggerBreakerPanel : CameraMoveComputer
             }
         }
 
+        //If exiting the breaker panel movement
         if (exitCutsceneB)
         {
+            //Round current camera position down
             Vector3 _roundedCamPos = new Vector3(Mathf.Floor(cam.transform.position.x), Mathf.Floor(cam.transform.position.y), Mathf.Floor(cam.transform.position.z));
 
+            //If camera is in position, reset to look at player
             if (_roundedCamPos == _roundedExit)
             {
                 Debug.Log("Cam assigned look at player");
@@ -87,11 +95,14 @@ public class TriggerBreakerPanel : CameraMoveComputer
                 //_exitCut = false;
             }
         }
-    }
+    } //END CheckCutscene()
 
+    /// <summary>
+    /// Exit the camera movement and let player move again
+    /// </summary>
     public void ExitCutsceneB()
     {
         exitCutsceneB = true;
         EnablePlayerMovement();
-    }
-}
+    } //END ExitCutsceneB()
+} //END TriggerBreakerPanel.cs

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class Password : MonoBehaviour
 {
-    private string password = "password"; //temp password
+    private string password = "C4ff13n3"; 
 
     public TMP_InputField passwordInput;
     public GameObject passwordInputObj;
@@ -17,19 +17,26 @@ public class Password : MonoBehaviour
         passwordInput.onEndEdit.AddListener(CheckPassword);
     }
 
+    /// <summary>
+    /// Activated on player submitting what they type, checks password
+    /// </summary>
     public void CheckPassword(string _input)
     {
+        //If password is correct
         if(_input == password)
         {
+            //Show button for deactivating cameras/turning on lava
             Debug.Log("Password correct");
             deactivateSecurity.enabled = true;
             passwordInput.enabled = false;
             passwordInputObj.SetActive(false);
         }
+        //If password is incorrect
         else
         {
             Debug.Log("Wrong password");
             passwordInput.text = "";
         }
-    }
-}
+    }//END CheckPassword()
+
+} //END Passwrod.cs
