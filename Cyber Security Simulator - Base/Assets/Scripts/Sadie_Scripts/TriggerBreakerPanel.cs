@@ -18,6 +18,7 @@ public class TriggerBreakerPanel : CameraMoveComputer
     private Vector3 breakerRounddMovePt;
     [SerializeField] private Transform breakerObj;
 
+    public bool debugMode;
     private void Start()
     {
         floorIsLava = FindAnyObjectByType<FloorIsLava>();
@@ -43,7 +44,7 @@ public class TriggerBreakerPanel : CameraMoveComputer
     private void OnTriggerEnter(Collider other)
     {
         //If the player has already done the computer password, then allow them to open breaker panle
-        if(floorIsLava.lava)
+        if(floorIsLava.lava || debugMode)
         {
             DisablePlayerMovement(other);
             if (other.gameObject.layer == 7)
