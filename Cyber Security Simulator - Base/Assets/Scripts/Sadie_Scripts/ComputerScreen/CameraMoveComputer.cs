@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class CameraMoveComputer : MonoBehaviour
 {
     protected FloorIsLava floorIsLava;
+    private Password password;
     [SerializeField] protected CinemachineFreeLook cam;
     [SerializeField] protected cam camMovement;
     [SerializeField] protected PlayerMovement playerMovement;
@@ -119,8 +120,9 @@ public class CameraMoveComputer : MonoBehaviour
         _UI.enabled = true;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
+        password.passwordActive = true;
 
-       
+
     } //END MoveCameraToComputer()
 
     /// <summary>
