@@ -87,6 +87,10 @@ public class BreakerPanel : MonoBehaviour
         switchSprites[0].image.transform.localScale = Vector3.one;
     } //END MouseClickDescale()
 
+
+    /// <summary>
+    /// Player clicks switch with A on xbox controller
+    /// </summary>
     void ControllerClickSwitch()
     {
         if(breakerActive)
@@ -97,10 +101,14 @@ public class BreakerPanel : MonoBehaviour
             }
 
         }
-    }
+    } //END ControllerClickSwitch()
 
+    /// <summary>
+    /// Change which switch the player can change with controller
+    /// </summary>
     void ControllerChangeSwitch()
     {
+        //Move right
         if(Input.GetAxis("Dpad Horizontal") == 1 && canInput)
         {
             switchSprites[currentSwitch].image.transform.localScale = Vector3.one;
@@ -115,6 +123,7 @@ public class BreakerPanel : MonoBehaviour
             canInput = false;
             StartCoroutine(StopInput());
         }
+        //Move left
         else if(Input.GetAxis("Dpad Horizontal") == -1 && canInput)
         {
             switchSprites[currentSwitch].image.transform.localScale = Vector3.one;
@@ -128,6 +137,7 @@ public class BreakerPanel : MonoBehaviour
             canInput = false;
             StartCoroutine(StopInput());
         }
+        //Move up
         else if(Input.GetAxis("Dpad Vertical") == 1 && canInput)
         {
             switchSprites[currentSwitch].image.transform.localScale = Vector3.one;
@@ -141,6 +151,7 @@ public class BreakerPanel : MonoBehaviour
             canInput = false;
             StartCoroutine(StopInput());
         }
+        //Move down
         else if(Input.GetAxis("Dpad Vertical") == -1 && canInput)
         {
             switchSprites[currentSwitch].image.transform.localScale = Vector3.one;
@@ -155,13 +166,16 @@ public class BreakerPanel : MonoBehaviour
             StartCoroutine(StopInput());
         }
 
-        Debug.Log(currentSwitch);
-    }
+        
+    } //END Controller ChangeSwitch()
 
+    /// <summary>
+    /// Acts as get key down for dpad
+    /// </summary>
     IEnumerator StopInput()
     {
         yield return new WaitForSeconds(0.3f);
         canInput = true;
-    }
+    } //END StopInput()
 
 } //END BreakerPanel.cs

@@ -53,6 +53,9 @@ public class Password : MonoBehaviour
         }
     }//END CheckPassword()
 
+    /// <summary>
+    /// Allow controller use for typing in input field
+    /// </summary>
     void CheckControllerTyping()
     {
         //Change the current letter
@@ -61,10 +64,13 @@ public class Password : MonoBehaviour
             canInput = false;
             StartCoroutine(StopTyping());
             char[] _newInput = new char[currentInput.Length];
+            //Loop through string in input field to get to the last letter
             for(int i = 0; i < currentInput.Length; i++)
             {
+                //On last letter
                 if(i == currentInput.Length - 1)
                 {
+                    //Use dpad to increase or decrease ascii value of last letter in string, simulates a scroll mechanic
                     _newInput[i] = (char)((int)(currentInput[i]) + Input.GetAxis("Dpad Vertical"));
                 }
                 else
@@ -73,6 +79,7 @@ public class Password : MonoBehaviour
                 }
                 
             }
+            //Replace
             string _s = new string(_newInput);
             passwordInput.text = _s;
         }
@@ -83,12 +90,14 @@ public class Password : MonoBehaviour
             canInput = false;
             StartCoroutine(StopTyping());
             char[] _newInput = new char[currentInput.Length + 1];
+            //Replace input field with same letters
             for (int i = 0; i < currentInput.Length; i++)
             {
                 
                 _newInput[i] = currentInput[i];
 
             }
+            //Append default A to the end of the input field string
             _newInput[_newInput.Length - 1] = 'A';
             string _s = new string(_newInput);
             passwordInput.text = _s;
@@ -102,6 +111,7 @@ public class Password : MonoBehaviour
             char[] _newInput = new char[currentInput.Length -1];
             for(int i = 0; i < _newInput.Length; i++)
             {
+                //If the loop has reached the last letter, change to default A
                 if (i == _newInput.Length - 1)
                 {
                     _newInput[i] = 'A';
@@ -120,18 +130,24 @@ public class Password : MonoBehaviour
         {
             CheckPassword(passwordInput.text);
         }
-    }
+    }//END CheckCOntrollerTyping()
 
+    /// <summary>
+    /// Get whatever is currently in the input field
+    /// </summary>
     public void GetCurrentString(string _input)
     {
         currentInput = _input;
         
-    }
+    } //END GetCurrentString()
 
+    /// <summary>
+    /// Acts as get key down for dpad
+    /// </summary>
     IEnumerator StopTyping()
     {
         yield return new WaitForSeconds(0.3f);
         canInput = true;
-    }
+    } //END StopTyping()
 
 } //END Passwrod.cs
