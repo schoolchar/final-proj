@@ -14,6 +14,23 @@ public class BreakerPanel : MonoBehaviour
     [SerializeField] private Sprite offSprite;
 
     [SerializeField] private TriggerBreakerPanel trigger;
+
+    [Header("Controller")]
+    public bool breakerActive;
+    private int currentSwitch = 0;
+    private bool canInput = true;
+    private float scaleVal = 0.1f;
+
+    private void Start()
+    {
+        switchSprites[currentSwitch].image.transform.localScale += (Vector3.one * scaleVal);
+    }
+    private void Update()
+    {
+        ControllerChangeSwitch();
+        ControllerClickSwitch();
+    }
+
     /// <summary>
     /// Each switch has an assigned index corresponding to the array, attach this function to buttons on switchs, assign parameters
     /// </summary>
@@ -21,6 +38,8 @@ public class BreakerPanel : MonoBehaviour
     {
         //Turns on and off
         switches[_index] = !switches[_index];
+        
+
         ChangeSprite(_index);
         CheckSolution();
     } //END ClickSwitch()
@@ -56,5 +75,107 @@ public class BreakerPanel : MonoBehaviour
         {
             switchSprites[_index].image.sprite = offSprite;
         }
+
+        
     } //END ChangeSprite()
+
+    /// <summary>
+    /// Changes scale of first button if player clicks with mouse
+    /// </summary>
+    public void MouseClickDescale()
+    {
+        switchSprites[0].image.transform.localScale = Vector3.one;
+    } //END MouseClickDescale()
+
+
+    /// <summary>
+    /// Player clicks switch with A on xbox controller
+    /// </summary>
+    void ControllerClickSwitch()
+    {
+        if(breakerActive)
+        {
+            if(Input.GetKeyDown(KeyCode.JoystickButton0))
+            {
+                ClickSwitch(currentSwitch);
+            }
+
+        }
+    } //END ControllerClickSwitch()
+
+    /// <summary>
+    /// Change which switch the player can change with controller
+    /// </summary>
+    void ControllerChangeSwitch()
+    {
+        //Move right
+        if(Input.GetAxis("Dpad Horizontal") == 1 && canInput)
+        {
+            switchSprites[currentSwitch].image.transform.localScale = Vector3.one;
+            if(currentSwitch + 1 <= 9)
+            {
+                currentSwitch++;
+                switchSprites[currentSwitch].image.transform.localScale += (Vector3.one * scaleVal);
+
+            }
+                
+
+            canInput = false;
+            StartCoroutine(StopInput());
+        }
+        //Move left
+        else if(Input.GetAxis("Dpad Horizontal") == -1 && canInput)
+        {
+            switchSprites[currentSwitch].image.transform.localScale = Vector3.one;
+            if (currentSwitch - 1 >= 0)
+            {
+                currentSwitch--;
+                switchSprites[currentSwitch].image.transform.localScale += (Vector3.one * scaleVal);
+            }
+                
+
+            canInput = false;
+            StartCoroutine(StopInput());
+        }
+        //Move up
+        else if(Input.GetAxis("Dpad Vertical") == 1 && canInput)
+        {
+            switchSprites[currentSwitch].image.transform.localScale = Vector3.one;
+            if (currentSwitch - 5 >= 0)
+            {
+                currentSwitch -= 5;
+                switchSprites[currentSwitch].image.transform.localScale += (Vector3.one * scaleVal);
+            }
+               
+
+            canInput = false;
+            StartCoroutine(StopInput());
+        }
+        //Move down
+        else if(Input.GetAxis("Dpad Vertical") == -1 && canInput)
+        {
+            switchSprites[currentSwitch].image.transform.localScale = Vector3.one;
+            if (currentSwitch + 5 <= 9)
+            {
+                currentSwitch += 5;
+                switchSprites[currentSwitch].image.transform.localScale += (Vector3.one * scaleVal);
+            }
+                
+
+            canInput = false;
+            StartCoroutine(StopInput());
+        }
+
+        
+    } //END Controller ChangeSwitch()
+
+    /// <summary>
+    /// Acts as get key down for dpad
+    /// </summary>
+    IEnumerator StopInput()
+    {
+        yield return new WaitForSeconds(0.3f);
+        canInput = true;
+    } //END StopInput()
+
 } //END BreakerPanel.cs
