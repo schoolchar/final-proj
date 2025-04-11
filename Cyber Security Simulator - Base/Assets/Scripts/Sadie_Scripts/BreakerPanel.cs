@@ -19,8 +19,12 @@ public class BreakerPanel : MonoBehaviour
     public bool breakerActive;
     private int currentSwitch = 0;
     private bool canInput = true;
+    private float scaleVal = 0.1f;
 
-
+    private void Start()
+    {
+        switchSprites[currentSwitch].image.transform.localScale += (Vector3.one * scaleVal);
+    }
     private void Update()
     {
         ControllerChangeSwitch();
@@ -34,6 +38,8 @@ public class BreakerPanel : MonoBehaviour
     {
         //Turns on and off
         switches[_index] = !switches[_index];
+        
+
         ChangeSprite(_index);
         CheckSolution();
     } //END ClickSwitch()
@@ -69,7 +75,17 @@ public class BreakerPanel : MonoBehaviour
         {
             switchSprites[_index].image.sprite = offSprite;
         }
+
+        
     } //END ChangeSprite()
+
+    /// <summary>
+    /// Changes scale of first button if player clicks with mouse
+    /// </summary>
+    public void MouseClickDescale()
+    {
+        switchSprites[0].image.transform.localScale = Vector3.one;
+    } //END MouseClickDescale()
 
     void ControllerClickSwitch()
     {
@@ -91,7 +107,7 @@ public class BreakerPanel : MonoBehaviour
             if(currentSwitch + 1 <= 9)
             {
                 currentSwitch++;
-                switchSprites[currentSwitch].image.transform.localScale += (Vector3.one * 0.5f);
+                switchSprites[currentSwitch].image.transform.localScale += (Vector3.one * scaleVal);
 
             }
                 
@@ -105,7 +121,7 @@ public class BreakerPanel : MonoBehaviour
             if (currentSwitch - 1 >= 0)
             {
                 currentSwitch--;
-                switchSprites[currentSwitch].image.transform.localScale += (Vector3.one * 0.5f);
+                switchSprites[currentSwitch].image.transform.localScale += (Vector3.one * scaleVal);
             }
                 
 
@@ -118,7 +134,7 @@ public class BreakerPanel : MonoBehaviour
             if (currentSwitch - 5 >= 0)
             {
                 currentSwitch -= 5;
-                switchSprites[currentSwitch].image.transform.localScale += (Vector3.one * 0.5f);
+                switchSprites[currentSwitch].image.transform.localScale += (Vector3.one * scaleVal);
             }
                
 
@@ -131,7 +147,7 @@ public class BreakerPanel : MonoBehaviour
             if (currentSwitch + 5 <= 9)
             {
                 currentSwitch += 5;
-                switchSprites[currentSwitch].image.transform.localScale += (Vector3.one * 0.5f);
+                switchSprites[currentSwitch].image.transform.localScale += (Vector3.one * scaleVal);
             }
                 
 
