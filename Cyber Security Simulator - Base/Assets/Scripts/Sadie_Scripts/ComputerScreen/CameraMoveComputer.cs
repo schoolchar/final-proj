@@ -11,6 +11,7 @@ public class CameraMoveComputer : MonoBehaviour
     [SerializeField] protected CinemachineFreeLook cam;
     [SerializeField] protected cam camMovement;
     [SerializeField] protected PlayerMovement playerMovement;
+    [SerializeField] protected PlayerShooting shooting;
 
     [SerializeField] private Transform moveToPoint;
     private Vector3 roundedMovePt;
@@ -73,6 +74,7 @@ public class CameraMoveComputer : MonoBehaviour
             //Disable player movement script, seperate camera from player
             Debug.Log("Trigger");
             playerMovement.enabled = false;
+            shooting.enabled = false;
             cam.LookAt = null;
             cam.Follow = null;
             
@@ -90,6 +92,7 @@ public class CameraMoveComputer : MonoBehaviour
     {
         //Re-enable player movement and assign player to the camera
         playerMovement.enabled = true;
+        shooting.enabled = true;
         cam.LookAt = null;
         cam.Follow = null;
     } //END EnablePlayerMovement()
@@ -133,7 +136,7 @@ public class CameraMoveComputer : MonoBehaviour
     /// <param name="_UI">Computer Ui to disable</param>
     public void MoveCameraToPlayer(Vector3 _moveToPos, Quaternion _moveToRot, Canvas _UI)
     {
-        Debug.Log("Move cam to player");
+        Debug.Log("Move cam to player ");
         cam.transform.position = Vector3.Lerp(cam.transform.position, _moveToPos, interpolateVal);
         cam.transform.rotation = Quaternion.Lerp(cam.transform.rotation, _moveToRot, interpolateVal);
 
