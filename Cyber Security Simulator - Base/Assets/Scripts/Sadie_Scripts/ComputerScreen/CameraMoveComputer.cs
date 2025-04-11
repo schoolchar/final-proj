@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class CameraMoveComputer : MonoBehaviour
 {
     protected FloorIsLava floorIsLava;
-    private Password password;
+    [SerializeField] private Password password;
     [SerializeField] protected CinemachineFreeLook cam;
     [SerializeField] protected cam camMovement;
     [SerializeField] protected PlayerMovement playerMovement;
@@ -133,6 +133,7 @@ public class CameraMoveComputer : MonoBehaviour
     /// <param name="_UI">Computer Ui to disable</param>
     public void MoveCameraToPlayer(Vector3 _moveToPos, Quaternion _moveToRot, Canvas _UI)
     {
+        Debug.Log("Move cam to player");
         cam.transform.position = Vector3.Lerp(cam.transform.position, _moveToPos, interpolateVal);
         cam.transform.rotation = Quaternion.Lerp(cam.transform.rotation, _moveToRot, interpolateVal);
 

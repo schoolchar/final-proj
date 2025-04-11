@@ -14,6 +14,19 @@ public class BreakerPanel : MonoBehaviour
     [SerializeField] private Sprite offSprite;
 
     [SerializeField] private TriggerBreakerPanel trigger;
+
+    [Header("Controller")]
+    public bool breakerActive;
+    private int currentSwitch = 0;
+    private bool canInput = true;
+
+
+    private void Update()
+    {
+        ControllerChangeSwitch();
+        ControllerClickSwitch();
+    }
+
     /// <summary>
     /// Each switch has an assigned index corresponding to the array, attach this function to buttons on switchs, assign parameters
     /// </summary>
@@ -57,4 +70,82 @@ public class BreakerPanel : MonoBehaviour
             switchSprites[_index].image.sprite = offSprite;
         }
     } //END ChangeSprite()
+
+    void ControllerClickSwitch()
+    {
+        if(breakerActive)
+        {
+            if(Input.GetKeyDown(KeyCode.JoystickButton0))
+            {
+                ClickSwitch(currentSwitch);
+            }
+
+        }
+    }
+
+    void ControllerChangeSwitch()
+    {
+        if(Input.GetAxis("Dpad Horizontal") == 1 && canInput)
+        {
+            switchSprites[currentSwitch].image.transform.localScale = Vector3.one;
+            if(currentSwitch + 1 <= 9)
+            {
+                currentSwitch++;
+                switchSprites[currentSwitch].image.transform.localScale += (Vector3.one * 0.5f);
+
+            }
+                
+
+            canInput = false;
+            StartCoroutine(StopInput());
+        }
+        else if(Input.GetAxis("Dpad Horizontal") == -1 && canInput)
+        {
+            switchSprites[currentSwitch].image.transform.localScale = Vector3.one;
+            if (currentSwitch - 1 >= 0)
+            {
+                currentSwitch--;
+                switchSprites[currentSwitch].image.transform.localScale += (Vector3.one * 0.5f);
+            }
+                
+
+            canInput = false;
+            StartCoroutine(StopInput());
+        }
+        else if(Input.GetAxis("Dpad Vertical") == 1 && canInput)
+        {
+            switchSprites[currentSwitch].image.transform.localScale = Vector3.one;
+            if (currentSwitch - 5 >= 0)
+            {
+                currentSwitch -= 5;
+                switchSprites[currentSwitch].image.transform.localScale += (Vector3.one * 0.5f);
+            }
+               
+
+            canInput = false;
+            StartCoroutine(StopInput());
+        }
+        else if(Input.GetAxis("Dpad Vertical") == -1 && canInput)
+        {
+            switchSprites[currentSwitch].image.transform.localScale = Vector3.one;
+            if (currentSwitch + 5 <= 9)
+            {
+                currentSwitch += 5;
+                switchSprites[currentSwitch].image.transform.localScale += (Vector3.one * 0.5f);
+            }
+                
+
+            canInput = false;
+            StartCoroutine(StopInput());
+        }
+
+        Debug.Log(currentSwitch);
+    }
+
+    IEnumerator StopInput()
+    {
+        yield return new WaitForSeconds(0.3f);
+        canInput = true;
+    }
+
 } //END BreakerPanel.cs

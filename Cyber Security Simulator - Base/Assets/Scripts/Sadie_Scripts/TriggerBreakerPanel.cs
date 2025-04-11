@@ -50,6 +50,7 @@ public class TriggerBreakerPanel : CameraMoveComputer
             if (other.gameObject.layer == 7)
             {
                 enterCutsceneB = true;
+                FindAnyObjectByType<BreakerPanel>().breakerActive = true;
             }
         }
        

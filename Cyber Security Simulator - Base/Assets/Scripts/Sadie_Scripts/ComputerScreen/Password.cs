@@ -37,7 +37,7 @@ public class Password : MonoBehaviour
     {
         //If password is correct
         if(_input == password)
-        {
+        { 
             //Show button for deactivating cameras/turning on lava
             Debug.Log("Password correct");
             passwordActive = false;
