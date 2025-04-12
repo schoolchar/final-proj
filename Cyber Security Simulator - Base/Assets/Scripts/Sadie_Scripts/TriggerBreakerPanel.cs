@@ -35,10 +35,17 @@ public class TriggerBreakerPanel : CameraMoveComputer
 
         if(exitCutsceneB)
         {
+            Debug.Log("Exit cutscene on breaker triggered");
             MoveCameraToPlayer(oldPos, camMovement.playerPhy.gameObject.transform.rotation, breakerPanelCanvas);
         }
 
         CheckCutscene(breakerRounddMovePt, roundedOldPos, breakerObj, playerMovement.gameObject.transform);
+
+        if (breakerPanelCanvas.enabled && Input.GetKeyDown(KeyCode.JoystickButton1))
+        {
+            
+            ExitCutscene();
+        }
     }
 
     private void OnTriggerEnter(Collider other)

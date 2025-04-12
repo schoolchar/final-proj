@@ -1,0 +1,33 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class PressButton : MonoBehaviour
+{
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.layer == 7)
+        {
+            PressStupidButton();
+        }
+    }
+
+
+    /// <summary>
+    /// Disable functionality for level, let player has a free pass
+    /// </summary>
+    public void PressStupidButton()
+    {
+        StartCoroutine(WaitToLoadHub());
+       
+    } //END PressStupidButton()
+
+    IEnumerator WaitToLoadHub()
+    {
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene(0);
+    }
+
+
+}

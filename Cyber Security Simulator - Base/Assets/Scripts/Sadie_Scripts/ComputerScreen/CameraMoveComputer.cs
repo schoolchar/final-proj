@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class CameraMoveComputer : MonoBehaviour
 {
     protected FloorIsLava floorIsLava;
-    [SerializeField] private Password password;
+    [SerializeField] protected Password password;
     [SerializeField] protected CinemachineFreeLook cam;
     [SerializeField] protected cam camMovement;
     [SerializeField] protected PlayerMovement playerMovement;
@@ -23,6 +23,8 @@ public class CameraMoveComputer : MonoBehaviour
     private bool enterCutscene;
     private bool exitCutscene;
 
+
+    private bool canExit = true;
     [SerializeField] private Canvas computerUI;
 
     private void Start()
@@ -55,12 +57,17 @@ public class CameraMoveComputer : MonoBehaviour
             MoveCameraToComputer(moveToPoint, computerUI);
         }
 
-        if(exitCutscene)
+        if (exitCutscene)
         {
             MoveCameraToPlayer(oldPos, camMovement.playerPhy.gameObject.transform.rotation, computerUI);
         }
 
         CheckCutscene(roundedMovePt, roundedOldPos, computer, playerMovement.gameObject.transform);
+
+        if(password.passwordActive && Input.GetKeyDown(KeyCode.JoystickButton1))
+        {
+            ExitCutscene();
+        }
     }
 
     /// <summary>
@@ -102,8 +109,11 @@ public class CameraMoveComputer : MonoBehaviour
     /// </summary>
     public void ExitCutscene()
     {
+        Debug.Log("Exit cutscene function");
         exitCutscene = true;
-        EnablePlayerMovement();
+
+        //if(password.passwordSolved == false)
+            EnablePlayerMovement();
     } //END ExitCutscene()
 
     #region Movement
@@ -136,7 +146,7 @@ public class CameraMoveComputer : MonoBehaviour
     /// <param name="_UI">Computer Ui to disable</param>
     public void MoveCameraToPlayer(Vector3 _moveToPos, Quaternion _moveToRot, Canvas _UI)
     {
-        Debug.Log("Move cam to player ");
+        Debug.Log("Move cam to player " + this.gameObject.name);
         cam.transform.position = Vector3.Lerp(cam.transform.position, _moveToPos, interpolateVal);
         cam.transform.rotation = Quaternion.Lerp(cam.transform.rotation, _moveToRot, interpolateVal);
 
@@ -189,6 +199,8 @@ public class CameraMoveComputer : MonoBehaviour
                 cam.LookAt = _lookAtExit;
                 cam.Follow = _lookAtExit;
                 exitCutscene = false;
+
+               
                 //_exitCut = false;
             }
         }
@@ -196,4 +208,10 @@ public class CameraMoveComputer : MonoBehaviour
 
     }//END CheckCutscene
     #endregion
+
+    public void IWantToCheckSomething()
+    {
+        password.deactivateSecurity.SetActive(false);
+    }
+
 } //END CameraMoveComputer.cs  

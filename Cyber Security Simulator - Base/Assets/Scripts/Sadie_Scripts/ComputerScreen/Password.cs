@@ -7,12 +7,23 @@ using UnityEngine.UI;
 public class Password : MonoBehaviour
 {
     public bool passwordActive;
+    public bool passwordSolved;
+    
 
     private string password = "C4ff13n3"; 
 
     public TMP_InputField passwordInput;
     public GameObject passwordInputObj;
-    public Button deactivateSecurity;
+    public GameObject deactivateSecurity;
+    [SerializeField] private RawImage inputInstructions;
+    [SerializeField] private RawImage pWordInstructions;
+    [SerializeField] private TextMeshProUGUI moreInstructions;
+    [SerializeField] private RawImage wrongPword;
+    [SerializeField] private RawImage background;
+    [SerializeField] private Sprite desktopTxture;
+
+    [SerializeField] private Material offMat;
+    [SerializeField] private MeshRenderer[] securityCamParts;
 
     [Header("Controller input")]
     [SerializeField] private string currentInput;
@@ -40,16 +51,33 @@ public class Password : MonoBehaviour
         { 
             //Show button for deactivating cameras/turning on lava
             Debug.Log("Password correct");
+            passwordSolved = true;
             passwordActive = false;
-            deactivateSecurity.enabled = true;
+            deactivateSecurity.SetActive(true);
             passwordInput.enabled = false;
             passwordInputObj.SetActive(false);
+            inputInstructions.enabled = false;
+            pWordInstructions.enabled = false;
+            moreInstructions.enabled = false;
+            wrongPword.enabled = false;
+
+
+            background.texture = desktopTxture.texture;
+
+            for(int i = 0; i < securityCamParts.Length; i++)
+            {
+                securityCamParts[i].materials[0] = offMat; 
+            }
+
+
         }
         //If password is incorrect
         else
         {
             Debug.Log("Wrong password");
             passwordInput.text = "";
+            wrongPword.enabled = true;
+            StartCoroutine(WrongPasswordStopShowing());
         }
     }//END CheckPassword()
 
@@ -149,5 +177,11 @@ public class Password : MonoBehaviour
         yield return new WaitForSeconds(0.3f);
         canInput = true;
     } //END StopTyping()
+
+    IEnumerator WrongPasswordStopShowing()
+    {
+        yield return new WaitForSeconds(3);
+        wrongPword.enabled = false;
+    }
 
 } //END Passwrod.cs
