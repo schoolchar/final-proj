@@ -7,6 +7,7 @@ public class FloorIsLava : MonoBehaviour
     public bool lava;
     //[SerializeField] private DisplayDeaths displayDeaths;
     [SerializeField] private GameObject player;
+    [SerializeField] private Transform respawnPt;
 
     private void OnCollisionEnter(Collision collision) //Change to enter later, stay rn to debug
     {
@@ -19,8 +20,8 @@ public class FloorIsLava : MonoBehaviour
         {
             // Increment the deaths count
             //displayDeaths.IncrementDeaths();
-            // Teleport the player to the coordinates (0, 0, 0) on death by lava, these coordinates can be changed later
-            player.transform.position = new Vector3(0, 5, 0); //Temp, probably will spawn back in the hub
+            // Teleport the player to begining of level
+            player.transform.position = respawnPt.position;
         }
     }
 
