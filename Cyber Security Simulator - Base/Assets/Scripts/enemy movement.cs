@@ -19,6 +19,13 @@ public class enemyMovement : MonoBehaviour
     public int PlayerBullet;
     public GameObject playerBullet;
 
+    [Header("Audio Settings")]
+    public AudioClip hurtSound;
+    public AudioClip shootSound;
+    //sound effect
+    public AudioSource audioSource;
+    public AudioSource hurtAudio;
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -67,21 +74,27 @@ public class enemyMovement : MonoBehaviour
     {
         if (other.name == "player")
         {
-            Debug.Log("Player detected");
             playerInRange = true;
         }
         else if (other.gameObject.name == playerBullet.name + "(Clone)")
         {
+            if (hurtAudio != null && hurtSound != null)
+            {
+                if (!hurtAudio.isPlaying)
+                {
+                    hurtAudio.PlayOneShot(hurtSound);
+                }
+            }
             gameManager.instance.EnemyKilled(); //increase variable to win game
-            Destroy(gameObject); 
+            Destroy(gameObject);
         }
     }
+
 
     void OnTriggerExit(Collider other)
     {
         if (other.name == "player")
         {
-            Debug.Log("Player out of range");
             playerInRange = false;
             MoveToNextPatrolLocation();
         }
@@ -94,15 +107,28 @@ public class enemyMovement : MonoBehaviour
         agent.SetDestination(targetPosition);
     }
 
+    //using the cooldown timer set by next fire time
+    //starts coroutine to play sound and wait 1 sec till shoot
     void ShootPlayer()
     {
         if (Time.time > nextFireTime)
         {
             nextFireTime = Time.time + fireRate;
-            GameObject bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
-            Rigidbody rb = bullet.GetComponent<Rigidbody>();
-            rb.velocity = (player.position - bulletSpawnPoint.position).normalized * 20f; // Adjust bullet speed as necessary
-            Destroy(bullet, 2f); // Destroy bullet after 2 seconds to avoid clutter
+            StartCoroutine(ShootAfterDelay());
         }
+    }
+
+    System.Collections.IEnumerator ShootAfterDelay()
+    {
+        if (audioSource != null)
+        {
+            audioSource.PlayOneShot(shootSound); // starts to play sound
+        }
+        yield return new WaitForSeconds(1f); // Wait for 1 second, can change / match what the sound affect needs
+
+        GameObject bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+        Rigidbody rb = bullet.GetComponent<Rigidbody>();
+        rb.velocity = (player.position - bulletSpawnPoint.position).normalized * 20f; // Adjust bullet speed
+        Destroy(bullet, 2f); // Destroy bullet after 2s
     }
 }
