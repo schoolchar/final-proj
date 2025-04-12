@@ -10,7 +10,8 @@ public class Password : MonoBehaviour
     public bool passwordSolved;
     
 
-    private string password = "C4ff13n3"; 
+    private string password = "C4ff13n3";
+    private string altPassword = "C4FF13N3";
 
     public TMP_InputField passwordInput;
     public GameObject passwordInputObj;
@@ -22,12 +23,16 @@ public class Password : MonoBehaviour
     [SerializeField] private RawImage background;
     [SerializeField] private Sprite desktopTxture;
 
-    [SerializeField] private Material offMat;
-    [SerializeField] private MeshRenderer[] securityCamParts;
+    
 
     [Header("Controller input")]
     [SerializeField] private string currentInput;
     private bool canInput = true; //When we convert to new input system, if we do, this will not be necessary
+
+    [Header("SFX")]
+    [SerializeField] private AudioClip login;
+    [SerializeField] private AudioClip wrongPassword;
+    [SerializeField] private AudioSource computerSound;
 
     private void Start()
     {
@@ -47,10 +52,12 @@ public class Password : MonoBehaviour
     public void CheckPassword(string _input)
     {
         //If password is correct
-        if(_input == password)
+        if(_input == password || _input == altPassword)
         { 
             //Show button for deactivating cameras/turning on lava
             Debug.Log("Password correct");
+            computerSound.clip = login;
+            computerSound.Play();
             passwordSolved = true;
             passwordActive = false;
             deactivateSecurity.SetActive(true);
@@ -64,10 +71,7 @@ public class Password : MonoBehaviour
 
             background.texture = desktopTxture.texture;
 
-            for(int i = 0; i < securityCamParts.Length; i++)
-            {
-                securityCamParts[i].materials[0] = offMat; 
-            }
+         
 
 
         }
@@ -75,6 +79,8 @@ public class Password : MonoBehaviour
         else
         {
             Debug.Log("Wrong password");
+            computerSound.clip = wrongPassword;
+            computerSound.Play();
             passwordInput.text = "";
             wrongPword.enabled = true;
             StartCoroutine(WrongPasswordStopShowing());

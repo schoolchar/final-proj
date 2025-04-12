@@ -7,6 +7,8 @@ using UnityEngine.UI;
 public class CameraMoveComputer : MonoBehaviour
 {
     protected FloorIsLava floorIsLava;
+    [SerializeField] private AudioSource lavaSound;
+    public AudioSource computerSound;
     [SerializeField] protected Password password;
     [SerializeField] protected CinemachineFreeLook cam;
     [SerializeField] protected cam camMovement;
@@ -23,6 +25,10 @@ public class CameraMoveComputer : MonoBehaviour
     private bool enterCutscene;
     private bool exitCutscene;
 
+
+    [SerializeField] private Material offMat;
+    [SerializeField] private MeshRenderer[] securityCamParts;
+    [SerializeField] private AudioSource[] securityCamNoise;
 
     private bool canExit = true;
     [SerializeField] private Canvas computerUI;
@@ -209,9 +215,20 @@ public class CameraMoveComputer : MonoBehaviour
     }//END CheckCutscene
     #endregion
 
-    public void IWantToCheckSomething()
+    public void SecurityCam()
     {
         password.deactivateSecurity.SetActive(false);
+        lavaSound.Play();
+
+        for (int i = 0; i < securityCamParts.Length; i++)
+        {
+            securityCamParts[i].materials[0] = offMat;
+        }
+
+        for(int i = 0; i < securityCamNoise.Length; i++)
+        {
+            securityCamNoise[i].Play();
+        }
     }
 
 } //END CameraMoveComputer.cs  

@@ -9,6 +9,9 @@ public class FloorIsLava : MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] private Transform respawnPt;
 
+    [SerializeField] AudioSource lavaSound;
+    [SerializeField] private ParticleSystem[] lavaParticles;
+
     private void OnCollisionEnter(Collision collision) //Change to enter later, stay rn to debug
     {
         KillPlayer(collision);
@@ -30,5 +33,24 @@ public class FloorIsLava : MonoBehaviour
     {
         Debug.Log("Lava on");
         lava = true;
+
+        for (int i = 0; i < lavaParticles.Length; i++)
+        {
+            lavaParticles[i].Play();
+        }
+    }
+
+    public void TurnOffLava()
+    {
+        if(lavaSound != null)
+        {
+            lavaSound.Stop();
+        }
+
+        for(int i = 0; i < lavaParticles.Length; i++)
+        {
+            lavaParticles[i].Stop();
+        }
+
     }
 }

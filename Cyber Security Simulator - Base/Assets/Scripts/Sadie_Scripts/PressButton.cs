@@ -5,11 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class PressButton : MonoBehaviour
 {
+    [SerializeField] private AudioSource buttonPressSFX;
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.layer == 7)
         {
             PressStupidButton();
+            buttonPressSFX.Play();
         }
     }
 

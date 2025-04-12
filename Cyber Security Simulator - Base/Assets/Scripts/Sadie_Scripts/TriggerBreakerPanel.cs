@@ -17,7 +17,7 @@ public class TriggerBreakerPanel : CameraMoveComputer
     [SerializeField] private Transform moveToPt;
     private Vector3 breakerRounddMovePt;
     [SerializeField] private Transform breakerObj;
-
+    [SerializeField] private AudioSource breakerSound;
     public bool debugMode;
     private void Start()
     {
@@ -114,4 +114,10 @@ public class TriggerBreakerPanel : CameraMoveComputer
         exitCutsceneB = true;
         EnablePlayerMovement();
     } //END ExitCutsceneB()
+
+
+    public void PlayWinSound()
+    {
+        breakerSound.Play();
+    }
 } //END TriggerBreakerPanel.cs

@@ -15,6 +15,9 @@ public class BreakerPanel : MonoBehaviour
 
     [SerializeField] private TriggerBreakerPanel trigger;
 
+    [SerializeField] private AudioSource switchSound;
+    [SerializeField] private FloorIsLava[] floors;
+
     [Header("Controller")]
     public bool breakerActive;
     private int currentSwitch = 0;
@@ -38,7 +41,7 @@ public class BreakerPanel : MonoBehaviour
     {
         //Turns on and off
         switches[_index] = !switches[_index];
-        
+        switchSound.Play();
 
         ChangeSprite(_index);
         CheckSolution();
@@ -59,6 +62,12 @@ public class BreakerPanel : MonoBehaviour
 
         //If they are the same, solve puzzle
         Debug.Log("Solved puzzle");
+        for(int i = 0; i < floors.Length; i++)
+        {
+            floors[i].TurnOffLava();
+        }
+
+        trigger.PlayWinSound();
         trigger.ExitCutsceneB();
     }
 
