@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1536
     height: 772.8
   m_ShowMode: 4
-  m_Title: Hierarchy
+  m_Title: Scene
   m_RootView: {fileID: 8}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -74,7 +74,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 174
+  controlID: 197
   draggingID: 0
 --- !u!114 &4
 MonoBehaviour:
@@ -100,7 +100,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 257
+  controlID: 280
   draggingID: 0
 --- !u!114 &5
 MonoBehaviour:
@@ -277,7 +277,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 50
+  controlID: 45
   draggingID: 0
 --- !u!114 &12
 MonoBehaviour:
@@ -303,7 +303,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 51
+  controlID: 46
   draggingID: 0
 --- !u!114 &13
 MonoBehaviour:
@@ -573,7 +573,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes
+    - Assets/Scripts/hub
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -581,17 +581,17 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scenes
+  - Assets/Scripts/hub
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\rappa\Desktop\github\final-proj\Cyber Security Simulator
     - Base
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 250.20001}
-    m_SelectedIDs: 26a80000
-    m_LastClickedID: 43046
-    m_ExpandedIDs: 00000000eaa5000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 282.2}
+    m_SelectedIDs: 06b50000
+    m_LastClickedID: 46342
+    m_ExpandedIDs: 00000000f4810000c882000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -619,7 +619,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000eaa50000
+    m_ExpandedIDs: 00000000f4810000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -713,9 +713,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: d0dd0000
-      m_LastClickedID: 56784
-      m_ExpandedIDs: 70ceffff9cd2ffff10fbffff62da0000
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: aceeffff5eefffff12f0ffff10fbffff3ab3000052b30000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1148,9 +1148,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 9.858458, y: 9.72062, z: 33.70536}
+    m_Target: {x: -0.5528765, y: -0.18700951, z: -15.909214}
     speed: 2
-    m_Value: {x: 9.858458, y: 9.72062, z: 33.70536}
+    m_Value: {x: -0.5528765, y: -0.18700951, z: -15.909214}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1196,13 +1196,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.0066537927, y: 0.95978415, z: -0.27449355, w: -0.08310334}
+    m_Target: {x: 0.34126696, y: -0.06759582, z: 0.024618378, w: 0.93723303}
     speed: 2
-    m_Value: {x: -0.0065433662, y: 0.9584453, z: -0.27286682, w: -0.08296686}
+    m_Value: {x: 0.34128872, y: -0.06646964, z: 0.024208311, w: 0.93729275}
   m_Size:
-    m_Target: 6.74466
+    m_Target: 2.050032
     speed: 2
-    m_Value: 6.74466
+    m_Value: 2.050032
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -1220,8 +1220,8 @@ MonoBehaviour:
     m_FarClip: 10000
     m_DynamicClip: 1
     m_OcclusionCulling: 0
-  m_LastSceneViewRotation: {x: 0.33450598, y: 0.1806128, z: -0.06548011, w: 0.9226492}
-  m_LastSceneViewOrtho: 0
+  m_LastSceneViewRotation: {x: 0.041967236, y: 0.031167556, z: -0.001309816, w: 0.99863404}
+  m_LastSceneViewOrtho: 1
   m_ReplacementShader: {fileID: 0}
   m_ReplacementString: 
   m_SceneVisActive: 1
