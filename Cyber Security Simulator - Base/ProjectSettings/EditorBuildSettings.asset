@@ -26,4 +26,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Start.unity
     guid: b9e239a4244c56745b0c437c9ca68ccb
+  - enabled: 1
+    path: Assets/Scenes/Parkour.unity
+    guid: 3fdf7635786aae34f8ce76a8bdfe9a1d
+  - enabled: 1
+    path: Assets/Scenes/EscapeRoomTest.unity
+    guid: 2a4354bac5b7dbd43b028c1ed300b3a5
   m_configObjects: {}

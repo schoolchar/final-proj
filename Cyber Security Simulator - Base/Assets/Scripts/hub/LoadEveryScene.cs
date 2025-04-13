@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class LoadEveryScene : MonoBehaviour
 {
+
     private void Awake()
     {
         Debug.Log("Supposed to assign");

@@ -13,12 +13,17 @@ public class PlayerSlide : MonoBehaviour
     public bool debugMode;
     public Rigidbody rb;
 
-    public DisplayDeaths displayDeaths; //added for death manager
+
+    //gets game manager for unlocks
+    public gameManager manager;
 
     // Start is called before the first frame update
     void Start()
     {
-        if (debugMode)
+        //finds game manager
+        manager = FindAnyObjectByType<gameManager>();
+
+        if (manager.escapeRoomUnlocked == true)
         {
             AllowSliding();
         }

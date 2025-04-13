@@ -32,8 +32,8 @@ public class grapple : MonoBehaviour
     // If currently grappling or not
     private bool grappling;
 
-    //gets death counter
-    public DisplayDeaths displayDeaths;
+    //gets game manager for unlocks
+    public gameManager manager;
 
     private void Start()
     {
@@ -44,7 +44,7 @@ public class grapple : MonoBehaviour
     private void Update()
     {
         // Checks if key is pressed 
-        if ((Input.GetKeyDown(KeyCode.F) || Input.GetKeyDown(KeyCode.JoystickButton4)) && displayDeaths.GetDeathCount() >= 0) StartGrapple();
+        if ((Input.GetKeyDown(KeyCode.F) || Input.GetKeyDown(KeyCode.JoystickButton4)) && manager.parkourUnlocked == true) StartGrapple();
 
         // Makes it so grappling cooldown is counting down
         if (grapplingCooldownTime > 0)
