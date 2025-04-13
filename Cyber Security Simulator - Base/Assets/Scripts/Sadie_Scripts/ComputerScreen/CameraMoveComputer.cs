@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 using UnityEngine.UI;
+using UnityEngine.Rendering;
+using System.Runtime.CompilerServices;
+using TMPro;
 
 public class CameraMoveComputer : MonoBehaviour
 {
@@ -11,7 +14,6 @@ public class CameraMoveComputer : MonoBehaviour
     public AudioSource computerSound;
     [SerializeField] protected Password password;
     [SerializeField] protected CinemachineFreeLook cam;
-    [SerializeField] protected Camera mainCam;
     [SerializeField] protected cam camMovement;
     [SerializeField] protected PlayerMovement playerMovement;
     [SerializeField] protected PlayerShooting shooting;
@@ -34,6 +36,15 @@ public class CameraMoveComputer : MonoBehaviour
     private bool canExit = true;
     [SerializeField] private Canvas computerUI;
 
+    [Header("Post processing")]
+    [SerializeField] private Volume volume;
+
+    [Header("Computer Visible UI")]
+    [SerializeField] private RawImage[] rawImg;
+    [SerializeField] private Image[] normImg;
+    [SerializeField] private TextMeshProUGUI[] extraInstructions;
+    private Color decrementColor = new Color(0, 0, 0, 0.05f);
+
     private void Start()
     {
         floorIsLava = FindAnyObjectByType<FloorIsLava>();
@@ -50,6 +61,7 @@ public class CameraMoveComputer : MonoBehaviour
             if (other.gameObject.layer == 7)
             {
                 enterCutscene = true;
+                StartCoroutine(FadeOut());
             }
         }
         
@@ -136,14 +148,14 @@ public class CameraMoveComputer : MonoBehaviour
         cam.transform.rotation = Quaternion.Lerp(cam.transform.rotation, _moveTo.rotation, interpolateVal); //Close, not completely rotated though, also depends on where you start out
         //cam.LookAt = computer;
 
-        mainCam.transform.position = Vector3.Lerp(cam.transform.position, _moveTo.position, interpolateVal);
-        mainCam.transform.rotation = Quaternion.Lerp(cam.transform.rotation, _moveTo.rotation, interpolateVal);
-
+      
         //Enable UI and mouse movement
         _UI.enabled = true;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         password.passwordActive = true;
+
+        
 
 
     } //END MoveCameraToComputer()
@@ -233,6 +245,53 @@ public class CameraMoveComputer : MonoBehaviour
         {
             securityCamNoise[i].Play();
         }
+    }
+
+
+    //Post-Processing
+    public IEnumerator FadeOut()
+    {
+        volume.weight += 0.05f;
+
+       
+        yield return new WaitForSeconds(0.05f);
+
+        if (volume.weight < 1)
+            StartCoroutine(FadeOut());
+        else if (volume.weight >= 1)
+            StartCoroutine(WaitToFadeIn());
+
+    }
+
+    public IEnumerator WaitToFadeIn()
+    {
+        yield return new WaitForSeconds(1);
+        StartCoroutine(FadeIn());
+    }
+
+    public IEnumerator FadeIn()
+    {
+        volume.weight -= 0.05f;
+        for (int i = 0; i < rawImg.Length; i++)
+        {
+            rawImg[i].color += decrementColor;
+        }
+
+        for (int i = 0; i < normImg.Length; i++)
+        {
+            normImg[i].color += decrementColor;
+        }
+
+        for(int i = 0; i < extraInstructions.Length; i++)
+        {
+            extraInstructions[i].color += decrementColor;
+        }
+        
+
+        yield return new WaitForSeconds(0.05f);
+        if (volume.weight > 0)
+            StartCoroutine(FadeIn());
+            
     }
 
 } //END CameraMoveComputer.cs  

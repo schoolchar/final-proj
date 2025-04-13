@@ -8,6 +8,7 @@ using UnityEngine.UI;
 /// </summary>
 public class TriggerBreakerPanel : CameraMoveComputer
 {
+    [Header("Breaker Panel")]
     [SerializeField] private Canvas breakerPanelCanvas;
     [SerializeField] private CameraMoveComputer moveScript;
 
@@ -58,6 +59,7 @@ public class TriggerBreakerPanel : CameraMoveComputer
             {
                 enterCutsceneB = true;
                 FindAnyObjectByType<BreakerPanel>().breakerActive = true;
+                StartCoroutine(FadeOut());
             }
         }
        
