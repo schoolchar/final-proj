@@ -77,8 +77,8 @@ public class PauseMenu : MonoBehaviour
                 audio.UnPause();
             }
         }
-
-        pauseMusic.Stop(); // Stop pause music
+        if (pauseMusic != null)
+            pauseMusic.Stop(); // Stop pause music
         
     }
 
@@ -102,6 +102,7 @@ public class PauseMenu : MonoBehaviour
             }
         }
 
+        if (pauseMusic != null) 
         pauseMusic.Play(); // Start playing pause menu music
         
 

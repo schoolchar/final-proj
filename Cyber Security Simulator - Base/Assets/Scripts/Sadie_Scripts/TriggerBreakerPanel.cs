@@ -9,6 +9,7 @@ using UnityEngine.UI;
 public class TriggerBreakerPanel : CameraMoveComputer
 {
     [Header("Breaker Panel")]
+    [SerializeField] private GameObject breakerPanelCanvasObj;
     [SerializeField] private Canvas breakerPanelCanvas;
     [SerializeField] private CameraMoveComputer moveScript;
 
@@ -31,13 +32,13 @@ public class TriggerBreakerPanel : CameraMoveComputer
         //Check if player has triggered whatever to open the breaker panel, or close breaker panel
         if(enterCutsceneB)
         {
-            MoveCameraToComputer(moveToPt, breakerPanelCanvas);
+            MoveCameraToComputer(moveToPt, breakerPanelCanvas, breakerPanelCanvasObj);
         }
 
         if(exitCutsceneB)
         {
             Debug.Log("Exit cutscene on breaker triggered");
-            MoveCameraToPlayer(oldPos, camMovement.playerPhy.gameObject.transform.rotation, breakerPanelCanvas);
+            MoveCameraToPlayer(oldPos, camMovement.playerPhy.gameObject.transform.rotation, breakerPanelCanvas, breakerPanelCanvasObj);
         }
 
         CheckCutscene(breakerRounddMovePt, roundedOldPos, breakerObj, playerMovement.gameObject.transform);

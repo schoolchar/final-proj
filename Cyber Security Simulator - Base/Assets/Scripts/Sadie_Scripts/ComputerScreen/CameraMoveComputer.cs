@@ -34,6 +34,7 @@ public class CameraMoveComputer : MonoBehaviour
     [SerializeField] private AudioSource[] securityCamNoise;
 
     private bool canExit = true;
+    [SerializeField] private GameObject computerUIObj;
     [SerializeField] private Canvas computerUI;
 
     [Header("Post processing")]
@@ -73,12 +74,12 @@ public class CameraMoveComputer : MonoBehaviour
         //Check if player/camera moves towards or away from the computer
         if(enterCutscene)
         {
-            MoveCameraToComputer(moveToPoint, computerUI);
+            MoveCameraToComputer(moveToPoint, computerUI, computerUIObj);
         }
 
         if (exitCutscene)
         {
-            MoveCameraToPlayer(oldPos, camMovement.playerPhy.gameObject.transform.rotation, computerUI);
+            MoveCameraToPlayer(oldPos, camMovement.playerPhy.gameObject.transform.rotation, computerUI, computerUIObj);
         }
 
         CheckCutscene(roundedMovePt, roundedOldPos, computer, playerMovement.gameObject.transform);
@@ -142,7 +143,7 @@ public class CameraMoveComputer : MonoBehaviour
     /// </summary>
     /// <param name="_moveTo">Position the camera needs to move to in front of computer</param>
     /// <param name="_UI">Computer UI that needs to be enabled</param>
-    public void MoveCameraToComputer(Transform _moveTo, Canvas _UI)
+    public void MoveCameraToComputer(Transform _moveTo, Canvas _UI, GameObject _UIObj)
     {
        cam.transform.position =  Vector3.Lerp(cam.transform.position, _moveTo.position, interpolateVal);
         cam.transform.rotation = Quaternion.Lerp(cam.transform.rotation, _moveTo.rotation, interpolateVal); //Close, not completely rotated though, also depends on where you start out
@@ -150,6 +151,7 @@ public class CameraMoveComputer : MonoBehaviour
 
       
         //Enable UI and mouse movement
+        _UIObj.SetActive(true);
         _UI.enabled = true;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
@@ -166,13 +168,14 @@ public class CameraMoveComputer : MonoBehaviour
     /// <param name="_moveToPos">Position near player to move to, recorded from before movement to the computer started</param>
     /// <param name="_moveToRot">Rotation towards computer</param>
     /// <param name="_UI">Computer Ui to disable</param>
-    public void MoveCameraToPlayer(Vector3 _moveToPos, Quaternion _moveToRot, Canvas _UI)
+    public void MoveCameraToPlayer(Vector3 _moveToPos, Quaternion _moveToRot, Canvas _UI, GameObject _UIObj)
     {
         Debug.Log("Move cam to player " + this.gameObject.name);
         cam.transform.position = Vector3.Lerp(cam.transform.position, _moveToPos, interpolateVal);
         cam.transform.rotation = Quaternion.Lerp(cam.transform.rotation, _moveToRot, interpolateVal);
 
         //Disable Ui and mouse
+        _UIObj.SetActive(false);
         _UI.enabled = false;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
