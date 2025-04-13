@@ -11,6 +11,7 @@ public class CameraMoveComputer : MonoBehaviour
     public AudioSource computerSound;
     [SerializeField] protected Password password;
     [SerializeField] protected CinemachineFreeLook cam;
+    [SerializeField] protected Camera mainCam;
     [SerializeField] protected cam camMovement;
     [SerializeField] protected PlayerMovement playerMovement;
     [SerializeField] protected PlayerShooting shooting;
@@ -134,7 +135,10 @@ public class CameraMoveComputer : MonoBehaviour
        cam.transform.position =  Vector3.Lerp(cam.transform.position, _moveTo.position, interpolateVal);
         cam.transform.rotation = Quaternion.Lerp(cam.transform.rotation, _moveTo.rotation, interpolateVal); //Close, not completely rotated though, also depends on where you start out
         //cam.LookAt = computer;
-        
+
+        mainCam.transform.position = Vector3.Lerp(cam.transform.position, _moveTo.position, interpolateVal);
+        mainCam.transform.rotation = Quaternion.Lerp(cam.transform.rotation, _moveTo.rotation, interpolateVal);
+
         //Enable UI and mouse movement
         _UI.enabled = true;
         Cursor.visible = true;
