@@ -7,16 +7,32 @@ using UnityEngine.UI;
 public class Password : MonoBehaviour
 {
     public bool passwordActive;
+    public bool passwordSolved;
+    
 
-    private string password = "C4ff13n3"; 
+    private string password = "C4ff13n3";
+    private string altPassword = "C4FF13N3";
 
     public TMP_InputField passwordInput;
     public GameObject passwordInputObj;
-    public Button deactivateSecurity;
+    public GameObject deactivateSecurity;
+    [SerializeField] private RawImage inputInstructions;
+    [SerializeField] private RawImage pWordInstructions;
+    [SerializeField] private TextMeshProUGUI moreInstructions;
+    [SerializeField] private RawImage wrongPword;
+    [SerializeField] private RawImage background;
+    [SerializeField] private Sprite desktopTxture;
+
+    
 
     [Header("Controller input")]
     [SerializeField] private string currentInput;
     private bool canInput = true; //When we convert to new input system, if we do, this will not be necessary
+
+    [Header("SFX")]
+    [SerializeField] private AudioClip login;
+    [SerializeField] private AudioClip wrongPassword;
+    [SerializeField] private AudioSource computerSound;
 
     private void Start()
     {
@@ -36,20 +52,38 @@ public class Password : MonoBehaviour
     public void CheckPassword(string _input)
     {
         //If password is correct
-        if(_input == password)
+        if(_input == password || _input == altPassword)
         { 
             //Show button for deactivating cameras/turning on lava
             Debug.Log("Password correct");
+            computerSound.clip = login;
+            computerSound.Play();
+            passwordSolved = true;
             passwordActive = false;
-            deactivateSecurity.enabled = true;
+            deactivateSecurity.SetActive(true);
             passwordInput.enabled = false;
             passwordInputObj.SetActive(false);
+            inputInstructions.enabled = false;
+            pWordInstructions.enabled = false;
+            moreInstructions.enabled = false;
+            wrongPword.enabled = false;
+
+
+            background.texture = desktopTxture.texture;
+
+         
+
+
         }
         //If password is incorrect
         else
         {
             Debug.Log("Wrong password");
+            computerSound.clip = wrongPassword;
+            computerSound.Play();
             passwordInput.text = "";
+            wrongPword.enabled = true;
+            StartCoroutine(WrongPasswordStopShowing());
         }
     }//END CheckPassword()
 
@@ -149,5 +183,11 @@ public class Password : MonoBehaviour
         yield return new WaitForSeconds(0.3f);
         canInput = true;
     } //END StopTyping()
+
+    IEnumerator WrongPasswordStopShowing()
+    {
+        yield return new WaitForSeconds(3);
+        wrongPword.enabled = false;
+    }
 
 } //END Passwrod.cs

@@ -8,6 +8,7 @@ using UnityEngine.UI;
 /// </summary>
 public class TriggerBreakerPanel : CameraMoveComputer
 {
+    [Header("Breaker Panel")]
     [SerializeField] private Canvas breakerPanelCanvas;
     [SerializeField] private CameraMoveComputer moveScript;
 
@@ -17,7 +18,7 @@ public class TriggerBreakerPanel : CameraMoveComputer
     [SerializeField] private Transform moveToPt;
     private Vector3 breakerRounddMovePt;
     [SerializeField] private Transform breakerObj;
-
+    [SerializeField] private AudioSource breakerSound;
     public bool debugMode;
     private void Start()
     {
@@ -35,10 +36,17 @@ public class TriggerBreakerPanel : CameraMoveComputer
 
         if(exitCutsceneB)
         {
+            Debug.Log("Exit cutscene on breaker triggered");
             MoveCameraToPlayer(oldPos, camMovement.playerPhy.gameObject.transform.rotation, breakerPanelCanvas);
         }
 
         CheckCutscene(breakerRounddMovePt, roundedOldPos, breakerObj, playerMovement.gameObject.transform);
+
+        if (breakerPanelCanvas.enabled && Input.GetKeyDown(KeyCode.JoystickButton1))
+        {
+            
+            ExitCutscene();
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -51,6 +59,7 @@ public class TriggerBreakerPanel : CameraMoveComputer
             {
                 enterCutsceneB = true;
                 FindAnyObjectByType<BreakerPanel>().breakerActive = true;
+                StartCoroutine(FadeOut());
             }
         }
        
@@ -107,4 +116,10 @@ public class TriggerBreakerPanel : CameraMoveComputer
         exitCutsceneB = true;
         EnablePlayerMovement();
     } //END ExitCutsceneB()
+
+
+    public void PlayWinSound()
+    {
+        breakerSound.Play();
+    }
 } //END TriggerBreakerPanel.cs

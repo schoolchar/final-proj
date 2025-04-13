@@ -34,6 +34,11 @@ public class gameManager : MonoBehaviour
     private int hubVisitCount;
     private bool startTimer;
 
+    [Header("LevelsComplete")]
+    public bool combat;
+    public bool parkour;
+    public bool escapeRoom;
+
     #region Monobehaviours
     void Awake()
     {
@@ -90,7 +95,8 @@ public class gameManager : MonoBehaviour
         Debug.Log("Health before: " + totalHealth);
         totalHealth -= 1;
         Debug.Log("Health after: " + totalHealth);
-        healthText.text = totalHealth + "/3";
+        if(healthText != null)
+            healthText.text = totalHealth + "/3";
 
         yield return new WaitForSeconds(0.5f); // Wait for 0.5 second
 

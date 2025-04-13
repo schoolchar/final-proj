@@ -11,19 +11,25 @@ public class CheatButton : MonoBehaviour
     [SerializeField] private BreakerPanel breakerScript;
     //Also some variable for opening the door
 
-    /// <summary>
-    /// Disable functionality for level, let player has a free pass
-    /// </summary>
-    public void PressStupidButton()
-    {
-        //Disable all of the puzzle components
-        compCollider.enabled = false;
-        breakerCollider.enabled = false;
-        compScript.enabled = false;
-        breakerTriggerScript.enabled = false;
-        breakerScript.enabled = false;
+    [SerializeField] private Animator animator;
 
-        //Enable whatever allows player to pass
-    } //END PressStupidButton()
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.layer == 7)
+        {
+            animator.SetBool("Open", true);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.layer == 7)
+        {
+            animator.SetBool("Open", false);
+        }
+    }
+
+
    
 }//END CheatButton.cs
