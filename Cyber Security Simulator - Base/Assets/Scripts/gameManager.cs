@@ -39,12 +39,21 @@ public class gameManager : MonoBehaviour
     public bool parkour;
     public bool escapeRoom;
 
+    [Header("Unlocks")]
+    public bool combatUnlocked;
+    public bool parkourUnlocked;
+    public bool escapeRoomUnlocked;
+
     #region Monobehaviours
     void Awake()
     {
         instance = this;
         DontDestroyOnLoad(this.gameObject);
-    }
+
+        combatUnlocked = false;
+        parkourUnlocked = false;
+        escapeRoomUnlocked = false;
+}
     void Start()
     {
         enemiesKilled = 0; // how many enemies killed
@@ -58,6 +67,7 @@ public class gameManager : MonoBehaviour
         if (enemiesKilled == 5)
         {
             SceneManager.LoadSceneAsync("win");
+            enemiesKilled = 0; 
         }
         if (totalHealth == 0)
         {
