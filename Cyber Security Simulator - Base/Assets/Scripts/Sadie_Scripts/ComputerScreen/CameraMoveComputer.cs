@@ -252,7 +252,7 @@ public class CameraMoveComputer : MonoBehaviour
     public IEnumerator FadeOut()
     {
         volume.weight += 0.05f;
-
+        
        
         yield return new WaitForSeconds(0.05f);
 

@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - TimerText
+  - EnemiesKilledText
+  - HealthText
+  - GunStatusText
+  - GrappleStatusText
+  - WallrunStatusText
   layers:
   - Default
   - TransparentFX

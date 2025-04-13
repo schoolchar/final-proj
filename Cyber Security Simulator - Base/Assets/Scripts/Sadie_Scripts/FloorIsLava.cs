@@ -71,6 +71,6 @@ public class FloorIsLava : MonoBehaviour
     IEnumerator WaitToLoadHub()
     {
         yield return new WaitForSeconds(2);
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("Start");
     }
 }

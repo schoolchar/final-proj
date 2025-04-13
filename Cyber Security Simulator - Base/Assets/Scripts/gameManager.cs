@@ -40,9 +40,12 @@ public class gameManager : MonoBehaviour
     public bool escapeRoom;
 
     [Header("Unlocks")]
-    public bool combatUnlocked;
-    public bool parkourUnlocked;
-    public bool escapeRoomUnlocked;
+    public bool combatUnlocked; //shooting
+    public bool parkourUnlocked; //grapple
+    public bool escapeRoomUnlocked; //wallrun
+    [SerializeField] private TextMeshProUGUI gunText;
+    [SerializeField] private TextMeshProUGUI grappleText;
+    [SerializeField] private TextMeshProUGUI wallrunText;
 
     #region Monobehaviours
     void Awake()
@@ -57,6 +60,7 @@ public class gameManager : MonoBehaviour
     void Start()
     {
         enemiesKilled = 0; // how many enemies killed
+        InitOnLoad();
     }
 
 
@@ -67,11 +71,13 @@ public class gameManager : MonoBehaviour
         if (enemiesKilled == 5)
         {
             SceneManager.LoadSceneAsync("win");
-            enemiesKilled = 0; 
+            enemiesKilled = 0;
+            Destroy(this.gameObject);
         }
         if (totalHealth == 0)
         {
-            SceneManager.LoadSceneAsync("lost");
+            SceneManager.LoadSceneAsync("Start");
+            totalHealth = 3;
         }
         enemiesKilledText.text = "Enemies Killed: " + enemiesKilled;
         healthText.text = totalHealth + "/3";
@@ -85,6 +91,42 @@ public class gameManager : MonoBehaviour
 
     }
     #endregion
+
+    /// <summary>
+    /// Call every time a new scene is created, assigns UI elements
+    /// </summary>
+    public void InitOnLoad()
+    {
+        //Assign text mesh for enemies killed, health, and speedrun timer
+        
+        enemiesKilledText = GameObject.FindGameObjectWithTag("EnemiesKilledText").GetComponent<TextMeshProUGUI>();
+        healthText = GameObject.FindGameObjectWithTag("HealthText").GetComponent<TextMeshProUGUI>();
+        timerText = GameObject.FindGameObjectWithTag("TimerText").GetComponent<TextMeshProUGUI>();
+
+        //Assign skills that are online for the text to show this
+        gunText = GameObject.FindGameObjectWithTag("GunStatusText").GetComponent<TextMeshProUGUI>();
+        grappleText = GameObject.FindGameObjectWithTag("GrappleStatusText").GetComponent<TextMeshProUGUI>();
+        wallrunText = GameObject.FindGameObjectWithTag("WallrunStatusText").GetComponent<TextMeshProUGUI>();
+
+        //Combat skill unlocked?
+        if (combatUnlocked)
+            gunText.text = "Shooting Online";
+        else
+            gunText.text = "Shooting Offline";
+
+        //Grapple skill unlocked?
+        if (parkourUnlocked)
+            grappleText.text = "Grappling Online";
+        else
+            grappleText.text = "Grappling Offline";
+
+        //Wallrun skill unlocked?
+        if (escapeRoomUnlocked)
+            wallrunText.text = "Wallrunning Online";
+        else
+            wallrunText.text = "Wallrunning Offline";
+
+    } //END InitOnLoad()
 
     public void EnemyKilled()
     {
