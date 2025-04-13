@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FloorIsLava : MonoBehaviour
 {
@@ -11,6 +12,13 @@ public class FloorIsLava : MonoBehaviour
 
     [SerializeField] AudioSource lavaSound;
     [SerializeField] private ParticleSystem[] lavaParticles;
+
+    gameManager manager;
+
+    private void Start()
+    {
+        manager = FindAnyObjectByType<gameManager>();
+    }
 
     private void OnCollisionEnter(Collision collision) //Change to enter later, stay rn to debug
     {
@@ -24,7 +32,13 @@ public class FloorIsLava : MonoBehaviour
             // Increment the deaths count
             //displayDeaths.IncrementDeaths();
             // Teleport the player to begining of level
-            player.transform.position = respawnPt.position;
+            manager.healthLose();
+            if(manager.totalHealth > 0) 
+                player.transform.position = respawnPt.position;
+            else if(manager.totalHealth <= 0)
+            {
+                StartCoroutine(WaitToLoadHub());
+            }
         }
     }
 
@@ -52,5 +66,11 @@ public class FloorIsLava : MonoBehaviour
             lavaParticles[i].Stop();
         }
 
+    }
+
+    IEnumerator WaitToLoadHub()
+    {
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene(0);
     }
 }

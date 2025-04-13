@@ -24,9 +24,12 @@ public class BreakerPanel : MonoBehaviour
     private bool canInput = true;
     private float scaleVal = 0.1f;
 
+    gameManager gameManagerScript;
+
     private void Start()
     {
         switchSprites[currentSwitch].image.transform.localScale += (Vector3.one * scaleVal);
+        gameManagerScript = FindAnyObjectByType<gameManager>();
     }
     private void Update()
     {
@@ -69,6 +72,7 @@ public class BreakerPanel : MonoBehaviour
 
         trigger.PlayWinSound();
         trigger.ExitCutsceneB();
+        gameManagerScript.escapeRoom = true;
     }
 
     ///<summary>

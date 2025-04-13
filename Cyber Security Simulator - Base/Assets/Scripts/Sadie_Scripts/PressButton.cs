@@ -6,6 +6,12 @@ using UnityEngine.SceneManagement;
 public class PressButton : MonoBehaviour
 {
     [SerializeField] private AudioSource buttonPressSFX;
+    gameManager gameManagerScript;
+
+    private void Start()
+    {
+        gameManagerScript = FindAnyObjectByType<gameManager>();
+    }
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.layer == 7)
@@ -21,6 +27,7 @@ public class PressButton : MonoBehaviour
     /// </summary>
     public void PressStupidButton()
     {
+        gameManagerScript.escapeRoom = true;
         StartCoroutine(WaitToLoadHub());
        
     } //END PressStupidButton()
