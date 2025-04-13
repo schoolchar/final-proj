@@ -35,7 +35,7 @@ public class FloorIsLava : MonoBehaviour
             manager.healthLose();
             if(manager.totalHealth > 0) 
                 player.transform.position = respawnPt.position;
-            else if(manager.totalHealth <= 0)
+            else if(manager.totalHealth == 0)
             {
                 StartCoroutine(WaitToLoadHub());
             }
