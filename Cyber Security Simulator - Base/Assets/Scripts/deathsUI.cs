@@ -11,10 +11,17 @@ public class DisplayDeaths : MonoBehaviour
     public TMP_Text Shoot;
     public TMP_Text Grapple;
 
+    //gets game manager for unlocks
+    public gameManager manager;
+
+
     private int deaths = 0;
 
     void Start()
     {
+        //finds game manager
+        manager = FindAnyObjectByType<gameManager>();
+
         uiText.text = "Deaths: " + deaths;
         Wallrun.text = "Wallrun offline";
         Shoot.text = "Gun offline";
@@ -23,15 +30,15 @@ public class DisplayDeaths : MonoBehaviour
 
     private void Update()
     {
-        if (deaths == 0)
+        if (manager.combatUnlocked == true)
         {
             Shoot.text = "Gun online";
         }
-        if (deaths == 0)
+        if (manager.parkourUnlocked == true)
         {
             Grapple.text = "Grapple online";
         }
-        if (deaths == 0)
+        if (manager.escapeRoomUnlocked == true)
         {
             Wallrun.text = "Wallrun online";
         }

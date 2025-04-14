@@ -15,18 +15,28 @@ public class PlayerShooting : MonoBehaviour
 
     public Animator animator;//added for animator
 
+    //gets the gamemanager for unlocks
+    public gameManager manager;
+
     public PauseMenu pauseMenu;
+
+    private void Start()
+    {
+        //finds game manager
+        manager = FindAnyObjectByType<gameManager>();
+    }
     void Update()
     {
-        if (Input.GetButton("Fire2") && displayDeaths.GetDeathCount() >= 0 && !pauseMenu.isPaused) // Right mouse is held
+        
+        if (Input.GetButton("Fire2") && manager.combatUnlocked == true && !pauseMenu.isPaused) // Right mouse is held
         {
             Debug.Log("Shoot" + pauseMenu.isPaused);
-            if (Input.GetButtonDown("Fire1") && displayDeaths.GetDeathCount() >= 0) // Left mouse pressed
+            if (Input.GetButtonDown("Fire1") && manager.combatUnlocked == true) // Left mouse pressed
             {
                 ShootVerDos();
             }
         }
-        else if (Input.GetButtonDown("Fire1") && displayDeaths.GetDeathCount() >= 0 && !pauseMenu.isPaused) // Left mouse pressed (No right mouse)
+        else if (Input.GetButtonDown("Fire1") && manager.combatUnlocked == true && !pauseMenu.isPaused) // Left mouse pressed (No right mouse)
         {
             Debug.Log("Shoot" + pauseMenu.isPaused);
             Shoot();

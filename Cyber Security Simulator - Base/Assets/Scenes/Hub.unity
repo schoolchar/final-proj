@@ -1288,6 +1288,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e6a188083c30c64db6bc73fed8f1cf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  optionsButton: {fileID: 1950708295}
+  howToPlayB: {fileID: 646481610}
+  cheatsB: {fileID: 1305246191}
+  exitGameB: {fileID: 1387633752}
+  exitOptions: {fileID: 2427822}
+  speedrunB: {fileID: 1747853972}
+  invincibilityB: {fileID: 247603570}
+  exitHow2PlayB: {fileID: 286244285}
+  exitCheatsB: {fileID: 1012423871}
+  playButton: {fileID: 1171972265}
+  opButton: {fileID: 1950708296}
+  chooseColor: {r: 1, g: 1, b: 1, a: 0.050980393}
+  blankColor: {r: 1, g: 1, b: 1, a: 0}
+  chooseColorFullButton: {r: 0.745283, g: 0.745283, b: 0.745283, a: 1}
+  blankColorFullButton: {r: 1, g: 1, b: 1, a: 1}
+  menuButtonImg:
+  - {fileID: 646481611}
+  - {fileID: 1305246192}
+  - {fileID: 1012423872}
+  - {fileID: 1747853973}
+  - {fileID: 247603571}
+  - {fileID: 1012423872}
+  - {fileID: 286244286}
+  - {fileID: 2427823}
 --- !u!114 &1171972264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2285,7 +2309,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1747853973}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2013846982}
+        m_TargetAssemblyTypeName: gameManager, Assembly-CSharp
+        m_MethodName: ChangeSpeedrun
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1747853973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2523,11 +2559,27 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1950708292}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2e6a188083c30c64db6bc73fed8f1cf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  optionsButton: {fileID: 1950708295}
+  howToPlayB: {fileID: 0}
+  cheatsB: {fileID: 0}
+  exitGameB: {fileID: 0}
+  exitOptions: {fileID: 0}
+  speedrunB: {fileID: 0}
+  invincibilityB: {fileID: 0}
+  exitHow2PlayB: {fileID: 0}
+  exitCheatsB: {fileID: 0}
+  playButton: {fileID: 0}
+  opButton: {fileID: 0}
+  chooseColor: {r: 0, g: 0, b: 0, a: 0}
+  blankColor: {r: 0, g: 0, b: 0, a: 0}
+  chooseColorFullButton: {r: 0, g: 0, b: 0, a: 0}
+  blankColorFullButton: {r: 0, g: 0, b: 0, a: 0}
+  menuButtonImg: []
 --- !u!114 &1950708295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2829,6 +2881,86 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1984487406}
   m_CullTransparentMesh: 1
+--- !u!1001 &2013846981
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 935915995284087200, guid: cf17d3eeb36f24f48b82d86cc829d29c,
+        type: 3}
+      propertyPath: m_Name
+      value: Game Manager
+      objectReference: {fileID: 0}
+    - target: {fileID: 8609083149730186565, guid: cf17d3eeb36f24f48b82d86cc829d29c,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 9.061177
+      objectReference: {fileID: 0}
+    - target: {fileID: 8609083149730186565, guid: cf17d3eeb36f24f48b82d86cc829d29c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.2603495
+      objectReference: {fileID: 0}
+    - target: {fileID: 8609083149730186565, guid: cf17d3eeb36f24f48b82d86cc829d29c,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -8.9826145
+      objectReference: {fileID: 0}
+    - target: {fileID: 8609083149730186565, guid: cf17d3eeb36f24f48b82d86cc829d29c,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8609083149730186565, guid: cf17d3eeb36f24f48b82d86cc829d29c,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8609083149730186565, guid: cf17d3eeb36f24f48b82d86cc829d29c,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8609083149730186565, guid: cf17d3eeb36f24f48b82d86cc829d29c,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8609083149730186565, guid: cf17d3eeb36f24f48b82d86cc829d29c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8609083149730186565, guid: cf17d3eeb36f24f48b82d86cc829d29c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8609083149730186565, guid: cf17d3eeb36f24f48b82d86cc829d29c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cf17d3eeb36f24f48b82d86cc829d29c, type: 3}
+--- !u!114 &2013846982 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7040462518987365484, guid: cf17d3eeb36f24f48b82d86cc829d29c,
+    type: 3}
+  m_PrefabInstance: {fileID: 2013846981}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1aefc78818ec9ab469ac50655cbf7b84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -2839,3 +2971,4 @@ SceneRoots:
   - {fileID: 582794626}
   - {fileID: 180087320}
   - {fileID: 1962783922}
+  - {fileID: 2013846981}

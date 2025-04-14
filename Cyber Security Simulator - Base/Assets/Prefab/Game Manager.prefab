@@ -50,11 +50,15 @@ MonoBehaviour:
   healthText: {fileID: 0}
   invincibility: 0
   speedrun: 0
-  timeToBeat: 0
+  timeToBeat: 240
   timerText: {fileID: 0}
+  setSpeedrunFromMain: 0
   combat: 0
   parkour: 0
   escapeRoom: 0
   combatUnlocked: 0
   parkourUnlocked: 0
   escapeRoomUnlocked: 0
+  gunText: {fileID: 0}
+  grappleText: {fileID: 0}
+  wallrunText: {fileID: 0}

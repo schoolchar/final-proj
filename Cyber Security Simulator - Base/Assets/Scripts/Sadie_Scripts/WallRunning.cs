@@ -33,6 +33,9 @@ public class WallRunning : MonoBehaviour
     public bool isWallrunning;
     public float wallRunSpeed;
 
+    //gets game manager for unlocks
+    public gameManager manager;
+
     private bool coolDownEnabled; //Test for ending wall run, when enabled cannot exit wall run state
 
     [SerializeField] private Animator animator;
@@ -41,12 +44,14 @@ public class WallRunning : MonoBehaviour
 
     private void Start()
     {
+        //finds game manager
+        manager = FindAnyObjectByType<gameManager>();
+
         rb = GetComponent<Rigidbody>();
         player = GetComponent<PlayerMovement>();
 
-        if(player.debugMode)
+        if(manager.escapeRoomUnlocked == true)
         {
-            Debug.Log("Debug mode on");
             canWallRun = true;
         }
     }

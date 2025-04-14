@@ -72,6 +72,9 @@ public class PlayerMovement : MonoBehaviour
     //connects animator
     public Animator animator;
 
+    //connects to manager 
+    public gameManager manager;
+
     //sounds
     public AudioSource walkingAudioSource;
     public AudioClip walkingClip;
@@ -82,6 +85,9 @@ public class PlayerMovement : MonoBehaviour
     // on start up, i may be over-commenting
     private void Start()
     {
+                //finds game manager
+        manager = FindAnyObjectByType<gameManager>();
+
         animator.SetBool("Movement", false);
         readyToJump = true;
         rb = GetComponent<Rigidbody>();
@@ -140,7 +146,7 @@ public class PlayerMovement : MonoBehaviour
             moveSpeed = 7;
         }
         // changes highjump, slide, and wallrun to active when at 3 deaths
-        if (debugMode && displayDeaths.GetDeathCount() >= 3)
+        if (manager.escapeRoomUnlocked == true)
         {
             ChangeHighJump();
         }
