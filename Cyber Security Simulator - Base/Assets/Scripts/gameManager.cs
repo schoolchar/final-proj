@@ -30,9 +30,11 @@ public class gameManager : MonoBehaviour
     [Header("Speed run variables")]
     [SerializeField] private float timeToBeat = 240;
     public TextMeshProUGUI timerText;
+    public bool setSpeedrunFromMain;
     private float timeLeft = 240;
-    private int hubVisitCount;
+    private int hubVisitCount = 0;
     private bool startTimer;
+
 
     [Header("LevelsComplete")]
     public bool combat;
@@ -60,7 +62,7 @@ public class gameManager : MonoBehaviour
     void Start()
     {
         enemiesKilled = 0; // how many enemies killed
-        InitOnLoad();
+        //InitOnLoad();
     }
 
 
@@ -98,15 +100,28 @@ public class gameManager : MonoBehaviour
     public void InitOnLoad()
     {
         //Assign text mesh for enemies killed, health, and speedrun timer
-        
-      /*  enemiesKilledText = GameObject.FindGameObjectWithTag("EnemiesKilledText").GetComponent<TextMeshProUGUI>();
-        healthText = GameObject.FindGameObjectWithTag("HealthText").GetComponent<TextMeshProUGUI>();
-        timerText = GameObject.FindGameObjectWithTag("TimerText").GetComponent<TextMeshProUGUI>();
 
-        //Assign skills that are online for the text to show this
-        gunText = GameObject.FindGameObjectWithTag("GunStatusText").GetComponent<TextMeshProUGUI>();
-        grappleText = GameObject.FindGameObjectWithTag("GrappleStatusText").GetComponent<TextMeshProUGUI>();
-        wallrunText = GameObject.FindGameObjectWithTag("WallrunStatusText").GetComponent<TextMeshProUGUI>();*/
+        /*  enemiesKilledText = GameObject.FindGameObjectWithTag("EnemiesKilledText").GetComponent<TextMeshProUGUI>();
+          healthText = GameObject.FindGameObjectWithTag("HealthText").GetComponent<TextMeshProUGUI>();
+          timerText = GameObject.FindGameObjectWithTag("TimerText").GetComponent<TextMeshProUGUI>();
+
+          //Assign skills that are online for the text to show this
+          gunText = GameObject.FindGameObjectWithTag("GunStatusText").GetComponent<TextMeshProUGUI>();
+          grappleText = GameObject.FindGameObjectWithTag("GrappleStatusText").GetComponent<TextMeshProUGUI>();
+          wallrunText = GameObject.FindGameObjectWithTag("WallrunStatusText").GetComponent<TextMeshProUGUI>();*/
+
+
+        if (SceneManager.GetActiveScene().name == "Start" && hubVisitCount == 0)
+        {
+            if (setSpeedrunFromMain)
+            {
+                timerText.enabled = true;
+                speedrun = true;
+                startTimer = true;
+                hubVisitCount = 1;
+            }
+        }
+
 
         //Combat skill unlocked?
         if (combatUnlocked)
@@ -126,7 +141,7 @@ public class gameManager : MonoBehaviour
         else
             wallrunText.text = "Wallrunning Offline";
 
-        
+       
 
         //FindUI();
 
@@ -165,6 +180,12 @@ public class gameManager : MonoBehaviour
     /// </summary>
     public void ChangeSpeedrun()
     {
+        if(SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            setSpeedrunFromMain = !setSpeedrunFromMain;
+            return;
+        }
+
         speedrun = !speedrun;
         startTimer = true;
 
@@ -183,6 +204,7 @@ public class gameManager : MonoBehaviour
 
 
     #region Speedrun mode methods
+
     /// <summary>
     /// Starts the timer for the game when the player first enters the hub
     /// Called upon entrance to the hub
