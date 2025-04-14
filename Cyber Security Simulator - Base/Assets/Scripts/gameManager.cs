@@ -74,9 +74,8 @@ public class gameManager : MonoBehaviour
 
         if (enemiesKilled == 5)
         {
-            SceneManager.LoadSceneAsync("win");
+            SceneManager.LoadSceneAsync("Start");
             enemiesKilled = 0;
-            Destroy(this.gameObject);
         }
         if (totalHealth == 0)
         {
@@ -96,7 +95,7 @@ public class gameManager : MonoBehaviour
             totalHealth = 3;
         }
 
-        if (currentScene.name != "hub")
+        if (currentScene.name != "Hub")
         {
             enemiesKilledText.text = "Enemies Killed: " + enemiesKilled;
             healthText.text = totalHealth + "/3";
