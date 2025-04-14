@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class BreakerPanel : MonoBehaviour
 {
@@ -72,7 +73,8 @@ public class BreakerPanel : MonoBehaviour
 
         trigger.PlayWinSound();
         trigger.ExitCutsceneB();
-        gameManagerScript.escapeRoom = true;
+        gameManagerScript.escapeRoomWon = true;
+        StartCoroutine(LoadHub());
     }
 
     ///<summary>
@@ -190,5 +192,11 @@ public class BreakerPanel : MonoBehaviour
         yield return new WaitForSeconds(0.3f);
         canInput = true;
     } //END StopInput()
+
+    IEnumerator LoadHub()
+    {
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene("Start");
+    }
 
 } //END BreakerPanel.cs

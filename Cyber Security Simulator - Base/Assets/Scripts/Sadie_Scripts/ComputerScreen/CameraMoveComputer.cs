@@ -145,7 +145,10 @@ public class CameraMoveComputer : MonoBehaviour
     /// <param name="_UI">Computer UI that needs to be enabled</param>
     public void MoveCameraToComputer(Transform _moveTo, Canvas _UI, GameObject _UIObj)
     {
-       cam.transform.position =  Vector3.Lerp(cam.transform.position, _moveTo.position, interpolateVal);
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+
+        cam.transform.position =  Vector3.Lerp(cam.transform.position, _moveTo.position, interpolateVal);
         cam.transform.rotation = Quaternion.Lerp(cam.transform.rotation, _moveTo.rotation, interpolateVal); //Close, not completely rotated though, also depends on where you start out
         //cam.LookAt = computer;
 
@@ -153,8 +156,7 @@ public class CameraMoveComputer : MonoBehaviour
         //Enable UI and mouse movement
         _UIObj.SetActive(true);
         _UI.enabled = true;
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
+        
         password.passwordActive = true;
 
         
@@ -177,8 +179,8 @@ public class CameraMoveComputer : MonoBehaviour
         //Disable Ui and mouse
         _UIObj.SetActive(false);
         _UI.enabled = false;
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+       /* Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;*/
 
     } //END MoveCameraToPlayer()
 

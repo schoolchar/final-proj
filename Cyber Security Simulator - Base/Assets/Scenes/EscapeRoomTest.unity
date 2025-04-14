@@ -3737,7 +3737,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 466172077}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1858836507}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f69c7384f852fb94785891660373646b, type: 3}
@@ -3749,7 +3749,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 466172077}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1858836507}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9ae000b867ecaee4e91b1f191e4849d0, type: 3}
@@ -3761,7 +3761,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 466172077}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1858836507}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 73cd64eabce19f74788c4dc379963ea3, type: 3}
@@ -6248,7 +6248,7 @@ PrefabInstance:
         type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1858836507}
     - target: {fileID: 310700275072816567, guid: dca703c5817c1754982a6e6a66029ecf,
         type: 3}
       propertyPath: respawnPt
@@ -7753,7 +7753,7 @@ PrefabInstance:
         type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1858836507}
     - target: {fileID: 5086534775131227342, guid: dca703c5817c1754982a6e6a66029ecf,
         type: 3}
       propertyPath: lavaSound
@@ -8433,7 +8433,7 @@ PrefabInstance:
         type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1858836507}
     - target: {fileID: 6343987873734377600, guid: dca703c5817c1754982a6e6a66029ecf,
         type: 3}
       propertyPath: respawnPt
@@ -9223,7 +9223,7 @@ PrefabInstance:
         type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1858836507}
     - target: {fileID: 8772494582678907541, guid: dca703c5817c1754982a6e6a66029ecf,
         type: 3}
       propertyPath: respawnPt
@@ -12826,7 +12826,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 466172077}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1858836507}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8b09362d003b84b45b4ef15fa95ec28d, type: 3}
@@ -19570,6 +19570,12 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.1018283, y: 4.874665, z: 2.0360706}
   m_Center: {x: 0.0000076293945, y: -0.0000038146973, z: 0.000001847744}
+--- !u!1 &1858836507 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8722555384788720226, guid: 5b316720c6c1c504982de9f814de4a5e,
+    type: 3}
+  m_PrefabInstance: {fileID: 466172077}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1860768320
 PrefabInstance:
   m_ObjectHideFlags: 0

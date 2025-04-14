@@ -83,8 +83,8 @@ public class PauseMenu : MonoBehaviour
         }
         else
         {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
+            /*Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;*/
             howplay.SetActive(false);
             cheat.SetActive(false);
         }
