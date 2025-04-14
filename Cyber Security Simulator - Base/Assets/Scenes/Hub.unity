@@ -1288,6 +1288,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e6a188083c30c64db6bc73fed8f1cf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  optionsButton: {fileID: 1950708295}
+  howToPlayB: {fileID: 646481610}
+  cheatsB: {fileID: 1305246191}
+  exitGameB: {fileID: 1387633752}
+  exitOptions: {fileID: 2427822}
+  speedrunB: {fileID: 1747853972}
+  invincibilityB: {fileID: 247603570}
+  exitHow2PlayB: {fileID: 286244285}
+  exitCheatsB: {fileID: 1012423871}
+  playButton: {fileID: 1171972265}
+  opButton: {fileID: 1950708296}
+  chooseColor: {r: 1, g: 1, b: 1, a: 0.050980393}
+  blankColor: {r: 1, g: 1, b: 1, a: 0}
+  chooseColorFullButton: {r: 0.745283, g: 0.745283, b: 0.745283, a: 1}
+  blankColorFullButton: {r: 1, g: 1, b: 1, a: 1}
+  menuButtonImg:
+  - {fileID: 646481611}
+  - {fileID: 1305246192}
+  - {fileID: 1012423872}
+  - {fileID: 1747853973}
+  - {fileID: 247603571}
+  - {fileID: 1012423872}
+  - {fileID: 286244286}
+  - {fileID: 2427823}
 --- !u!114 &1171972264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2523,11 +2547,27 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1950708292}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2e6a188083c30c64db6bc73fed8f1cf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  optionsButton: {fileID: 1950708295}
+  howToPlayB: {fileID: 0}
+  cheatsB: {fileID: 0}
+  exitGameB: {fileID: 0}
+  exitOptions: {fileID: 0}
+  speedrunB: {fileID: 0}
+  invincibilityB: {fileID: 0}
+  exitHow2PlayB: {fileID: 0}
+  exitCheatsB: {fileID: 0}
+  playButton: {fileID: 0}
+  opButton: {fileID: 0}
+  chooseColor: {r: 0, g: 0, b: 0, a: 0}
+  blankColor: {r: 0, g: 0, b: 0, a: 0}
+  chooseColorFullButton: {r: 0, g: 0, b: 0, a: 0}
+  blankColorFullButton: {r: 0, g: 0, b: 0, a: 0}
+  menuButtonImg: []
 --- !u!114 &1950708295
 MonoBehaviour:
   m_ObjectHideFlags: 0

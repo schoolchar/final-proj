@@ -1,4 +1,7 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -11,6 +14,33 @@ public class PauseMenu : MonoBehaviour
     //uis
     public GameObject howplay;
     public GameObject cheat;
+
+
+
+    //Button indexes
+    //0 - how to play
+    //1 - cheats
+    //2 - exit game
+    //3 - main menu
+    //4 - try again
+    //5 - exit options
+    //6 - speedrun
+    //7 - invinsibility
+    //8 - exit cheats
+    //9 - exit how to play
+    //10 - exit game
+
+
+    [Header("Variables for making the pause menu work w controller")]
+    [SerializeField] private Button[] buttons;
+    [SerializeField] private Image[] buttonImg;
+    [SerializeField] private Color chooseColorFullButton;
+    [SerializeField] private Color blankColorFullButton;
+    bool opsOpen;
+    bool how2PlayOpen;
+    bool cheatsOpen;
+    bool canInput;
+    int buttonIndex;
 
     void Start()
     {
@@ -86,7 +116,7 @@ public class PauseMenu : MonoBehaviour
     public void PauseGame()
     {
         isPaused = true;
-
+        buttonIndex = 0;
         //Unlock cursor
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
@@ -114,5 +144,32 @@ public class PauseMenu : MonoBehaviour
     {
         Debug.Log("Quitting Game...");
         Application.Quit();
+    }
+
+
+
+    void ControllerInput()
+    {
+        
+    }
+
+
+    void RevertColor()
+    {
+        Debug.Log("revert on " + (buttonIndex - 2));
+        buttonImg[buttonIndex].color = blankColorFullButton;
+    }
+
+    void ChangeImage()
+    {
+        Debug.Log("change on " + (buttonIndex - 2));
+        buttonImg[buttonIndex].color = chooseColorFullButton;
+    }
+
+    IEnumerator CanClick()
+    {
+        canInput = false;
+        yield return new WaitForSeconds(0.3f);
+        canInput = true;
     }
 }
