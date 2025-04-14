@@ -18,6 +18,10 @@ public class LevelTimer : MonoBehaviour
     public AudioClip lossSound;
     private AudioSource audioSource;
 
+    public gameManager manager;
+   
+    public LoadEveryScene loadEveryScene;
+
     void Start()
     {
         timeRemaining = levelTime;
@@ -31,10 +35,14 @@ public class LevelTimer : MonoBehaviour
             Debug.LogWarning("AudioSource not found, adding one... :)");
             audioSource = gameObject.AddComponent<AudioSource>();
         }
+
+        manager = FindAnyObjectByType<gameManager>();
+
     }
 
     void Update()
     {
+
         // If the timer is paused, do nothing
         if (isPaused)
             return;
@@ -85,14 +93,7 @@ public class LevelTimer : MonoBehaviour
             Debug.LogWarning("Please assign the death noise.");
         }
 
-        if (gameManager.instance != null)
-        {
-            gameManager.instance.totalHealth = 0;
-        }
-        else
-        {
-            Debug.LogWarning("No GameManager, fix this.");
-        }
+        manager.totalHealth = 0;
     }
 
     public void PauseTimer()

@@ -3621,6 +3621,11 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 1742393717}
+    - target: {fileID: 2473183462028698650, guid: 5b316720c6c1c504982de9f814de4a5e,
+        type: 3}
+      propertyPath: Grappleable.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
     - target: {fileID: 3397575278460305104, guid: 5b316720c6c1c504982de9f814de4a5e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3685,6 +3690,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: player 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8781262815636564089, guid: 5b316720c6c1c504982de9f814de4a5e,
+        type: 3}
+      propertyPath: wall.m_Bits
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 9059793243424393325, guid: 5b316720c6c1c504982de9f814de4a5e,
         type: 3}
