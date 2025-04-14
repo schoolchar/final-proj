@@ -74,6 +74,7 @@ public class BreakerPanel : MonoBehaviour
         trigger.PlayWinSound();
         trigger.ExitCutsceneB();
         gameManagerScript.escapeRoomWon = true;
+        SceneManager.LoadScene("Start");
         StartCoroutine(LoadHub());
     }
 

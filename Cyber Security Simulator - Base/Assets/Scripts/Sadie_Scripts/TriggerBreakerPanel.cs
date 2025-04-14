@@ -12,7 +12,7 @@ public class TriggerBreakerPanel : CameraMoveComputer
     [SerializeField] private GameObject breakerPanelCanvasObj;
     [SerializeField] private Canvas breakerPanelCanvas;
     [SerializeField] private CameraMoveComputer moveScript;
-
+    [SerializeField] private BreakerPanel breakerPanel;
     bool enterCutsceneB;
     bool exitCutsceneB;
 
@@ -59,7 +59,6 @@ public class TriggerBreakerPanel : CameraMoveComputer
             if (other.gameObject.layer == 7)
             {
                 enterCutsceneB = true;
-                FindAnyObjectByType<BreakerPanel>().breakerActive = true;
                 StartCoroutine(FadeOut());
             }
         }
@@ -85,6 +84,7 @@ public class TriggerBreakerPanel : CameraMoveComputer
                 //Need to fix it is very jarring
                 cam.LookAt = _lookAtEnter;
                 enterCutsceneB = false;
+                breakerPanel.breakerActive = true;
                 //_enterCut = false;
             }
         }

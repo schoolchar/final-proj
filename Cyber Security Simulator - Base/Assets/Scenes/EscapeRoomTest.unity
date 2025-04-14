@@ -1376,6 +1376,7 @@ MonoBehaviour:
   breakerPanelCanvasObj: {fileID: 1530458315}
   breakerPanelCanvas: {fileID: 1530458318}
   moveScript: {fileID: 893711782}
+  breakerPanel: {fileID: 1530458320}
   moveToPt: {fileID: 2043387364}
   breakerObj: {fileID: 1293194006}
   breakerSound: {fileID: 238655930}
