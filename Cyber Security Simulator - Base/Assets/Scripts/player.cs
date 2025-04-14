@@ -226,7 +226,7 @@ public class PlayerMovement : MonoBehaviour
         {
 
             highJump = true;
-            playerJumpForce *= 2;
+            playerJumpForce *= 1;
             wallRunning.canWallRun = true;
         }
     } //END ChangeHighJump()
