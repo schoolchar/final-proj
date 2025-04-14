@@ -72,7 +72,8 @@ public class Password : MonoBehaviour
 
             background.texture = desktopTxture.texture;
 
-         
+            Cursor.visible = true;
+         Cursor.lockState = CursorLockMode.None;
 
 
         }
