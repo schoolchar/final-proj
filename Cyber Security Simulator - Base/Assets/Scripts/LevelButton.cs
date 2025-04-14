@@ -59,6 +59,7 @@ public class SceneTransitionTrigger : MonoBehaviour
             Debug.LogWarning("Please add a sound.");
         }
 
+        manager.escapeRoomWon = true;
         // Load scene
         SceneManager.LoadScene(sceneToLoad);
     }

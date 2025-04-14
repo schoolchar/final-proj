@@ -80,6 +80,12 @@ public class gameManager : MonoBehaviour
 
     private void Update()
     {
+        //winning
+        if (combatWon == true && parkourWon == true && escapeRoomWon == true)
+        {
+            SceneManager.LoadSceneAsync("win");
+        }
+
         //Health
         //gets scene name
         Scene currentScene = SceneManager.GetActiveScene();
