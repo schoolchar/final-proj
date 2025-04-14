@@ -16,6 +16,8 @@ public class SceneTransitionTrigger : MonoBehaviour
     [Header("Timer Reference")]
     public LevelTimer levelTimer;
 
+    public gameManager manager;
+
     void Awake()
     {
         // Get or add an AudioSource on this GameObject
