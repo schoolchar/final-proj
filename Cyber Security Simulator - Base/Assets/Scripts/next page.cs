@@ -7,7 +7,7 @@ public class ObjectToggle : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.X))
         {
             
             objectToDeactivate.SetActive(false);
