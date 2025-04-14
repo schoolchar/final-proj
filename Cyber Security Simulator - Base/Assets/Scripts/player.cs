@@ -313,7 +313,7 @@ public class PlayerMovement : MonoBehaviour
     //handle aiming for shooting script from ashe player controller
     void HandleAiming()
     {
-        if (Input.GetButton("Fire2") && displayDeaths.GetDeathCount() >= 1) // Right Mouse Button
+        if (Input.GetButton("Fire2")) // Right Mouse Button
         {
             if (!isAiming)
             {
