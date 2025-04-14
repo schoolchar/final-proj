@@ -69,6 +69,8 @@ public class gameManager : MonoBehaviour
     private void Update()
     {
         //Health
+        //gets scene name
+        Scene currentScene = SceneManager.GetActiveScene();
 
         if (enemiesKilled == 5)
         {
@@ -78,11 +80,27 @@ public class gameManager : MonoBehaviour
         }
         if (totalHealth == 0)
         {
+            if (currentScene.name == "Combat")
+            {
+                combatUnlocked = true;
+            }
+            if (currentScene.name == "EscapeRoom")
+            {
+                escapeRoomUnlocked = true;
+            }
+            if (currentScene.name == "Parkour")
+            {
+                parkourUnlocked = true;
+            }
             SceneManager.LoadSceneAsync("Start");
             totalHealth = 3;
         }
-        enemiesKilledText.text = "Enemies Killed: " + enemiesKilled;
-        healthText.text = totalHealth + "/3";
+
+        if (currentScene.name != "hub")
+        {
+            enemiesKilledText.text = "Enemies Killed: " + enemiesKilled;
+            healthText.text = totalHealth + "/3";
+        }
 
         //Timer/speedrun
         if (startTimer)
