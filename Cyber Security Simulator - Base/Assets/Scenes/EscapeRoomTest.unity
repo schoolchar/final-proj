@@ -9085,7 +9085,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1
+  m_Intensity: 3
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -9765,6 +9765,10 @@ MonoBehaviour:
   isPaused: 0
   howplay: {fileID: 312925081}
   cheat: {fileID: 312925080}
+  buttons: []
+  buttonImg: []
+  chooseColorFullButton: {r: 0, g: 0, b: 0, a: 0}
+  blankColorFullButton: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &976331867
 BoxCollider:
   m_ObjectHideFlags: 0

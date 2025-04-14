@@ -39,6 +39,7 @@ public class Password : MonoBehaviour
         passwordInput.onEndEdit.AddListener(CheckPassword);
         passwordInput.onValueChanged.AddListener(GetCurrentString);
         passwordInput.text = "A";
+        passwordInput.ActivateInputField();
     }
 
     private void Update()
