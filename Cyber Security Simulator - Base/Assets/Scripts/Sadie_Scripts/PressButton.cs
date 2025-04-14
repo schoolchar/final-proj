@@ -27,7 +27,7 @@ public class PressButton : MonoBehaviour
     /// </summary>
     public void PressStupidButton()
     {
-        gameManagerScript.escapeRoom = true;
+        gameManagerScript.escapeRoomWon = true;
         StartCoroutine(WaitToLoadHub());
        
     } //END PressStupidButton()

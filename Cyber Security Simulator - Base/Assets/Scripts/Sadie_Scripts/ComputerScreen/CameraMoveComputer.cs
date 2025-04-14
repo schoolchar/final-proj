@@ -131,7 +131,8 @@ public class CameraMoveComputer : MonoBehaviour
     {
         Debug.Log("Exit cutscene function");
         exitCutscene = true;
-
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         //if(password.passwordSolved == false)
             EnablePlayerMovement();
     } //END ExitCutscene()
