@@ -52,6 +52,12 @@ public class gameManager : MonoBehaviour
     public TextMeshProUGUI grappleText;
     public TextMeshProUGUI wallrunText;
 
+
+    //adding for now to sets when level won
+    public bool combatWon;
+    public bool parkourWon;
+    public bool escapeRoomWon;
+
     #region Monobehaviours
     void Awake()
     {
@@ -82,6 +88,7 @@ public class gameManager : MonoBehaviour
 
         if (enemiesKilled == 5)
         {
+            combatWon = true;
             SceneManager.LoadSceneAsync("Start");
             enemiesKilled = 0;
         }
@@ -284,19 +291,27 @@ public class gameManager : MonoBehaviour
     #region invincibility 
     public void invincibilityOn()
     {
+        Scene currentScene = SceneManager.GetActiveScene();
+
         if (invincibility == true)
         {
             combatUnlocked = true;
             parkourUnlocked = true;
             escapeRoomUnlocked = true;
             totalHealth = 3;
-            inOff.SetActive(false);
-            inOn.SetActive(true);
+            if (currentScene.name == "Hub")
+            {
+                inOff.SetActive(false);
+                inOn.SetActive(true);
+            }
         }
         else if (invincibility == false)
         {
-            inOff.SetActive(true);
-            inOn.SetActive(false);
+            if (currentScene.name == "Hub")
+            {
+                inOff.SetActive(true);
+                inOn.SetActive(false);
+            }
         }
     }
 
