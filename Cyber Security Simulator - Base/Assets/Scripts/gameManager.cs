@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -23,6 +24,8 @@ public class gameManager : MonoBehaviour
     //Bools for options, toggled by buttons on options menu
     public bool invincibility;
     public bool speedrun;
+    public GameObject inOff;
+    public GameObject inOn;
 
     //Put invincibility specific variables here vvv
 
@@ -61,6 +64,9 @@ public class gameManager : MonoBehaviour
 }
     void Start()
     {
+        inOff.SetActive(true);
+        inOn.SetActive(false);
+        invincibility = false;
         enemiesKilled = 0; // how many enemies killed
         //InitOnLoad();
     }
@@ -71,6 +77,8 @@ public class gameManager : MonoBehaviour
         //Health
         //gets scene name
         Scene currentScene = SceneManager.GetActiveScene();
+
+        invincibilityOn();
 
         if (enemiesKilled == 5)
         {
@@ -271,5 +279,27 @@ public class gameManager : MonoBehaviour
         timerText = GameObject.FindGameObjectWithTag("TimerText").GetComponent<TextMeshProUGUI>();
 
     } //END FindUI()
+    #endregion
+
+    #region invincibility 
+    public void invincibilityOn()
+    {
+        if (invincibility == true)
+        {
+            combatUnlocked = true;
+            parkourUnlocked = true;
+            escapeRoomUnlocked = true;
+            totalHealth = 3;
+            inOff.SetActive(false);
+            inOn.SetActive(true);
+        }
+        else if (invincibility == false)
+        {
+            inOff.SetActive(true);
+            inOn.SetActive(false);
+        }
+    }
+
+
     #endregion
 }
