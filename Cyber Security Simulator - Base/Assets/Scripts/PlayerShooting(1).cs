@@ -11,7 +11,7 @@ public class PlayerShooting : MonoBehaviour
     public AudioSource shootSound; // Shooting sound effect
     public float projectileLifetime = 5f; // Time before the projectile gets destroyed
 
-    public DisplayDeaths displayDeaths; //added for death manager
+    //public DisplayDeaths displayDeaths; //added for death manager
 
     public Animator animator;//added for animator
 
@@ -77,44 +77,49 @@ public class PlayerShooting : MonoBehaviour
     }
 
     // Shoot ver 2, it's the aimed shoot
-void ShootVerDos()
+    void ShootVerDos()
     {
         if (shootSound != null)
         {
             shootSound.Play();
         }
 
-        //plays animation
+        // Play animation
         animator.SetTrigger("Shoot");
 
-        GameObject projectile = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
-        Rigidbody rb = projectile.GetComponent<Rigidbody>();
-
-        // Raycast from the center of the camera forward
-        Ray ray = playerCamera.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
+        // Fixed the aim
+        Ray ray = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
         Vector3 targetPoint = ray.origin + ray.direction * 100f;
 
         RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, 100f, hitLayers)) // If it hits something
+        if (Physics.Raycast(ray, out hit, 100f, hitLayers))
         {
             targetPoint = hit.point;
         }
 
-        // Set projectile direction
-        Vector3 direction = (targetPoint - firePoint.position).normalized;
+        Vector3 shootDirection = (targetPoint - firePoint.position).normalized;
+
+        // Spawn and aim projectile
+        GameObject projectile = Instantiate(projectilePrefab, firePoint.position, Quaternion.LookRotation(shootDirection));
+        Rigidbody rb = projectile.GetComponent<Rigidbody>();
+
         if (rb != null)
         {
-            rb.velocity = direction * projectileSpeed;
+            rb.velocity = shootDirection * projectileSpeed;
         }
 
         Projectile projectileScript = projectile.AddComponent<Projectile>();
         projectileScript.shootDamage = shootDamage;
         projectileScript.hitLayers = hitLayers;
         projectileScript.projectileLifetime = projectileLifetime;
+
+        // Prevents projectile from hitting player
+        Physics.IgnoreCollision(projectile.GetComponent<Collider>(), GetComponent<Collider>());
     }
+
 }
 
-    public class Projectile : MonoBehaviour
+public class Projectile : MonoBehaviour
 {
     public float shootDamage;
     public LayerMask hitLayers;

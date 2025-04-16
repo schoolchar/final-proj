@@ -18,7 +18,7 @@ public class cam : MonoBehaviour
     public CinemachineFreeLook freeLookCamera; // Reference to the Cinemachine Free Look Camera
 
     //testing grapple
-    public Transform lookAT;
+    //public Transform lookAT;
 
     public float rotationSpeed;
 
