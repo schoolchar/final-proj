@@ -115,7 +115,7 @@ public class gameManager : MonoBehaviour
             {
                 parkourUnlocked = true;
             }
-            SceneManager.LoadSceneAsync("Start");
+            SceneManager.LoadScene(currentScene.name);
             totalHealth = 3;
         }
 
