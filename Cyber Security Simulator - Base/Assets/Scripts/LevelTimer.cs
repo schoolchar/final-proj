@@ -9,6 +9,7 @@ public class LevelTimer : MonoBehaviour
     private bool timeExpired = false;
     private int lastFullSecond;
     private bool isPaused = false;
+    public Light targetLight;
 
     [Header("UI Reference")]
     public TextMeshProUGUI timerText;
@@ -84,6 +85,7 @@ public class LevelTimer : MonoBehaviour
     {
         if (lossSound != null)
         {
+            ChangeLightToRed();
             audioSource.PlayOneShot(lossSound);
             // Waits for the duration of the loss sound clip
             yield return new WaitForSeconds(lossSound.length);
@@ -99,6 +101,14 @@ public class LevelTimer : MonoBehaviour
     public void PauseTimer()
     {
         isPaused = true;
+    }
+
+    void ChangeLightToRed()
+    {
+        if (targetLight != null)
+        {
+            targetLight.color = Color.red;
+        }
     }
 }
 

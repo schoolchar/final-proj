@@ -5,23 +5,24 @@ using UnityEngine;
 public class wilburrr : MonoBehaviour
 {
     public GameObject tutorial;
-    // Start is called before the first frame update
-    void Start()
-    {
+    public AudioSource audioSource;
+    public AudioClip triggerSound;
 
-    }
+    private bool hasTriggered = false;
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
     void OnTriggerEnter(Collider other)
     {
-
-        if (other.CompareTag("Player"))
+        if (!hasTriggered && other.CompareTag("Player"))
         {
+            hasTriggered = true;
+
             tutorial.SetActive(true);
+
+            if (audioSource != null && triggerSound != null)
+            {
+                audioSource.PlayOneShot(triggerSound);
+            }
         }
     }
 }
+

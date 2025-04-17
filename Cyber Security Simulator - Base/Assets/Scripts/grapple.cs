@@ -35,6 +35,10 @@ public class grapple : MonoBehaviour
     //gets game manager for unlocks
     public gameManager manager;
 
+    [Header("Audio")]
+    public AudioSource audioSource;
+    public AudioClip grappleConnectSound;
+
     private void Start()
     {
         // Gets variables from player movement script
@@ -62,51 +66,83 @@ public class grapple : MonoBehaviour
 
     private void StartGrapple()
     {
-        // Checks if cooldown is active
         if (grapplingCooldownTime > 0) return;
 
-        // Says player is currently grappling
+        // Freeze the player and mark as grappling
         grappling = true;
-
-        // Freezes player at start of grapple
         pm.freeze = true;
 
-        // Debug: Log the camera position and forward direction
-        Debug.Log("Camera Position: " + cam.position);
-        Debug.Log("Camera Forward: " + cam.forward);
-
-        // Get the center of the screen
-        Vector3 screenCenter = new Vector3(Screen.width / 2, Screen.height / 2, 0);
-        Ray ray = Camera.main.ScreenPointToRay(screenCenter);
+        // Raycast from center of screen (crosshair)
+        Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
         RaycastHit hit;
 
-        // Perform the raycast
+        // Try direct hit
         if (Physics.Raycast(ray, out hit, maxGrappleDistance, Grappleable))
         {
-            grapplePoint = hit.point;
+            if (hit.collider.CompareTag("grapple"))
+            {
+                grapplePoint = hit.point;
 
-            // Debug: Log the hit point
-            Debug.Log("Grapple Hit Point: " + grapplePoint);
+                if (audioSource && grappleConnectSound)
+                    audioSource.PlayOneShot(grappleConnectSound);
 
-            // Calls grappling function with a delay set by grappleDelayer
-            Invoke(nameof(ExecuteGrapple), grappleDelayer);
+                Invoke(nameof(ExecuteGrapple), grappleDelayer);
+            }
+            else
+            {
+                TryAimAssist(ray);
+                return;
+            }
         }
-        // If there was no grappling point in distance, stops the grapple after reaching that distance
         else
         {
-            grapplePoint = ray.origin + ray.direction * maxGrappleDistance;
-
-            // Debug: Log the max grapple point
-            Debug.Log("Max Grapple Point: " + grapplePoint);
-
-            Invoke(nameof(StopGrapple), grappleDelayer);
+            TryAimAssist(ray);
+            return;
         }
 
-        // Enables the drawn line and sets the end as where grappling gun hits
+        // Draw the line
         lineRenderer.enabled = true;
         lineRenderer.SetPosition(0, grapplingTip.position);
         lineRenderer.SetPosition(1, grapplePoint);
     }
+
+    // This is aim assist for the grapple, using SphereCast
+    private void TryAimAssist(Ray originalRay)
+    {
+        if (Physics.SphereCast(originalRay, 2f, out RaycastHit assistHit, maxGrappleDistance, Grappleable))
+        {
+            if (assistHit.collider.CompareTag("grapple"))
+            {
+                Debug.Log("AIM ASSIST snapped to: " + assistHit.collider.name);
+                grapplePoint = assistHit.point;
+
+                if (audioSource && grappleConnectSound)
+                    audioSource.PlayOneShot(grappleConnectSound);
+
+                Invoke(nameof(ExecuteGrapple), grappleDelayer);
+
+                lineRenderer.enabled = true;
+                lineRenderer.SetPosition(0, grapplingTip.position);
+                lineRenderer.SetPosition(1, grapplePoint);
+
+                grappling = true;
+                pm.freeze = true;
+                return;
+            }
+        }
+
+        // Fallback: No hit at all, shoot straight out
+        grapplePoint = originalRay.origin + originalRay.direction * maxGrappleDistance;
+        Invoke(nameof(StopGrapple), grappleDelayer);
+
+        lineRenderer.enabled = true;
+        lineRenderer.SetPosition(0, grapplingTip.position);
+        lineRenderer.SetPosition(1, grapplePoint);
+
+        grappling = true;
+        pm.freeze = true;
+    }
+
 
     private void ExecuteGrapple()
     {

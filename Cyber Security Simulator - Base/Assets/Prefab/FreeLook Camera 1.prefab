@@ -333,7 +333,7 @@ MonoBehaviour:
   m_YAxis:
     Value: 0.5
     m_SpeedMode: 0
-    m_MaxSpeed: 2
+    m_MaxSpeed: 4
     m_AccelTime: 0.2
     m_DecelTime: 0.1
     m_InputAxisName: Mouse Y
@@ -357,7 +357,7 @@ MonoBehaviour:
   m_XAxis:
     Value: 0
     m_SpeedMode: 0
-    m_MaxSpeed: 300
+    m_MaxSpeed: 400
     m_AccelTime: 0.1
     m_DecelTime: 0.1
     m_InputAxisName: Mouse X
@@ -416,7 +416,6 @@ MonoBehaviour:
   aimFOV: 40
   zoomSpeed: 10
   freeLookCamera: {fileID: 8842756445730611995}
-  lookAT: {fileID: 0}
   rotationSpeed: 10
 --- !u!114 &1589775104969761962
 MonoBehaviour:
