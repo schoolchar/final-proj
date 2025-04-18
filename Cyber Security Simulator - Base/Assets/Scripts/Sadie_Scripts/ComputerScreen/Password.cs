@@ -10,7 +10,7 @@ public class Password : MonoBehaviour
     public bool passwordSolved;
     
 
-    private string password = "C4ff13n3";
+    private string password = "C4FF13N3";
     
 
     public TMP_InputField passwordInput;
