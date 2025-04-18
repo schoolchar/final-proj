@@ -6,20 +6,25 @@ public class DeathZone : MonoBehaviour
 {
     // Reference to the player GameObject
     public GameObject player;
+    private gameManager gm;
 
-    // Reference to the DisplayDeaths script
-    public DisplayDeaths displayDeaths;
+    private void Start()
+    {
+        gm = gameManager.instance;
+    }
 
     private void OnTriggerEnter(Collider other)
     {
         // Check if the player has collided with the object
         if (other.gameObject == player)
         {
-            // Increment the deaths count
-            displayDeaths.IncrementDeaths();
+            if (gm != null)
+            {
+                gm.totalHealth = 0; // This sets the health to 0
+            }
 
-            // Teleport the player to the coordinates (0, 0, 0)
-            player.transform.position = new Vector3(0, 1, 0);
+            // Reset player position to a specific point (e.g., 0, 1, 0)
+            // player.transform.position = new Vector3(0, 1, 0);
         }
     }
 }

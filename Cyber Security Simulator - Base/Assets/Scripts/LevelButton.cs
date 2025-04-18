@@ -28,6 +28,10 @@ public class SceneTransitionTrigger : MonoBehaviour
             audioSource = gameObject.AddComponent<AudioSource>();
         }
     }
+    private void Start()
+    {
+        manager = FindAnyObjectByType<gameManager>();
+    }
 
     void OnTriggerEnter(Collider other)
     {

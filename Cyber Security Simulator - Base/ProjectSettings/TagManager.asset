@@ -10,6 +10,8 @@ TagManager:
   - GunStatusText
   - GrappleStatusText
   - WallrunStatusText
+  - grapple
+  - DeathCounterText
   layers:
   - Default
   - TransparentFX

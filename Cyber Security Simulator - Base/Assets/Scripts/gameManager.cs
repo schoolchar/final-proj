@@ -18,6 +18,7 @@ public class gameManager : MonoBehaviour
     public int totalHealth = 3;
     public TextMeshProUGUI enemiesKilledText;
     public TextMeshProUGUI healthText;
+    public TMP_Text deathCount;
     private bool canLoseHealth = true;
 
     [Header("Options")]
@@ -51,6 +52,7 @@ public class gameManager : MonoBehaviour
     public TextMeshProUGUI gunText;
     public TextMeshProUGUI grappleText;
     public TextMeshProUGUI wallrunText;
+    private int deaths = 0;
 
 
     //adding for now to sets when level won
@@ -100,6 +102,7 @@ public class gameManager : MonoBehaviour
         }
         if (totalHealth == 0)
         {
+            IncrementDeaths();
             if (currentScene.name == "Combat")
             {
                 combatUnlocked = true;
@@ -112,7 +115,7 @@ public class gameManager : MonoBehaviour
             {
                 parkourUnlocked = true;
             }
-            SceneManager.LoadSceneAsync("Start");
+            SceneManager.LoadScene(currentScene.name);
             totalHealth = 3;
         }
 
@@ -139,14 +142,17 @@ public class gameManager : MonoBehaviour
     {
         //Assign text mesh for enemies killed, health, and speedrun timer
 
-        /*  enemiesKilledText = GameObject.FindGameObjectWithTag("EnemiesKilledText").GetComponent<TextMeshProUGUI>();
+          enemiesKilledText = GameObject.FindGameObjectWithTag("EnemiesKilledText").GetComponent<TextMeshProUGUI>();
           healthText = GameObject.FindGameObjectWithTag("HealthText").GetComponent<TextMeshProUGUI>();
           timerText = GameObject.FindGameObjectWithTag("TimerText").GetComponent<TextMeshProUGUI>();
 
           //Assign skills that are online for the text to show this
           gunText = GameObject.FindGameObjectWithTag("GunStatusText").GetComponent<TextMeshProUGUI>();
           grappleText = GameObject.FindGameObjectWithTag("GrappleStatusText").GetComponent<TextMeshProUGUI>();
-          wallrunText = GameObject.FindGameObjectWithTag("WallrunStatusText").GetComponent<TextMeshProUGUI>();*/
+          wallrunText = GameObject.FindGameObjectWithTag("WallrunStatusText").GetComponent<TextMeshProUGUI>();
+
+        // Death counter
+        deathCount = GameObject.FindGameObjectWithTag("DeathCounterText").GetComponent<TextMeshProUGUI>();
 
 
         if (SceneManager.GetActiveScene().name == "Start" && hubVisitCount == 0)
@@ -160,24 +166,46 @@ public class gameManager : MonoBehaviour
             }
         }
 
+        deathCount.text = "Deaths: " + deaths;
+
+        Color green = Color.green;
+        Color red = Color.red;
 
         //Combat skill unlocked?
         if (combatUnlocked)
-            gunText.text = "Shooting Online";
+        {
+            gunText.text = "Online";
+            gunText.color = green;
+        }
         else
-            gunText.text = "Shooting Offline";
+        {
+            gunText.text = "Offline";
+            gunText.color = red;
+        }
 
         //Grapple skill unlocked?
         if (parkourUnlocked)
-            grappleText.text = "Grappling Online";
+        {
+            grappleText.text = "Online";
+            grappleText.color = green;
+        }
         else
-            grappleText.text = "Grappling Offline";
+        {
+            grappleText.text = "Offline";
+            grappleText.color = red;
+        }
 
         //Wallrun skill unlocked?
         if (escapeRoomUnlocked)
-            wallrunText.text = "Wallrunning Online";
+        {
+            wallrunText.text = "Online";
+            wallrunText.color = green;
+        }
         else
-            wallrunText.text = "Wallrunning Offline";
+        {
+            wallrunText.text = "Offline";
+            wallrunText.color = red;
+        }
 
        
 
@@ -211,7 +239,16 @@ public class gameManager : MonoBehaviour
 
         canLoseHealth = true;
     }
-   
+    public void IncrementDeaths()
+    {
+        deaths++;
+        deathCount.text = "Deaths: " + deaths;
+    }
+    public int GetDeathCount()
+    {
+        return deaths;
+    }
+
     #region Turn on options
     /// <summary>
     /// Called when speedrun option button is pressed

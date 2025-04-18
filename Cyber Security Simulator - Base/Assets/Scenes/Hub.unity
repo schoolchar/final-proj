@@ -2993,6 +2993,31 @@ PrefabInstance:
       propertyPath: inOff
       value: 
       objectReference: {fileID: 57936346}
+    - target: {fileID: 7040462518987365484, guid: cf17d3eeb36f24f48b82d86cc829d29c,
+        type: 3}
+      propertyPath: gunText
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7040462518987365484, guid: cf17d3eeb36f24f48b82d86cc829d29c,
+        type: 3}
+      propertyPath: healthText
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7040462518987365484, guid: cf17d3eeb36f24f48b82d86cc829d29c,
+        type: 3}
+      propertyPath: grappleText
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7040462518987365484, guid: cf17d3eeb36f24f48b82d86cc829d29c,
+        type: 3}
+      propertyPath: wallrunText
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7040462518987365484, guid: cf17d3eeb36f24f48b82d86cc829d29c,
+        type: 3}
+      propertyPath: enemiesKilledText
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8609083149730186565, guid: cf17d3eeb36f24f48b82d86cc829d29c,
         type: 3}
       propertyPath: m_LocalPosition.x

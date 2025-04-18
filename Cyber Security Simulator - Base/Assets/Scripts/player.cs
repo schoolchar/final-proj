@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     //variables
 
     //added for death manager
-    public DisplayDeaths displayDeaths; 
+    //public DisplayDeaths displayDeaths; 
 
     //freezes player for grappling
     public bool freeze;
