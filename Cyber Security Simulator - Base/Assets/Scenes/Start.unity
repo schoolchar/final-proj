@@ -133,7 +133,7 @@ PrefabInstance:
     - target: {fileID: 1592385694826456298, guid: 3e206cfe236f8be48af1e015e9909774,
         type: 3}
       propertyPath: m_text
-      value: Press X to continue
+      value: Press M1 to continue
       objectReference: {fileID: 0}
     - target: {fileID: 2998246679476008085, guid: 3e206cfe236f8be48af1e015e9909774,
         type: 3}
@@ -289,6 +289,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7236537380515785387, guid: 3e206cfe236f8be48af1e015e9909774,
+        type: 3}
+      propertyPath: m_text
+      value: Press M1 to close
       objectReference: {fileID: 0}
     - target: {fileID: 8181019323411489146, guid: 3e206cfe236f8be48af1e015e9909774,
         type: 3}

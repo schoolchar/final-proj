@@ -1740,7 +1740,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Press X to \nclose"
+  m_text: "Press M1 to \nclose"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ded5fde44cfacb142ae9027ce5bd1959, type: 2}
   m_sharedMaterial: {fileID: -3130839726890694685, guid: ded5fde44cfacb142ae9027ce5bd1959,
@@ -3896,7 +3896,6 @@ MonoBehaviour:
   aimFOV: 40
   zoomSpeed: 10
   freeLookCamera: {fileID: 1195448741}
-  lookAT: {fileID: 167036075}
   rotationSpeed: 10
 --- !u!114 &1195448741
 MonoBehaviour:
@@ -4644,6 +4643,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutorial: {fileID: 756248019}
+  audioSource: {fileID: 0}
+  triggerSound: {fileID: 0}
 --- !u!65 &1508028371
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5848,7 +5849,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Press X to continue
+  m_text: Press M1 to continue
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ded5fde44cfacb142ae9027ce5bd1959, type: 2}
   m_sharedMaterial: {fileID: -3130839726890694685, guid: ded5fde44cfacb142ae9027ce5bd1959,
