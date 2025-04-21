@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/EscapeRoomTest.unity
     guid: 2a4354bac5b7dbd43b028c1ed300b3a5
+  - enabled: 1
+    path: Assets/Scenes/Tutorial.unity
+    guid: 3b1f4f752c2146c4fa0064af4687dbff
   m_configObjects: {}
