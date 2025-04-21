@@ -10,6 +10,7 @@ public class LevelTimer : MonoBehaviour
     private int lastFullSecond;
     private bool isPaused = false;
     public Light targetLight;
+    public Light spotLight;
 
     [Header("UI Reference")]
     public TextMeshProUGUI timerText;
@@ -108,6 +109,7 @@ public class LevelTimer : MonoBehaviour
         if (targetLight != null)
         {
             targetLight.color = Color.red;
+            spotLight.color = Color.red;
         }
     }
 }
