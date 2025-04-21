@@ -16,6 +16,8 @@ public class TriggerBreakerPanel : CameraMoveComputer
     bool enterCutsceneB;
     bool exitCutsceneB;
 
+    public Light targetLight;
+
     [SerializeField] private Transform moveToPt;
     private Vector3 breakerRounddMovePt;
     [SerializeField] private Transform breakerObj;
@@ -122,5 +124,6 @@ public class TriggerBreakerPanel : CameraMoveComputer
     public void PlayWinSound()
     {
         breakerSound.Play();
+        targetLight.color = Color.white;
     }
 } //END TriggerBreakerPanel.cs

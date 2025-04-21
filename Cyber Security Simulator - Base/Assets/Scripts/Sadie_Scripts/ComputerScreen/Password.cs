@@ -2,16 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Experimental.GlobalIllumination;
 using UnityEngine.UI;
 
 public class Password : MonoBehaviour
 {
     public bool passwordActive;
     public bool passwordSolved;
-    
 
-    private string password = "C4ff13n3";
-    private string altPassword = "C4FF13N3";
+    public Light targetLight;
+
+
+    private string password = "C4FF13N3";
+
 
     public TMP_InputField passwordInput;
     public GameObject passwordInputObj;
@@ -23,7 +26,7 @@ public class Password : MonoBehaviour
     [SerializeField] private RawImage background;
     [SerializeField] private Sprite desktopTxture;
 
-    
+
 
     [Header("Controller input")]
     [SerializeField] private string currentInput;
@@ -52,9 +55,11 @@ public class Password : MonoBehaviour
     /// </summary>
     public void CheckPassword(string _input)
     {
+        _input = _input.ToUpper();
+
         //If password is correct
-        if(_input == password || _input == altPassword)
-        { 
+        if (_input == password)
+        {
             //Show button for deactivating cameras/turning on lava
             Debug.Log("Password correct");
             computerSound.clip = login;
@@ -73,7 +78,12 @@ public class Password : MonoBehaviour
             background.texture = desktopTxture.texture;
 
             Cursor.visible = true;
-         Cursor.lockState = CursorLockMode.None;
+            Cursor.lockState = CursorLockMode.None;
+
+            if (targetLight != null)
+            {
+                targetLight.color = Color.blue;
+            }
 
 
         }
@@ -95,16 +105,16 @@ public class Password : MonoBehaviour
     void CheckControllerTyping()
     {
         //Change the current letter
-        if(Input.GetAxis("Dpad Vertical") != 0 && canInput)
+        if (Input.GetAxis("Dpad Vertical") != 0 && canInput)
         {
             canInput = false;
             StartCoroutine(StopTyping());
             char[] _newInput = new char[currentInput.Length];
             //Loop through string in input field to get to the last letter
-            for(int i = 0; i < currentInput.Length; i++)
+            for (int i = 0; i < currentInput.Length; i++)
             {
                 //On last letter
-                if(i == currentInput.Length - 1)
+                if (i == currentInput.Length - 1)
                 {
                     //Use dpad to increase or decrease ascii value of last letter in string, simulates a scroll mechanic
                     _newInput[i] = (char)((int)(currentInput[i]) + Input.GetAxis("Dpad Vertical"));
@@ -113,7 +123,7 @@ public class Password : MonoBehaviour
                 {
                     _newInput[i] = currentInput[i];
                 }
-                
+
             }
             //Replace
             string _s = new string(_newInput);
@@ -121,7 +131,7 @@ public class Password : MonoBehaviour
         }
 
         //Move to next letter
-        if(Input.GetAxis("Dpad Horizontal") == 1 && canInput)
+        if (Input.GetAxis("Dpad Horizontal") == 1 && canInput)
         {
             canInput = false;
             StartCoroutine(StopTyping());
@@ -129,7 +139,7 @@ public class Password : MonoBehaviour
             //Replace input field with same letters
             for (int i = 0; i < currentInput.Length; i++)
             {
-                
+
                 _newInput[i] = currentInput[i];
 
             }
@@ -140,12 +150,12 @@ public class Password : MonoBehaviour
         }
 
         //Backspace
-        if(Input.GetAxis("Dpad Horizontal") == -1 && canInput)
+        if (Input.GetAxis("Dpad Horizontal") == -1 && canInput)
         {
             canInput = false;
             StartCoroutine(StopTyping());
-            char[] _newInput = new char[currentInput.Length -1];
-            for(int i = 0; i < _newInput.Length; i++)
+            char[] _newInput = new char[currentInput.Length - 1];
+            for (int i = 0; i < _newInput.Length; i++)
             {
                 //If the loop has reached the last letter, change to default A
                 if (i == _newInput.Length - 1)
@@ -162,7 +172,7 @@ public class Password : MonoBehaviour
         }
 
         //Submit
-        if(Input.GetKeyDown(KeyCode.JoystickButton0))
+        if (Input.GetKeyDown(KeyCode.JoystickButton0))
         {
             CheckPassword(passwordInput.text);
         }
@@ -174,7 +184,7 @@ public class Password : MonoBehaviour
     public void GetCurrentString(string _input)
     {
         currentInput = _input;
-        
+
     } //END GetCurrentString()
 
     /// <summary>

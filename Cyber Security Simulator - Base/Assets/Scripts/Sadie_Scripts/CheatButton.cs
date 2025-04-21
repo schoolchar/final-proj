@@ -13,23 +13,55 @@ public class CheatButton : MonoBehaviour
 
     [SerializeField] private Animator animator;
 
+    public Canvas canvasToShow; // Assign in inspector
+    private bool isPlayerInTrigger = false;
+
+    void Start()
+    {
+        if (canvasToShow != null)
+        {
+            canvasToShow.enabled = false;
+        }
+    }
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.layer == 7)
+        if (other.CompareTag("Player"))
         {
-            animator.SetBool("Open", true);
+            isPlayerInTrigger = true;
+
+            if (canvasToShow != null)
+            {
+                canvasToShow.enabled = true;
+            }
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.layer == 7)
+        if (other.CompareTag("Player"))
         {
-            animator.SetBool("Open", false);
+            isPlayerInTrigger = false;
+
+            if (canvasToShow != null)
+            {
+                canvasToShow.enabled = false;
+            }
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
     }
 
+    public void PressButton(Collider other)
+    {
+            animator.SetBool("Open", true);
 
-   
-}//END CheatButton.cs
+        if (canvasToShow != null)
+            canvasToShow.enabled = false;
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
+}
+
+
