@@ -10,8 +10,8 @@ public class Password : MonoBehaviour
     public bool passwordSolved;
     
 
-    private string password = "C4ff13n3";
-    private string altPassword = "C4FF13N3";
+    private string password = "C4FF13N3";
+    
 
     public TMP_InputField passwordInput;
     public GameObject passwordInputObj;
@@ -52,8 +52,10 @@ public class Password : MonoBehaviour
     /// </summary>
     public void CheckPassword(string _input)
     {
+        _input = _input.ToUpper();
+
         //If password is correct
-        if(_input == password || _input == altPassword)
+        if(_input == password)
         { 
             //Show button for deactivating cameras/turning on lava
             Debug.Log("Password correct");
