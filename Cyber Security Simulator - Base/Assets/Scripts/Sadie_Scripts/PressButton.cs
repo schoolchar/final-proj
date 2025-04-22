@@ -33,11 +33,14 @@ public class PressButton : MonoBehaviour
        
     } //END PressStupidButton()
 
+    /// <summary>
+    /// Wait for sound effect and camera before loading hub on win
+    /// </summary>
     IEnumerator WaitToLoadHub()
     {
         yield return new WaitForSeconds(3);
         SceneManager.LoadSceneAsync("Start");
-    }
+    } // END WaitToLoadHub()
 
 
 }
