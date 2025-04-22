@@ -24418,17 +24418,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1283093815}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e998a9da2367c3f45b9e94e79c38fe45, type: 3}
+  m_Script: {fileID: 11500000, guid: 9d5f47a209b4e6742aae87ca46b9088b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   passwordActive: 0
   passwordSolved: 0
-  targetLight: {fileID: 912269838}
   passwordInput: {fileID: 1283093817}
   passwordInputObj: {fileID: 1283093815}
   deactivateSecurity: {fileID: 419776189}
-  inputInstructions: {fileID: 2030217398}
-  pWordInstructions: {fileID: 716317579}
+  inputInstructions: {fileID: 716317579}
+  pWordInstructions: {fileID: 2030217398}
   moreInstructions: {fileID: 1006612139}
   wrongPword: {fileID: 1971629880}
   background: {fileID: 801469838}
