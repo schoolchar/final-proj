@@ -128,6 +128,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (rb.velocity.magnitude <= 0)
         {
+            Debug.Log("NO movement");
             animator.SetBool("Movement", false);
             walkingAudioSource.Stop();
         }
@@ -360,6 +361,8 @@ public class PlayerMovement : MonoBehaviour
 
             humanRoboParts.SetActive(true);
             animator = humanRoboAnimator;
+            wallRunning.animator = animator;
+            FindAnyObjectByType<cam>().playerPhy = humanRoboParts.transform;
         }
 
         if(manager.roboState == gameManager.RoboState.ROBOT)
@@ -371,6 +374,8 @@ public class PlayerMovement : MonoBehaviour
             humanRoboParts.SetActive(false);
             robotParts.SetActive(true);
             animator = robotAnimator;
+            wallRunning.animator = animator;
+            FindAnyObjectByType<cam>().playerPhy = robotParts.transform;
         }
     } //END ChangePlayerModel()
 }

@@ -960,7 +960,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7964146703961298277, guid: 85a219f385d13e546adc56dc62d6a883,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 252565744140644866}
   m_SourcePrefab: {fileID: 100100000, guid: 85a219f385d13e546adc56dc62d6a883, type: 3}
 --- !u!95 &6210215719377641586 stripped
 Animator:
@@ -980,6 +984,24 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 95465882924367160}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &252565744140644866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8058484056693024861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b291ed2472fb2ee4aa4be30bef90bcb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slideForce: 3
+  slideDirection: {fileID: 7828493608124194644}
+  playerPhys: {fileID: 8058484056693024861}
+  debugMode: 0
+  rb: {fileID: 7978547360645135026}
+  manager: {fileID: 0}
 --- !u!1001 &1535991991899014450
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1434,7 +1456,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7858636892251854300, guid: 7bca4f902f5e6d04bb63570683c81632,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 26964538128785658}
   m_SourcePrefab: {fileID: 100100000, guid: 7bca4f902f5e6d04bb63570683c81632, type: 3}
 --- !u!1 &747926402682735265 stripped
 GameObject:
@@ -1442,6 +1468,24 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 7452990659460980605}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &26964538128785658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 747926402682735265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b291ed2472fb2ee4aa4be30bef90bcb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slideForce: 3
+  slideDirection: {fileID: 7828493608124194644}
+  playerPhys: {fileID: 747926402682735265}
+  debugMode: 0
+  rb: {fileID: 7978547360645135026}
+  manager: {fileID: 0}
 --- !u!95 &1951693008439009708 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 8969932370013011665, guid: 7bca4f902f5e6d04bb63570683c81632,

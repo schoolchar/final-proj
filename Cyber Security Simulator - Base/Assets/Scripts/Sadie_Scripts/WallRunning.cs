@@ -38,7 +38,7 @@ public class WallRunning : MonoBehaviour
 
     private bool coolDownEnabled; //Test for ending wall run, when enabled cannot exit wall run state
 
-    [SerializeField] private Animator animator;
+    public Animator animator;
 
 
 
