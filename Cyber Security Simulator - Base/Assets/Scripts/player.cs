@@ -91,6 +91,7 @@ public class PlayerMovement : MonoBehaviour
     public Animator humanRoboAnimator;
     public Animator robotAnimator;
     public PlayerShooting shooting;
+    public LoadEveryScene loadEveryScene;
 
     // on start up, i may be over-commenting
     private void Start()
