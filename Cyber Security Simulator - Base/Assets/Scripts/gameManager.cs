@@ -12,6 +12,14 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public class gameManager : MonoBehaviour
 {
+    public enum RoboState
+    {
+        HUMAN,
+        HUMANROBO,
+        ROBOT
+    }
+
+
     [Header("Deaths and enemies killed")]
     public static gameManager instance;
     public int enemiesKilled;
@@ -54,8 +62,12 @@ public class gameManager : MonoBehaviour
     public TextMeshProUGUI wallrunText;
     private int deaths = 0;
 
+    [Header("Player Models")]
+    public PlayerMovement playerM;
+    public RoboState roboState;
 
-    //adding for now to sets when level won
+
+    [Header("New Unlocks")]
     public bool combatWon;
     public bool parkourWon;
     public bool escapeRoomWon;
@@ -78,6 +90,7 @@ public class gameManager : MonoBehaviour
         inOn.SetActive(false);
         invincibility = false;
         enemiesKilled = 0; // how many enemies killed
+        roboState = RoboState.HUMAN;
         //InitOnLoad();
     }
 
@@ -246,6 +259,19 @@ public class gameManager : MonoBehaviour
     {
         deaths++;
         deathCount.text = "Deaths: " + deaths;
+        Debug.Log("Death count = " + deaths);
+        if(deaths >= 2 && roboState == RoboState.HUMAN)
+        {
+            roboState = RoboState.HUMANROBO;
+            playerM.ChangePlayerModel();
+        }
+
+        if(deaths >= 5 && roboState == RoboState.HUMANROBO)
+        {
+            
+            roboState= RoboState.ROBOT;
+            playerM.ChangePlayerModel();
+        } 
     }
     public int GetDeathCount()
     {

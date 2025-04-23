@@ -82,16 +82,28 @@ public class PlayerMovement : MonoBehaviour
     [Header("Debugging")]
     public bool debugMode;
 
+
+    [Header("Player models")]
+    public GameObject[] humanParts;
+    public GameObject humanRoboParts;
+    public GameObject robotParts;
+    public Animator humanAnimator;
+    public Animator humanRoboAnimator;
+    public Animator robotAnimator;
+
     // on start up, i may be over-commenting
     private void Start()
     {
                 //finds game manager
         manager = FindAnyObjectByType<gameManager>();
+        manager.playerM = this.gameObject.GetComponent<PlayerMovement>();
 
         animator.SetBool("Movement", false);
         readyToJump = true;
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
+
+        ChangePlayerModel();
 
         //wallRunning.canWallRun = false;
 
@@ -333,4 +345,32 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
+
+    /// <summary>
+    /// Change the player model based on the number of deaths the player has experienced
+    /// </summary>
+    public void ChangePlayerModel()
+    {
+        if(manager.roboState == gameManager.RoboState.HUMANROBO)
+        {
+            for(int i = 0; i < humanParts.Length; i++)
+            {
+                humanParts[i].SetActive(false);
+            }
+
+            humanRoboParts.SetActive(true);
+            animator = humanRoboAnimator;
+        }
+
+        if(manager.roboState == gameManager.RoboState.ROBOT)
+        {
+            for (int i = 0; i < humanParts.Length; i++)
+            {
+                humanParts[i].SetActive(false);
+            }
+            humanRoboParts.SetActive(false);
+            robotParts.SetActive(true);
+            animator = robotAnimator;
+        }
+    } //END ChangePlayerModel()
 }
