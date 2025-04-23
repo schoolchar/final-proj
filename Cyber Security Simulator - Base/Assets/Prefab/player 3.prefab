@@ -597,12 +597,12 @@ MonoBehaviour:
   - {fileID: 3000942473362241257}
   - {fileID: 6215051043609340965}
   - {fileID: 4068453481306840783}
-  - {fileID: 3211369378699801397}
   humanRoboParts: {fileID: 747926402682735265}
   robotParts: {fileID: 8058484056693024861}
   humanAnimator: {fileID: 3581941712554268095}
   humanRoboAnimator: {fileID: 1951693008439009708}
   robotAnimator: {fileID: 6210215719377641586}
+  shooting: {fileID: 5025255300523174696}
 --- !u!136 &1847553847218883139
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1361,12 +1361,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7524e30a0c1d49c46bef78b372b6793c, type: 3}
---- !u!1 &3211369378699801397 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8088483837235602798, guid: 7524e30a0c1d49c46bef78b372b6793c,
-    type: 3}
-  m_PrefabInstance: {fileID: 6688129521991636571}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7146264193775516615 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4611021048086293916, guid: 7524e30a0c1d49c46bef78b372b6793c,

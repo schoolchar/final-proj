@@ -90,6 +90,7 @@ public class PlayerMovement : MonoBehaviour
     public Animator humanAnimator;
     public Animator humanRoboAnimator;
     public Animator robotAnimator;
+    public PlayerShooting shooting;
 
     // on start up, i may be over-commenting
     private void Start()
@@ -118,17 +119,18 @@ public class PlayerMovement : MonoBehaviour
         speedLimit();
         HandleAiming();
 
-        if (rb.velocity.magnitude > 0)
+        if (rb.velocity.magnitude > 0.01)
         {
+            Debug.Log("Movement " + rb.velocity.magnitude);
             animator.SetBool("Movement", true);
             if (!walkingAudioSource.isPlaying)
             {
                 walkingAudioSource.PlayOneShot(walkingClip);
             }
         }
-        else if (rb.velocity.magnitude <= 0)
+        else if (rb.velocity.magnitude <= 0.01)
         {
-            Debug.Log("NO movement");
+            Debug.Log("NO movement " + rb.velocity.magnitude);
             animator.SetBool("Movement", false);
             walkingAudioSource.Stop();
         }
@@ -362,6 +364,7 @@ public class PlayerMovement : MonoBehaviour
             humanRoboParts.SetActive(true);
             animator = humanRoboAnimator;
             wallRunning.animator = animator;
+            shooting.animator = animator;
             FindAnyObjectByType<cam>().playerPhy = humanRoboParts.transform;
         }
 
@@ -375,6 +378,7 @@ public class PlayerMovement : MonoBehaviour
             robotParts.SetActive(true);
             animator = robotAnimator;
             wallRunning.animator = animator;
+            shooting.animator = animator;
             FindAnyObjectByType<cam>().playerPhy = robotParts.transform;
         }
     } //END ChangePlayerModel()
