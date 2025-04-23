@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1536
     height: 772.8
   m_ShowMode: 4
-  m_Title: Project Settings
+  m_Title: Scene
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -119,7 +119,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 157
+  controlID: 123
   draggingID: 0
 --- !u!114 &6
 MonoBehaviour:
@@ -145,7 +145,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 66
+  controlID: 124
   draggingID: 0
 --- !u!114 &7
 MonoBehaviour:
@@ -171,7 +171,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 67
+  controlID: 69
   draggingID: 0
 --- !u!114 &8
 MonoBehaviour:
@@ -209,7 +209,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: ProjectSettingsWindow
+  m_Name: SceneView
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -218,16 +218,16 @@ MonoBehaviour:
     y: 0
     width: 928.00006
     height: 461.6
-  m_MinSize: {x: 312, y: 221}
+  m_MinSize: {x: 202, y: 221}
   m_MaxSize: {x: 4002, y: 4021}
-  m_ActualView: {fileID: 17}
+  m_ActualView: {fileID: 16}
   m_Panes:
   - {fileID: 16}
   - {fileID: 17}
   - {fileID: 18}
   - {fileID: 14}
-  m_Selected: 1
-  m_LastSelected: 0
+  m_Selected: 0
+  m_LastSelected: 3
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -473,21 +473,21 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 560ffbff900ffbff2a16fbff2c36fbff6a85fbff7085fbff7685fbffa688fbffc897fbff6a9dfbff8e9dfbff04a6fbff3ea6fbffd8acfbffdaccfbff181cfcff1e1cfcff241cfcff541ffcff762efcff1834fcff3c34fcff3a3dfcffec3dfcff8644fcff8864fcffc6b3fcffccb3fcffd2b3fcff02b7fcff24c6fcffc6cbfcffeacbfcffb0d6fcff62d7fcff1cdefcff22fefcff644dfdff6e4dfdff784dfdffac50fdffd25ffdff7865fdffa065fdff6c8afdff1e8bfdffd891fdffdeb1fdff2001feff2a01feff3401feff6804feff8e13feff3419feff5c19feff3e37fefff037feff8e3efeff945efeffd6adfeffe0adfeffeaadfeff1eb1feff44c0feff6ac6feff92c6feff40cefeff2cd0fefff6d3feff88d4fefff4dbfeff82dcfeff40e3feff4a03ffff9052ffff9e52ffffac52ffffe455ffff0e65ffffe86bffff146cffff0487ffff508effffe494ffff2096ffffb296ffff7caeffffacf4ffff14f7ffff90fafffff4ffffff8c730000e67300000e7400005c740000face0000b4df0000805e0100eacb0100a6ce0100cad101002a5402009e5902007c5a02002e5b020088ee02008cf50200
+      m_ExpandedIDs: ea26fdffa427fdff3e2efdff584ffdff9c9ffdffa29ffdffa89ffdffd8a2fdff10b3fdffe4b9fdff08bafdffa2c5fdff54c6fdff0acdfdff24eefdff683efeff6e3efeff743efeffa441feffdc51feffb058feffd458feffee6bfeffa86cfeff4273feff5c94feffa0e4feffa6e4fefface4feffdce7feff14f8feffe8fefeff0cfffeff2420ffff7c54ffff865cffff385dfffff663ffff1885ffff64d5ffff72d5ffff80d5ffffb8d8fffff8e8ffffd6efffff6af0ffff3cfaffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: Shooting
-        m_OriginalName: Shooting
+        m_Name: 
+        m_OriginalName: 
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 118400
+        m_UserData: 0
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 4
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 8}
       m_SearchString: 
@@ -906,9 +906,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 584.93823, y: 280.45044, z: -303.8924}
+    m_Target: {x: 177.97879, y: -111.72992, z: 344.9599}
     speed: 2
-    m_Value: {x: 584.93823, y: 280.45044, z: -303.8924}
+    m_Value: {x: 177.97879, y: -111.72992, z: 344.9599}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -954,13 +954,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.09460289, y: -0.059944883, z: 0.00494989, w: 0.99443865}
+    m_Target: {x: 0.15784347, y: 0.20577876, z: -0.033852927, w: 0.966081}
     speed: 2
-    m_Value: {x: 0.094539024, y: -0.058708202, z: 0.0048327977, w: 0.9937768}
+    m_Value: {x: 0.15766737, y: 0.20676042, z: -0.03401312, w: 0.96500486}
   m_Size:
-    m_Target: 28.476902
+    m_Target: 534.34717
     speed: 2
-    m_Value: 28.476902
+    m_Value: 526.38495
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -1021,7 +1021,7 @@ MonoBehaviour:
     m_SaveData: []
     m_OverlaysVisible: 1
   m_PosLeft: {x: 0, y: 0}
-  m_PosRight: {x: 0, y: 321}
+  m_PosRight: {x: 0, y: 301}
   m_Scope: 1
   m_SplitterFlex: 0.2
   m_SearchText: 
@@ -1183,7 +1183,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes
+    - Assets/Prefab/char prefab
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -1191,7 +1191,7 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scenes
+  - Assets/Prefab/char prefab
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\rappa\Desktop\github\final-proj\Cyber Security Simulator
     - Base
@@ -1199,9 +1199,9 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 275.80002}
-    m_SelectedIDs: 40810000
-    m_LastClickedID: 33088
-    m_ExpandedIDs: 00000000aa800000ac800000ae80000000ca9a3bffffff7f
+    m_SelectedIDs: 46350000
+    m_LastClickedID: 13638
+    m_ExpandedIDs: 000000002282000024820000268200006e82000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1229,7 +1229,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000aa800000ac800000ae800000
+    m_ExpandedIDs: 00000000228200002482000026820000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1281,7 +1281,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 102.80002}
+    m_ScrollPosition: {x: 0, y: 0}
     m_GridSize: 64
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 207
