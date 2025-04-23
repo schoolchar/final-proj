@@ -7,7 +7,7 @@ public class ObjectToggle : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.X))
+        if (Input.GetKeyDown(KeyCode.Mouse1))
         {
             
             objectToDeactivate.SetActive(false);

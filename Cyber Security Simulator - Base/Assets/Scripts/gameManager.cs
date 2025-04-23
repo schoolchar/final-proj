@@ -59,6 +59,7 @@ public class gameManager : MonoBehaviour
     public bool combatWon;
     public bool parkourWon;
     public bool escapeRoomWon;
+    public bool haswon;
 
     #region Monobehaviours
     void Awake()
@@ -69,7 +70,8 @@ public class gameManager : MonoBehaviour
         combatUnlocked = false;
         parkourUnlocked = false;
         escapeRoomUnlocked = false;
-}
+        haswon = false;
+    }
     void Start()
     {
         inOff.SetActive(true);
@@ -83,9 +85,10 @@ public class gameManager : MonoBehaviour
     private void Update()
     {
         //winning
-        if (combatWon == true && parkourWon == true && escapeRoomWon == true)
+        if (combatWon == true && parkourWon == true && escapeRoomWon == true && haswon == false)
         {
             SceneManager.LoadSceneAsync("win");
+            haswon = true;
         }
 
         //Health

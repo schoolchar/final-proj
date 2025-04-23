@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Hub.unity
     guid: ad690b8d673a67a4d9008be2a47ba3c3
   - enabled: 1
+    path: Assets/Scenes/Start.unity
+    guid: b9e239a4244c56745b0c437c9ca68ccb
+  - enabled: 1
     path: Assets/Scenes/Combat.unity
     guid: b8e328b334fd23d4b84ce87cd038a8c3
   - enabled: 1
@@ -24,15 +27,12 @@ EditorBuildSettings:
     path: Assets/Scenes/win.unity
     guid: acdf0dacc7dfaf44c8d5d854c0fc387d
   - enabled: 1
-    path: Assets/Scenes/Start.unity
-    guid: b9e239a4244c56745b0c437c9ca68ccb
-  - enabled: 1
     path: Assets/Scenes/Parkour.unity
     guid: 3fdf7635786aae34f8ce76a8bdfe9a1d
   - enabled: 1
     path: Assets/Scenes/EscapeRoomTest.unity
     guid: 2a4354bac5b7dbd43b028c1ed300b3a5
   - enabled: 1
-    path: Assets/Scenes/Tutorial.unity
+    path: Assets/Scenes/tutorial.unity
     guid: 3b1f4f752c2146c4fa0064af4687dbff
   m_configObjects: {}
