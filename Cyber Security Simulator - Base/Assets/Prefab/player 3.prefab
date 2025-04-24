@@ -603,6 +603,7 @@ MonoBehaviour:
   humanRoboAnimator: {fileID: 1951693008439009708}
   robotAnimator: {fileID: 6210215719377641586}
   shooting: {fileID: 5025255300523174696}
+  loadEveryScene: {fileID: 0}
 --- !u!136 &1847553847218883139
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1281,6 +1282,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -0.031
       objectReference: {fileID: 0}
+    - target: {fileID: 3322003052966411052, guid: 7524e30a0c1d49c46bef78b372b6793c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8cc518405f24c2e46bc597117d3b0e28, type: 2}
     - target: {fileID: 4611021048086293916, guid: 7524e30a0c1d49c46bef78b372b6793c,
         type: 3}
       propertyPath: m_LocalPosition.x
