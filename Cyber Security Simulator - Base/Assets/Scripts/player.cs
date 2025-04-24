@@ -82,6 +82,10 @@ public class PlayerMovement : MonoBehaviour
     [Header("Debugging")]
     public bool debugMode;
 
+    [Header("Ashe's Jump Tuning")]
+    public float fallMultiplier = 2.5f;
+    public float lowJumpMultiplier = 2f;
+
     // on start up, i may be over-commenting
     private void Start()
     {
@@ -106,7 +110,9 @@ public class PlayerMovement : MonoBehaviour
         speedLimit();
         HandleAiming();
 
-        if (rb.velocity.magnitude > 0)
+        Vector3 flatVel = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+
+        if (flatVel.magnitude > 0.1f && grounded)
         {
             animator.SetBool("Movement", true);
             if (!walkingAudioSource.isPlaying)
@@ -114,7 +120,7 @@ public class PlayerMovement : MonoBehaviour
                 walkingAudioSource.PlayOneShot(walkingClip);
             }
         }
-        else if (rb.velocity.magnitude <= 0)
+        else
         {
             animator.SetBool("Movement", false);
             walkingAudioSource.Stop();
@@ -122,6 +128,19 @@ public class PlayerMovement : MonoBehaviour
 
         //makes a raycast to see if touching ground
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.3f, isGround);
+
+        // Advanced Jump
+        if (rb.velocity.y < 0)
+        {
+            // Falling
+            rb.velocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
+        }
+        else if (rb.velocity.y > 0 && !Input.GetKey(jumpButton) && !Input.GetKey(jumpButtonController))
+        {
+            // Going up but jump released early
+            rb.velocity += Vector3.up * Physics.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
+        }
+
         //Debug.Log("Grounded: " + grounded);
 
         //makes drag only if touching ground, not in air

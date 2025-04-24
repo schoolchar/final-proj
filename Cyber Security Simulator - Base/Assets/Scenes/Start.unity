@@ -7749,6 +7749,11 @@ PrefabInstance:
       propertyPath: cameraTransform
       value: 
       objectReference: {fileID: 1507951476}
+    - target: {fileID: 9059793243424393325, guid: 5b316720c6c1c504982de9f814de4a5e,
+        type: 3}
+      propertyPath: playerJumpForce
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
