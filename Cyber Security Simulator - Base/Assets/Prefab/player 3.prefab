@@ -567,7 +567,7 @@ MonoBehaviour:
   groundDrag: 8
   orientation: {fileID: 2183080315865303302}
   playerHeight: 1.75
-  playerJumpForce: 10
+  playerJumpForce: 11
   highJump: 0
   jumpCooldown: 0.25
   airMultiplier: 0.4
@@ -604,6 +604,8 @@ MonoBehaviour:
   robotAnimator: {fileID: 6210215719377641586}
   shooting: {fileID: 5025255300523174696}
   loadEveryScene: {fileID: 0}
+  fallMultiplier: 2.5
+  lowJumpMultiplier: 2
 --- !u!136 &1847553847218883139
 CapsuleCollider:
   m_ObjectHideFlags: 0
