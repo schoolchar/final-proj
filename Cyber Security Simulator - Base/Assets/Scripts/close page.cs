@@ -20,5 +20,15 @@ public class closePage : MonoBehaviour
 
             turnon.SetActive(true);
         }
+        if (Input.GetButtonDown("Fire2"))
+        {
+
+            turnoff.SetActive(false);
+
+            turnoff2.SetActive(false);
+
+
+            turnon.SetActive(true);
+        }
     }
 }
