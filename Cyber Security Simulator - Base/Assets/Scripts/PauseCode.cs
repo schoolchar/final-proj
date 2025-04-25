@@ -16,7 +16,8 @@ public class PauseMenu : MonoBehaviour
     public GameObject howplay;
     public GameObject cheat;
 
-
+    //Only for escape room
+    [SerializeField] private Password password;
 
     //Button indexes
     //0 - how to play
@@ -67,10 +68,24 @@ public class PauseMenu : MonoBehaviour
         {
             if (isPaused)
             {
+                if(password != null)
+                {
+                    if(password.passwordActive)
+                    {
+                        return;
+                    }
+                }
                 ResumeGame();
             }
             else
             {
+                if (password != null)
+                {
+                    if (password.passwordActive)
+                    {
+                        return;
+                    }
+                }
                 PauseGame();
             }
         }

@@ -123,7 +123,7 @@ public class gameManager : MonoBehaviour
             {
                 combatUnlocked = true;
             }
-            if (currentScene.name == "EscapeRoom")
+            if (currentScene.name == "EscapeRoomTest")
             {
                 escapeRoomUnlocked = true;
             }

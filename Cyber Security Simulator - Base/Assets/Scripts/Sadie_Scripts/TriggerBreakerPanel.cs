@@ -43,7 +43,7 @@ public class TriggerBreakerPanel : CameraMoveComputer
             MoveCameraToPlayer(oldPos, camMovement.playerPhy.gameObject.transform.rotation, breakerPanelCanvas, breakerPanelCanvasObj);
         }
 
-        CheckCutscene(breakerRounddMovePt, roundedOldPos, breakerObj, playerMovement.gameObject.transform);
+        CheckCutscene(breakerRounddMovePt, roundedOldPos, breakerObj, playerMovement.gameObject.transform, lookAt);
 
         if (breakerPanelCanvas.enabled && Input.GetKeyDown(KeyCode.JoystickButton1))
         {
@@ -70,7 +70,7 @@ public class TriggerBreakerPanel : CameraMoveComputer
     /// <summary>
     /// Manage player/camera movement in and out of the breaker panel
     /// </summary>
-    public override void CheckCutscene(Vector3 _roundedEnter, Vector3 _roundedExit, Transform _lookAtEnter, Transform _lookAtExit)
+    public override void CheckCutscene(Vector3 _roundedEnter, Vector3 _roundedExit, Transform _lookAtEnter, Transform _lookAtExitFollow, Transform _lookAtExitLookAt)
     {
         //If entering the breaker panel movement
         if (enterCutsceneB)
@@ -103,8 +103,8 @@ public class TriggerBreakerPanel : CameraMoveComputer
                 Debug.Log("Cam assigned look at player");
 
                 //Need to fix it is very jarring
-                cam.LookAt = _lookAtExit;
-                cam.Follow = _lookAtExit;
+                cam.LookAt = _lookAtExitLookAt;
+                cam.Follow = _lookAtExitFollow;
                 exitCutsceneB = false;
                 //_exitCut = false;
             }

@@ -32,7 +32,7 @@ public class FloorIsLava : MonoBehaviour
             // Increment the deaths count
             //displayDeaths.IncrementDeaths();
             // Teleport the player to begining of level
-            manager.healthLose();
+            //manager.healthLose();
             if(manager.totalHealth > 0) 
                 player.transform.position = respawnPt.position;
             else if(manager.totalHealth == 0)

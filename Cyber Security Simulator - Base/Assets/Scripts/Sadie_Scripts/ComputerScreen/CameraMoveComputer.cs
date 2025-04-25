@@ -28,6 +28,7 @@ public class CameraMoveComputer : MonoBehaviour
     private bool enterCutscene;
     private bool exitCutscene;
 
+    [SerializeField] protected Transform lookAt;
 
     [SerializeField] private Material offMat;
     [SerializeField] private MeshRenderer[] securityCamParts;
@@ -82,7 +83,7 @@ public class CameraMoveComputer : MonoBehaviour
             MoveCameraToPlayer(oldPos, camMovement.playerPhy.gameObject.transform.rotation, computerUI, computerUIObj);
         }
 
-        CheckCutscene(roundedMovePt, roundedOldPos, computer, playerMovement.gameObject.transform);
+        CheckCutscene(roundedMovePt, roundedOldPos, computer, playerMovement.gameObject.transform, lookAt);
 
         if(password.passwordActive && Input.GetKeyDown(KeyCode.JoystickButton1))
         {
@@ -192,7 +193,7 @@ public class CameraMoveComputer : MonoBehaviour
     /// <param name="_roundedExit">Position to reach when exiting the "cutscene"</param>
     /// <param name="_lookAtEnter">Position to look at when entering the "cutscene"</param>
     /// <param name="_lookAtExit">Position to look at when exiting the "cutscene"</param>
-    public virtual void CheckCutscene(Vector3 _roundedEnter, Vector3 _roundedExit, Transform _lookAtEnter, Transform _lookAtExit)
+    public virtual void CheckCutscene(Vector3 _roundedEnter, Vector3 _roundedExit, Transform _lookAtEnter, Transform _lookAtExitFollow, Transform _lookAtExitLookAt)
     {
         //If moving towards computer
         if(enterCutscene)
@@ -224,8 +225,8 @@ public class CameraMoveComputer : MonoBehaviour
                 Debug.Log("Cam assigned look at player");
 
                 //Need to fix it is very jarring
-                cam.LookAt = _lookAtExit;
-                cam.Follow = _lookAtExit;
+                cam.LookAt = _lookAtExitLookAt;
+                cam.Follow = _lookAtExitFollow;
                 exitCutscene = false;
 
                

@@ -16,6 +16,7 @@ public class PressButton : MonoBehaviour
     {
         if(collision.gameObject.layer == 7)
         {
+            
             PressStupidButton();
             buttonPressSFX.Play();
         }
@@ -27,8 +28,9 @@ public class PressButton : MonoBehaviour
     /// </summary>
     public void PressStupidButton()
     {
+        Debug.Log("Press stupid button");
         gameManagerScript.escapeRoomWon = true;
-        gameManagerScript.totalHealth = 0;
+        //gameManagerScript.totalHealth = 0;
         StartCoroutine(WaitToLoadHub());
        
     } //END PressStupidButton()
@@ -39,7 +41,8 @@ public class PressButton : MonoBehaviour
     IEnumerator WaitToLoadHub()
     {
         yield return new WaitForSeconds(3);
-        SceneManager.LoadSceneAsync("Start");
+        //SceneManager.LoadSceneAsync("Start");
+        SceneManager.LoadScene("Start");
     } // END WaitToLoadHub()
 
 

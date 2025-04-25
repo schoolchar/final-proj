@@ -28,6 +28,7 @@ public class CheatButton : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            animator.SetBool("Open", true);
             isPlayerInTrigger = true;
 
             if (canvasToShow != null)
@@ -41,6 +42,7 @@ public class CheatButton : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            animator.SetBool("Open", false);
             isPlayerInTrigger = false;
 
             if (canvasToShow != null)

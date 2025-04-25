@@ -2953,6 +2953,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 306996560}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &309230722 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2786214263662710644, guid: 70fd4d72808b1e34c8af86dd311a2997,
+    type: 3}
+  m_PrefabInstance: {fileID: 1326457417}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &318502238
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4438,6 +4450,7 @@ MonoBehaviour:
   isPaused: 0
   howplay: {fileID: 1326457420}
   cheat: {fileID: 1326457421}
+  password: {fileID: 0}
   buttons:
   - {fileID: 0}
   - {fileID: 0}
@@ -5819,12 +5832,12 @@ MonoBehaviour:
   wallRunning: {fileID: 1677297132}
   pGrapple: {fileID: 1677297131}
   slide: {fileID: 1677297130}
-  enemiesKilledText: {fileID: 0}
-  healthText: {fileID: 0}
+  enemiesKilledText: {fileID: 1935625126}
+  healthText: {fileID: 928729868}
   timerText: {fileID: 1543472159}
-  gunText: {fileID: 0}
-  grappleText: {fileID: 0}
-  wallruntext: {fileID: 0}
+  gunText: {fileID: 1988648544}
+  grappleText: {fileID: 704616725}
+  wallruntext: {fileID: 309230722}
 --- !u!1 &660232526
 GameObject:
   m_ObjectHideFlags: 0
@@ -6138,6 +6151,18 @@ Transform:
   - {fileID: 620916691}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &704616725 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4478880327648212511, guid: 70fd4d72808b1e34c8af86dd311a2997,
+    type: 3}
+  m_PrefabInstance: {fileID: 1326457417}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &712428305
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8622,6 +8647,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 913948491}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &928729868 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4133984402782254069, guid: 70fd4d72808b1e34c8af86dd311a2997,
+    type: 3}
+  m_PrefabInstance: {fileID: 1326457417}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &937637673
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11957,6 +11994,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: death UI
       objectReference: {fileID: 0}
+    - target: {fileID: 4990616341440010622, guid: 70fd4d72808b1e34c8af86dd311a2997,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 652183223}
+    - target: {fileID: 4990616341440010622, guid: 70fd4d72808b1e34c8af86dd311a2997,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CheatHolderSpeedrun
+      objectReference: {fileID: 0}
     - target: {fileID: 5221424830554528400, guid: 70fd4d72808b1e34c8af86dd311a2997,
         type: 3}
       propertyPath: m_Pivot.x
@@ -12056,6 +12103,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5375302553637505914, guid: 70fd4d72808b1e34c8af86dd311a2997,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 652183223}
+    - target: {fileID: 5375302553637505914, guid: 70fd4d72808b1e34c8af86dd311a2997,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CheatHolderInvincibility
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -17926,6 +17983,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.75, y: 0.37301475, z: 0.75}
   m_Center: {x: -0.004597675, y: 0.12642893, z: -0.018339051}
+--- !u!114 &1935625126 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 865039259392523240, guid: 70fd4d72808b1e34c8af86dd311a2997,
+    type: 3}
+  m_PrefabInstance: {fileID: 1326457417}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1958701278 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3864002110283657592, guid: 7bf2a074595714b49ab8eb1d2972f635,
@@ -18037,6 +18106,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1968557708}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1988648544 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9039525301137339349, guid: 70fd4d72808b1e34c8af86dd311a2997,
+    type: 3}
+  m_PrefabInstance: {fileID: 1326457417}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1991626793
 GameObject:
   m_ObjectHideFlags: 0
