@@ -117,6 +117,8 @@ public class PauseMenu : MonoBehaviour
         Cursor.visible = false;
 
         pauseMenuUI.SetActive(false); // Hide pause menu
+        //howplay.SetActive(false);
+       // cheat.SetActive(false);
         Time.timeScale = 1f; // Resume game time
 
         // Resume all paused sounds
