@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LoadEveryScene : MonoBehaviour
 {
@@ -39,6 +40,11 @@ public class LoadEveryScene : MonoBehaviour
     public void CheatHolderInvincibility()
     {
         manager.ChangeInvincibility();
+    }
+
+    public void LoadHubOnTryAgain()
+    {
+        SceneManager.LoadScene("Start");
     }
 
     void AssignVariables()
