@@ -291,9 +291,21 @@ public class gameManager : MonoBehaviour
         }
 
         speedrun = !speedrun;
-        startTimer = true;
 
-        timerText.enabled = true;
+        if(speedrun)
+        {
+            startTimer = true;
+
+            timerText.enabled = true;
+        }
+        else
+        {
+            startTimer = false;
+
+            timerText.enabled = false;
+            timeLeft = 240;
+        }
+        
     } //END ChangeSpeedrun()
 
     /// <summary>
