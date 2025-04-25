@@ -4178,7 +4178,6 @@ GameObject:
   - component: {fileID: 1169301087}
   - component: {fileID: 1169301086}
   - component: {fileID: 1169301088}
-  - component: {fileID: 1169301089}
   - component: {fileID: 1169301090}
   m_Layer: 0
   m_Name: Wilbur
@@ -4237,21 +4236,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.8764373, y: 1.8454516, z: 1.7957366}
   m_Center: {x: 0.06196492, y: -0.4227258, z: 0.2458749}
---- !u!114 &1169301089
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1169301085}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5fbd561de72ff24995d0b59f1499a62, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tutorial: {fileID: 0}
-  audioSource: {fileID: 1169301090}
-  triggerSound: {fileID: 8300000, guid: 6749e2794270bf447bf8b622de5c1f83, type: 3}
 --- !u!82 &1169301090
 AudioSource:
   m_ObjectHideFlags: 0
