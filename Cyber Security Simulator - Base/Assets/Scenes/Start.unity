@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 46085398}
   - component: {fileID: 46085397}
   - component: {fileID: 46085396}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1701,7 +1701,7 @@ GameObject:
   - component: {fileID: 383394024}
   - component: {fileID: 383394023}
   - component: {fileID: 383394022}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2490,7 +2490,7 @@ GameObject:
   - component: {fileID: 656057224}
   - component: {fileID: 656057223}
   - component: {fileID: 656057222}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7448,7 +7448,7 @@ GameObject:
   - component: {fileID: 2015346386}
   - component: {fileID: 2015346385}
   - component: {fileID: 2015346384}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7805,6 +7805,11 @@ PrefabInstance:
       propertyPath: manager
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2473183462028698650, guid: 5b316720c6c1c504982de9f814de4a5e,
+        type: 3}
+      propertyPath: Grappleable.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
     - target: {fileID: 3397575278460305104, guid: 5b316720c6c1c504982de9f814de4a5e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7889,6 +7894,11 @@ PrefabInstance:
         type: 3}
       propertyPath: manager
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8781262815636564089, guid: 5b316720c6c1c504982de9f814de4a5e,
+        type: 3}
+      propertyPath: wall.m_Bits
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 9059793243424393325, guid: 5b316720c6c1c504982de9f814de4a5e,
         type: 3}

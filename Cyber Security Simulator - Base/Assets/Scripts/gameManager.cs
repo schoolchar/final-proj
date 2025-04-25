@@ -35,6 +35,8 @@ public class gameManager : MonoBehaviour
     public bool speedrun;
     public GameObject inOff;
     public GameObject inOn;
+    public GameObject sOff;
+    public GameObject sOn;    
 
     //Put invincibility specific variables here vvv
 
@@ -93,6 +95,8 @@ public class gameManager : MonoBehaviour
         {
             inOff.SetActive(true);
             inOn.SetActive(false);
+            sOff.SetActive(false);
+            sOn.SetActive(false);
         }
         invincibility = false;
         enemiesKilled = 0; // how many enemies killed
@@ -114,7 +118,12 @@ public class gameManager : MonoBehaviour
         //gets scene name
         Scene currentScene = SceneManager.GetActiveScene();
 
-        invincibilityOn();
+        if (currentScene.name == "Hub")
+        {
+            invincibilityOn();
+            speedRunOn();
+        }
+
 
         if (enemiesKilled == 5)
         {
@@ -389,22 +398,31 @@ public class gameManager : MonoBehaviour
             parkourUnlocked = true;
             escapeRoomUnlocked = true;
             totalHealth = 3;
-            if (currentScene.name == "Hub")
-            {
-                inOff.SetActive(false);
-                inOn.SetActive(true);
-            }
+
+            inOff.SetActive(false);
+            inOn.SetActive(true);
         }
         else if (invincibility == false)
         {
-            if (currentScene.name == "Hub")
-            {
-                inOff.SetActive(true);
-                inOn.SetActive(false);
-            }
+            inOff.SetActive(true);
+            inOn.SetActive(false);
         }
     }
 
+    public void speedRunOn()
+    {
+        Scene currentScene = SceneManager.GetActiveScene();
 
+        if (speedrun == true || setSpeedrunFromMain == true)
+        {
+            sOff.SetActive(false);
+            sOn.SetActive(true);
+        }
+        else if (speedrun == false && setSpeedrunFromMain == false)
+        {
+            sOff.SetActive(true);
+            sOn.SetActive(false);
+        }
+    }
     #endregion
 }

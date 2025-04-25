@@ -18,13 +18,22 @@ public class TriggerZone : MonoBehaviour
 
             if (deadlyFloor != null)
             {
-                Debug.Log("Unlocking deadly floor...");
+                Debug.Log("Making the floor deadly...");
                 deadlyFloor.UnlockFloor();
-                Debug.Log("unlockFloor set to: " + deadlyFloor.unlockFloor);
+
+                Renderer floorRenderer = deadlyFloor.GetComponent<Renderer>();
+                if (floorRenderer != null)
+                {
+                    floorRenderer.material.color = Color.red;
+                }
+                else
+                {
+                    Debug.LogWarning("DeadlyFloor does not have a renderer");
+                }
             }
             else
             {
-                Debug.LogWarning("DeadlyFloor reference is not set!");
+                Debug.LogWarning("DeadlyFloor reference not set");
             }
         }
     }
