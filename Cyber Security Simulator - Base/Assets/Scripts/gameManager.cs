@@ -86,8 +86,14 @@ public class gameManager : MonoBehaviour
     }
     void Start()
     {
-        inOff.SetActive(true);
-        inOn.SetActive(false);
+
+        Scene currentScene = SceneManager.GetActiveScene();
+
+        if (currentScene.name == "Hub")
+        {
+            inOff.SetActive(true);
+            inOn.SetActive(false);
+        }
         invincibility = false;
         enemiesKilled = 0; // how many enemies killed
         roboState = RoboState.HUMAN;
