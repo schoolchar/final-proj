@@ -706,8 +706,8 @@ MonoBehaviour:
   maxGrappleDistance: 100
   grappleDelayer: 0.25
   lineRenderer: {fileID: 4827254843944523904}
-  overshootYAxis: 2
-  overshootXAxis: 2
+  overshootYAxis: 4
+  overshootXAxis: 100
   grapplingCooldown: 1
   manager: {fileID: 0}
   audioSource: {fileID: 1078153149455024988}
@@ -1307,12 +1307,12 @@ PrefabInstance:
     - target: {fileID: 4611021048086293916, guid: 7524e30a0c1d49c46bef78b372b6793c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.566
+      value: 0.022
       objectReference: {fileID: 0}
     - target: {fileID: 4611021048086293916, guid: 7524e30a0c1d49c46bef78b372b6793c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.014999986
+      value: 1.112
       objectReference: {fileID: 0}
     - target: {fileID: 4611021048086293916, guid: 7524e30a0c1d49c46bef78b372b6793c,
         type: 3}

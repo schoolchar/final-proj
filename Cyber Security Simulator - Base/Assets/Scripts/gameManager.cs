@@ -118,11 +118,11 @@ public class gameManager : MonoBehaviour
         //gets scene name
         Scene currentScene = SceneManager.GetActiveScene();
 
-        if (currentScene.name == "Hub")
-        {
+        //if (currentScene.name == "Hub")
+        //{
             invincibilityOn();
             speedRunOn();
-        }
+        //}
 
 
         
@@ -205,6 +205,7 @@ public class gameManager : MonoBehaviour
         Color green = Color.green;
         Color red = Color.red;
 
+        Debug.Log("Init text");
         //Combat skill unlocked?
         if (combatUnlocked)
         {
@@ -332,7 +333,11 @@ public class gameManager : MonoBehaviour
     /// </summary>
     public void ChangeInvincibility()
     {
+        
         invincibility = !invincibility;
+        Debug.Log("Invincibility = " + invincibility);
+
+
     } //END ChangeInvincibility()
 
     #endregion
@@ -395,7 +400,7 @@ public class gameManager : MonoBehaviour
     public void invincibilityOn()
     {
         Scene currentScene = SceneManager.GetActiveScene();
-
+        Debug.Log("Invincibility on");
         if (invincibility == true)
         {
             combatUnlocked = true;
@@ -410,6 +415,45 @@ public class gameManager : MonoBehaviour
         {
             inOff.SetActive(true);
             inOn.SetActive(false);
+        }
+
+        Color green = Color.green;
+        Color red = Color.red;
+
+        //Combat skill unlocked?
+        if (combatUnlocked)
+        {
+            gunText.text = "Online";
+            gunText.color = green;
+        }
+        else
+        {
+            gunText.text = "Offline";
+            gunText.color = red;
+        }
+
+        //Grapple skill unlocked?
+        if (parkourUnlocked)
+        {
+            grappleText.text = "Online";
+            grappleText.color = green;
+        }
+        else
+        {
+            grappleText.text = "Offline";
+            grappleText.color = red;
+        }
+
+        //Wallrun skill unlocked?
+        if (escapeRoomUnlocked)
+        {
+            wallrunText.text = "Online";
+            wallrunText.color = green;
+        }
+        else
+        {
+            wallrunText.text = "Offline";
+            wallrunText.color = red;
         }
     }
 

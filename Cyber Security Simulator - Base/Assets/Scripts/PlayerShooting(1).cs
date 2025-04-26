@@ -56,6 +56,8 @@ public class PlayerShooting : MonoBehaviour
         }
 
         //animation
+        animator = manager.playerM.animator;
+        playerObj = animator.gameObject.transform;
         animator.SetTrigger("Shoot");
 
         GameObject projectile = Instantiate(projectilePrefab, firePoint.position, animator.gameObject.transform.rotation);
@@ -87,6 +89,8 @@ public class PlayerShooting : MonoBehaviour
         }
 
         // Play animation
+        animator = manager.playerM.animator;
+        playerObj = animator.gameObject.transform;
         animator.SetTrigger("Shoot");
 
         // Fixed the aim

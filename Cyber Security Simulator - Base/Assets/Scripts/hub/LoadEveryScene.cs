@@ -33,6 +33,7 @@ public class LoadEveryScene : MonoBehaviour
     {
         AssignVariables();
        manager.InitOnLoad();
+        slide.manager = manager;
     }
 
     
@@ -69,7 +70,7 @@ public class LoadEveryScene : MonoBehaviour
         shooting.manager = manager;
         wallRunning.manager = manager;
         pGrapple.manager = manager;
-        slide.manager = manager;
+        
 
         manager.enemiesKilledText = enemiesKilledText;
         manager.healthText = healthText;
@@ -81,6 +82,7 @@ public class LoadEveryScene : MonoBehaviour
         manager.grappleText = grappleText;
         manager.wallrunText = wallruntext;
 
+       
 
         if (SceneManager.GetActiveScene().name == "Start")
         {
