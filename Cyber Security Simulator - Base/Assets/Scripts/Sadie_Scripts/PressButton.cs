@@ -30,6 +30,7 @@ public class PressButton : MonoBehaviour
     {
         Debug.Log("Press stupid button");
         gameManagerScript.escapeRoomWon = true;
+        gameManagerScript.escapeRoomUnlocked = true;
         //gameManagerScript.totalHealth = 0;
         StartCoroutine(WaitToLoadHub());
        
