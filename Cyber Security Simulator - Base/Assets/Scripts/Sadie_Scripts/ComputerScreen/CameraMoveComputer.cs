@@ -228,7 +228,8 @@ public class CameraMoveComputer : MonoBehaviour
                 cam.LookAt = _lookAtExitLookAt;
                 cam.Follow = _lookAtExitFollow;
                 exitCutscene = false;
-
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
                
                 //_exitCut = false;
             }

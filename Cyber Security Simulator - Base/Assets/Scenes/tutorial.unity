@@ -267,6 +267,10 @@ MonoBehaviour:
   gunText: {fileID: 882035312}
   grappleText: {fileID: 882035311}
   wallruntext: {fileID: 882035310}
+  speedrunOff: {fileID: 1502858284}
+  speedrunOn: {fileID: 1502858283}
+  invincOffl: {fileID: 1502858282}
+  invincOnl: {fileID: 1502858281}
 --- !u!4 &160085397
 Transform:
   m_ObjectHideFlags: 0
@@ -482,6 +486,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 273020085}
     m_Modifications:
+    - target: {fileID: 1592385694826456298, guid: d681088595cf74b40bde1a3b2e0f8e13,
+        type: 3}
+      propertyPath: m_text
+      value: Press Left Mouse to continue
+      objectReference: {fileID: 0}
     - target: {fileID: 2998246679476008085, guid: d681088595cf74b40bde1a3b2e0f8e13,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -657,6 +666,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: death UI
       objectReference: {fileID: 0}
+    - target: {fileID: 4990616341440010622, guid: 70fd4d72808b1e34c8af86dd311a2997,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 160085396}
+    - target: {fileID: 4990616341440010622, guid: 70fd4d72808b1e34c8af86dd311a2997,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CheatHolderSpeedrun
+      objectReference: {fileID: 0}
     - target: {fileID: 5221424830554528400, guid: 70fd4d72808b1e34c8af86dd311a2997,
         type: 3}
       propertyPath: m_Pivot.x
@@ -761,6 +780,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: X (1htp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5375302553637505914, guid: 70fd4d72808b1e34c8af86dd311a2997,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 160085396}
+    - target: {fileID: 5375302553637505914, guid: 70fd4d72808b1e34c8af86dd311a2997,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CheatHolderInvincibility
       objectReference: {fileID: 0}
     - target: {fileID: 7275611820634572385, guid: 70fd4d72808b1e34c8af86dd311a2997,
         type: 3}
@@ -2868,6 +2897,30 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1.7251835, z: 1}
   m_Center: {x: 0, y: 0.36259252, z: 0}
+--- !u!1 &1502858281 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 808857612525463956, guid: 70fd4d72808b1e34c8af86dd311a2997,
+    type: 3}
+  m_PrefabInstance: {fileID: 273020084}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1502858282 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4536980184950496455, guid: 70fd4d72808b1e34c8af86dd311a2997,
+    type: 3}
+  m_PrefabInstance: {fileID: 273020084}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1502858283 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2552367174958107607, guid: 70fd4d72808b1e34c8af86dd311a2997,
+    type: 3}
+  m_PrefabInstance: {fileID: 273020084}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1502858284 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8770855931256250143, guid: 70fd4d72808b1e34c8af86dd311a2997,
+    type: 3}
+  m_PrefabInstance: {fileID: 273020084}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1504243827
 GameObject:
   m_ObjectHideFlags: 0
@@ -3720,7 +3773,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 8788185bfdda4f24ab59fd0be6da0a3c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

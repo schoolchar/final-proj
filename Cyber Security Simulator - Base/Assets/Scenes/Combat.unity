@@ -6054,6 +6054,10 @@ MonoBehaviour:
   gunText: {fileID: 1988648544}
   grappleText: {fileID: 704616725}
   wallruntext: {fileID: 309230722}
+  speedrunOff: {fileID: 724479245}
+  speedrunOn: {fileID: 724479244}
+  invincOffl: {fileID: 724479243}
+  invincOnl: {fileID: 724479242}
 --- !u!1 &660232526
 GameObject:
   m_ObjectHideFlags: 0
@@ -6582,6 +6586,30 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 717634127}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &724479242 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 808857612525463956, guid: 70fd4d72808b1e34c8af86dd311a2997,
+    type: 3}
+  m_PrefabInstance: {fileID: 1326457417}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &724479243 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4536980184950496455, guid: 70fd4d72808b1e34c8af86dd311a2997,
+    type: 3}
+  m_PrefabInstance: {fileID: 1326457417}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &724479244 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2552367174958107607, guid: 70fd4d72808b1e34c8af86dd311a2997,
+    type: 3}
+  m_PrefabInstance: {fileID: 1326457417}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &724479245 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8770855931256250143, guid: 70fd4d72808b1e34c8af86dd311a2997,
+    type: 3}
+  m_PrefabInstance: {fileID: 1326457417}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &740714096
 PrefabInstance:
   m_ObjectHideFlags: 0

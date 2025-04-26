@@ -125,17 +125,13 @@ public class gameManager : MonoBehaviour
         }
 
 
-        if (enemiesKilled == 5)
-        {
-            combatWon = true;
-            SceneManager.LoadSceneAsync("Start");
-            enemiesKilled = 0;
-        }
+        
         if (totalHealth == 0)
         {
             IncrementDeaths();
             if (currentScene.name == "Combat")
             {
+                enemiesKilled = 0;
                 combatUnlocked = true;
             }
             if (currentScene.name == "EscapeRoomTest")
@@ -148,6 +144,13 @@ public class gameManager : MonoBehaviour
             }
             SceneManager.LoadScene(currentScene.name);
             totalHealth = 3;
+        }
+
+        if (enemiesKilled == 5)
+        {
+            combatWon = true;
+            SceneManager.LoadSceneAsync("Start");
+            enemiesKilled = 0;
         }
 
         if (currentScene.name != "Hub")

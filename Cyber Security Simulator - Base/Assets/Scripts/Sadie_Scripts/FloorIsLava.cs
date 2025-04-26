@@ -13,11 +13,20 @@ public class FloorIsLava : MonoBehaviour
     [SerializeField] AudioSource lavaSound;
     [SerializeField] private ParticleSystem[] lavaParticles;
 
+    [SerializeField] private Animator playerAnimator;
+
     gameManager manager;
 
     private void Start()
     {
         manager = FindAnyObjectByType<gameManager>();
+
+        if(manager.roboState == gameManager.RoboState.HUMANROBO || manager.roboState == gameManager.RoboState.ROBOT)
+        {
+            manager.playerM.ChangePlayerModel();
+        }
+
+        
     }
 
     private void OnCollisionEnter(Collision collision) //Change to enter later, stay rn to debug
@@ -29,17 +38,8 @@ public class FloorIsLava : MonoBehaviour
     {
         if (lava && _collision.gameObject.layer == 7)
         {
-            // Increment the deaths count
-            //displayDeaths.IncrementDeaths();
-            // Teleport the player to begining of level
-            //manager.healthLose();
-            manager.escapeRoomUnlocked = true;
-            if(manager.totalHealth > 0) 
-                player.transform.position = respawnPt.position;
-            else if(manager.totalHealth == 0)
-            {
-                StartCoroutine(WaitToLoadHub());
-            }
+            playerAnimator.SetTrigger("Zap");
+            StartCoroutine(WaitToKill());
         }
     }
 
@@ -73,5 +73,29 @@ public class FloorIsLava : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
         SceneManager.LoadScene("Start");
+    }
+
+    IEnumerator WaitToKill()
+    {
+        yield return new WaitForSeconds(2);
+        // Increment the deaths count
+        //displayDeaths.IncrementDeaths();
+        // Teleport the player to begining of level
+        //manager.healthLose();
+        manager.escapeRoomUnlocked = true;
+        manager.wallrunText.text = "Online";
+        manager.wallrunText.color = Color.green;
+        if (manager.totalHealth > 0)
+            player.transform.position = respawnPt.position;
+        else if (manager.totalHealth == 0)
+        {
+            StartCoroutine(WaitToLoadHub());
+        }
+
+        if (manager.roboState == gameManager.RoboState.HUMANROBO || manager.roboState == gameManager.RoboState.ROBOT)
+        {
+            manager.playerM.ChangePlayerModel();
+            playerAnimator = manager.playerM.animator;
+        }
     }
 }
