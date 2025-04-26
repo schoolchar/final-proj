@@ -27,6 +27,8 @@ public class cam : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        playerPhy = player.GetComponent<PlayerMovement>().animator.gameObject.transform;
     }
 
     // Update is called once per frame

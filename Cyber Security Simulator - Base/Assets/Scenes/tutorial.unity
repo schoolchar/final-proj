@@ -1735,7 +1735,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &565154881 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 4369945991091196762, guid: 5b316720c6c1c504982de9f814de4a5e,
+  m_CorrespondingSourceObject: {fileID: 6096531816947022314, guid: 5b316720c6c1c504982de9f814de4a5e,
     type: 3}
   m_PrefabInstance: {fileID: 565154879}
   m_PrefabAsset: {fileID: 0}

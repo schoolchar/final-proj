@@ -3831,24 +3831,6 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!4 &1015347647 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4369945991091196762, guid: 5b316720c6c1c504982de9f814de4a5e,
-    type: 3}
-  m_PrefabInstance: {fileID: 1880009054054484552}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1015347650 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4659896201363433025, guid: 5b316720c6c1c504982de9f814de4a5e,
-    type: 3}
-  m_PrefabInstance: {fileID: 1880009054054484552}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b291ed2472fb2ee4aa4be30bef90bcb9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1021467269
 GameObject:
   m_ObjectHideFlags: 0
@@ -5680,7 +5662,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orientation: {fileID: 6187019816029400737}
   player: {fileID: 4604103734380717589}
-  playerPhy: {fileID: 1015347647}
+  playerPhy: {fileID: 1880009054054484554}
   rb: {fileID: 7723953878712403363}
   normalFOV: 60
   aimFOV: 40
@@ -7300,7 +7282,7 @@ MonoBehaviour:
   shooting: {fileID: 7723953878712403368}
   wallRunning: {fileID: 7723953878712403366}
   pGrapple: {fileID: 7723953878712403367}
-  slide: {fileID: 1015347650}
+  slide: {fileID: 1880009054054484557}
   enemiesKilledText: {fileID: 748554782}
   healthText: {fileID: 748554781}
   timerText: {fileID: 744452260}
@@ -7946,7 +7928,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5458178528358188499, guid: 5b316720c6c1c504982de9f814de4a5e,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1880009054054484557}
   m_SourcePrefab: {fileID: 100100000, guid: 5b316720c6c1c504982de9f814de4a5e, type: 3}
 --- !u!4 &1880009054054484553 stripped
 Transform:
@@ -7954,6 +7940,42 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1880009054054484552}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1880009054054484554 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6096531816947022314, guid: 5b316720c6c1c504982de9f814de4a5e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1880009054054484552}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1880009054054484555 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2982816240621615661, guid: 5b316720c6c1c504982de9f814de4a5e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1880009054054484552}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1880009054054484556 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5458178528358188499, guid: 5b316720c6c1c504982de9f814de4a5e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1880009054054484552}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1880009054054484557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1880009054054484556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b291ed2472fb2ee4aa4be30bef90bcb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slideForce: 3
+  slideDirection: {fileID: 1880009054054484555}
+  playerPhys: {fileID: 1880009054054484556}
+  debugMode: 0
+  rb: {fileID: 7723953878712403363}
+  manager: {fileID: 0}
 --- !u!4 &4604103734380717589 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3397575278460305104, guid: 5b316720c6c1c504982de9f814de4a5e,

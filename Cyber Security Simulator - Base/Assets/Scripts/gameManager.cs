@@ -255,6 +255,7 @@ public class gameManager : MonoBehaviour
     {
         if (canLoseHealth)
         {
+            //playerM.animator.SetTrigger("Dead");
             StartCoroutine(HealthLossCooldown());
         }
     }
@@ -428,4 +429,12 @@ public class gameManager : MonoBehaviour
         }
     }
     #endregion
+
+
+    IEnumerator ReloadScene()
+    {
+        playerM.animator.SetTrigger("Dead");
+        yield return new WaitForSeconds(4);
+
+    }
 }

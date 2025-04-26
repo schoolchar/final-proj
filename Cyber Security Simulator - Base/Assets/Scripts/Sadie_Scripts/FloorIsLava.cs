@@ -24,6 +24,7 @@ public class FloorIsLava : MonoBehaviour
         if(manager.roboState == gameManager.RoboState.HUMANROBO || manager.roboState == gameManager.RoboState.ROBOT)
         {
             manager.playerM.ChangePlayerModel();
+            playerAnimator = manager.playerM.animator;
         }
 
         
@@ -77,7 +78,7 @@ public class FloorIsLava : MonoBehaviour
 
     IEnumerator WaitToKill()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(8);
         // Increment the deaths count
         //displayDeaths.IncrementDeaths();
         // Teleport the player to begining of level

@@ -3952,12 +3952,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 219219418}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &224042752 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 3581941712554268095, guid: 5b316720c6c1c504982de9f814de4a5e,
-    type: 3}
-  m_PrefabInstance: {fileID: 466172077}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &224665510 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2307145352596565409, guid: 6dcb8d82ef8f908418d2638aa4bf508b,
@@ -7792,18 +7786,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 466172077}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &466172081 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4659896201363433025, guid: 5b316720c6c1c504982de9f814de4a5e,
+--- !u!95 &466172081 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1706409047173876946, guid: 5b316720c6c1c504982de9f814de4a5e,
     type: 3}
   m_PrefabInstance: {fileID: 466172077}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b291ed2472fb2ee4aa4be30bef90bcb9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &466172082 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2473183462028698650, guid: 5b316720c6c1c504982de9f814de4a5e,
@@ -8833,12 +8821,6 @@ Transform:
   - {fileID: 148156386}
   m_Father: {fileID: 1487423719}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &550680488 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4369945991091196762, guid: 5b316720c6c1c504982de9f814de4a5e,
-    type: 3}
-  m_PrefabInstance: {fileID: 466172077}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &552271751
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12158,7 +12140,7 @@ PrefabInstance:
         type: 3}
       propertyPath: playerAnimator
       value: 
-      objectReference: {fileID: 224042752}
+      objectReference: {fileID: 466172081}
     - target: {fileID: 310700275072816567, guid: dca703c5817c1754982a6e6a66029ecf,
         type: 3}
       propertyPath: lavaParticles.Array.size
@@ -13853,7 +13835,7 @@ PrefabInstance:
         type: 3}
       propertyPath: playerAnimator
       value: 
-      objectReference: {fileID: 224042752}
+      objectReference: {fileID: 466172081}
     - target: {fileID: 5086534775131227342, guid: dca703c5817c1754982a6e6a66029ecf,
         type: 3}
       propertyPath: lavaParticles.Array.size
@@ -14598,7 +14580,7 @@ PrefabInstance:
         type: 3}
       propertyPath: playerAnimator
       value: 
-      objectReference: {fileID: 224042752}
+      objectReference: {fileID: 466172081}
     - target: {fileID: 6357707925933781347, guid: dca703c5817c1754982a6e6a66029ecf,
         type: 3}
       propertyPath: m_Layer
@@ -15488,7 +15470,7 @@ PrefabInstance:
         type: 3}
       propertyPath: playerAnimator
       value: 
-      objectReference: {fileID: 224042752}
+      objectReference: {fileID: 466172081}
     - target: {fileID: 8772494582678907541, guid: dca703c5817c1754982a6e6a66029ecf,
         type: 3}
       propertyPath: lavaParticles.Array.size
@@ -19499,7 +19481,7 @@ PrefabInstance:
         type: 3}
       propertyPath: playerPhy
       value: 
-      objectReference: {fileID: 550680488}
+      objectReference: {fileID: 0}
     - target: {fileID: 4535169475155551165, guid: d3238fe502700fb4d8f1ae22c337bbea,
         type: 3}
       propertyPath: orientation
@@ -23561,7 +23543,7 @@ MonoBehaviour:
   shooting: {fileID: 466172084}
   wallRunning: {fileID: 466172083}
   pGrapple: {fileID: 466172082}
-  slide: {fileID: 466172081}
+  slide: {fileID: 0}
   enemiesKilledText: {fileID: 77576070}
   healthText: {fileID: 77576069}
   timerText: {fileID: 1747040296}

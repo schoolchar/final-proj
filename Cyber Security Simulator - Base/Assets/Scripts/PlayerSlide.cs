@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerSlide : MonoBehaviour
 {
-    private bool canSlide;
+    public bool canSlide;
     private bool currentlySliding;
     [SerializeField] private float slideForce;
     private float timeSlide = 2f;
@@ -13,7 +13,7 @@ public class PlayerSlide : MonoBehaviour
     public bool debugMode;
     public Rigidbody rb;
 
-
+    Animator animator;
     //gets game manager for unlocks
     public gameManager manager;
 
@@ -37,6 +37,10 @@ public class PlayerSlide : MonoBehaviour
     void Update()
     {
         Slide();
+        if (manager.escapeRoomUnlocked == true)
+        {
+            AllowSliding();
+        }
 
     }
     private void Slide()
@@ -45,6 +49,8 @@ public class PlayerSlide : MonoBehaviour
         if ((Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.JoystickButton5)) && canSlide) //&& displayDeaths.GetDeathCount() >= 3
         {
             currentlySliding = true;
+            animator = manager.playerM.animator;
+            animator.SetTrigger("Slide");
             StartCoroutine(EndSlide());
 
         }
