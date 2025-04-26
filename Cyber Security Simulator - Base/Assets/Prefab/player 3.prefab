@@ -627,6 +627,7 @@ MonoBehaviour:
   - {fileID: 2657329597054357976}
   - {fileID: 4136586274641369633}
   - {fileID: 3711346538525516124}
+  - {fileID: 2471168017883411652}
   humanRoboParts: {fileID: 747926402682735265}
   robotParts: {fileID: 8058484056693024861}
   humanAnimator: {fileID: 1706409047173876946}
@@ -1105,6 +1106,12 @@ GameObject:
 --- !u!95 &1706409047173876946 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 6542579182612020119, guid: ebddb0ca86ca01a4aa0319f7258601d8,
+    type: 3}
+  m_PrefabInstance: {fileID: 5577014239089637189}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2471168017883411652 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8011572641720992641, guid: ebddb0ca86ca01a4aa0319f7258601d8,
     type: 3}
   m_PrefabInstance: {fileID: 5577014239089637189}
   m_PrefabAsset: {fileID: 0}
