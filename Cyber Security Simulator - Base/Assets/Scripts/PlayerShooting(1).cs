@@ -11,6 +11,8 @@ public class PlayerShooting : MonoBehaviour
     public AudioSource shootSound; // Shooting sound effect
     public float projectileLifetime = 5f; // Time before the projectile gets destroyed
 
+    public Transform playerObj;
+
     //public DisplayDeaths displayDeaths; //added for death manager
 
     public Animator animator;//added for animator
@@ -56,7 +58,7 @@ public class PlayerShooting : MonoBehaviour
         //animation
         animator.SetTrigger("Shoot");
 
-        GameObject projectile = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
+        GameObject projectile = Instantiate(projectilePrefab, firePoint.position, animator.gameObject.transform.rotation);
         Rigidbody rb = projectile.GetComponent<Rigidbody>();
         if (rb != null)
         {
@@ -64,7 +66,7 @@ public class PlayerShooting : MonoBehaviour
             CharacterController playerController = GetComponent<CharacterController>();
             Vector3 playerVelocity = playerController != null ? playerController.velocity : Vector3.zero;
 
-            rb.velocity = firePoint.forward * projectileSpeed + playerVelocity;
+            rb.velocity = animator.gameObject.transform.forward * projectileSpeed + playerVelocity;
         }
 
         Projectile projectileScript = projectile.AddComponent<Projectile>();
